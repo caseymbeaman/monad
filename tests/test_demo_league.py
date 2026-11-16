@@ -1,5 +1,5 @@
 """demo/league.py: the dashboard's fund becomes a valid League entry (3-8 pool stocks, whole % adding to 100,
-each >= 5%), with a pre-filled link and a locally drawn QR code."""
+each >= 5%), with a pre-filled link."""
 from urllib.parse import parse_qs, urlparse
 
 from demo import league
@@ -49,11 +49,6 @@ def test_prefilled_link_and_name():
     assert q["etf"] == ["NVDA:20,AVGO:20,MSFT:20,MU:20,VRT:20"] and q["name"] == ["AI ex-Oil"]
     long = league.fund_name({k: "want" for k in "abcdef"}, {k: "Aerospace & defense" for k in "abcdef"})
     assert len(long.encode()) <= 32
-
-
-def test_qr_is_local_svg():
-    svg = league.qr_svg(league.LEAGUE_URL)
-    assert svg.startswith("<svg") and "http" not in svg.split(">", 1)[0].replace("http://www.w3.org", "")
 
 
 def test_pool_is_the_league_pool_file():

@@ -70,6 +70,14 @@ p, li, label, .stMarkdown {{ color: {TEXT}; }}
 [data-testid="stBaseButton-primary"]:hover, .stButton button[kind="primary"]:hover {{ background: {ROSE_HOVER}; color: #fff; }}
 [data-testid="stBaseButton-primary"] p, .stButton button[kind="primary"] p {{ color: #fff; font-weight: 600; }}
 [data-testid="stBaseButton-secondary"] {{ background: {RAISED}; border: 1px solid {LINE}; color: {TEXT}; }}
+/* Link buttons (st.link_button) look like the regular buttons above. */
+.stApp [data-testid="stBaseLinkButton-primary"] {{ background: linear-gradient(180deg, #D65A84, {ROSE}); border: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 10px 26px -10px rgba(194, 69, 111, .85); }}
+.stApp [data-testid="stBaseLinkButton-primary"]:hover {{ background: linear-gradient(180deg, #DE6990, #C74B76); }}
+.stApp [data-testid="stBaseLinkButton-primary"] p {{ color: #fff; font-weight: 600; }}
+.stApp [data-testid="stBaseLinkButton-secondary"] {{ background: {RAISED}; border: 1px solid {LINE}; }}
+.stApp [data-testid="stBaseLinkButton-secondary"]:hover {{ border-color: {ROSE}; }}
+.stApp [data-testid="stBaseLinkButton-secondary"] p {{ color: {TEXT}; font-weight: 600; }}
 [data-testid="stExpander"] {{ background: {CARD}; border: 1px solid {LINE}; border-radius: 14px; }}
 .stApp [data-testid="stButtonGroup"] button {{ background: {RAISED}; border-color: {LINE}; color: {MUTED}; }}
 .stApp [data-testid="stButtonGroup"] button p {{ color: {MUTED}; font-weight: 600; }}
@@ -212,16 +220,6 @@ div[data-baseweb="select"] > div, input, textarea {{ background: {RAISED} !impor
 .tf-intro .modes span {{ font-size: 13px; background: {CARD}; border: 1px solid {LINE}; border-radius: 999px;
   padding: 6px 12px; color: {TEXT}; }}
 .tf-intro .modes b {{ color: {BLUSH}; font-weight: 600; }}
-.st-key-tf_qr {{ background: {CARD}; border: 1px solid {LINE}; border-radius: 16px; padding: 24px; gap: 12px; }}
-.st-key-tf_qr [data-testid="stImage"] img {{ border-radius: 12px; }}
-.st-key-tf_qr [data-testid="stCode"] pre {{ font-size: 12px; background: {RAISED}; }}
-.tf-qrtext h3 {{ font-family: {DISPLAY}; font-size: 26px; font-weight: 800; text-transform: uppercase; margin: 0 0 8px; }}
-.tf-qrtext p {{ color: {MUTED}; font-size: 14px; line-height: 1.5; margin: 0; }}
-.tf-qr {{ background: {CARD}; border: 1px solid {LINE}; border-radius: 16px; padding: 24px; text-align: center; }}
-.tf-qr .code {{ display: inline-block; border-radius: 12px; overflow: hidden; line-height: 0; }}
-.tf-qr .code svg {{ width: 232px; height: 232px; }}
-.tf-qr h3 {{ font-size: 26px; margin: 16px 0 8px; }}
-.tf-qr p {{ color: {MUTED}; font-size: 14px; line-height: 1.5; margin: 0 auto; max-width: 320px; }}
 /* ============ DRAFT: richer look (backdrop grid, framed hero, radar, ticker tape, lit cards) ============ */
 .stApp {{ background:
     radial-gradient(900px 520px at 88% -6%, rgba(194, 69, 111, .24), transparent 64%),
@@ -306,7 +304,7 @@ div[data-baseweb="select"] > div, input, textarea {{ background: {RAISED} !impor
   transform: rotate(45deg); box-shadow: 0 0 16px 2px rgba(194, 69, 111, .9); }}
 
 /* Panels catch a little light from above and sit on a soft shadow. */
-.tf-fp, .tf-tile, .tf-check, .tf-rule, .tf-entry, .tf-empty, .st-key-tf_qr, [data-testid="stExpander"] {{
+.tf-fp, .tf-tile, .tf-check, .tf-rule, .tf-entry, .tf-empty, [data-testid="stExpander"] {{
   background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, 0) 46%), {CARD};
   border-color: rgba(245, 238, 241, .09);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 28px 48px -36px rgba(0, 0, 0, .95); }}
@@ -615,12 +613,6 @@ def league_entry(name: str, rows: list[dict], note: str = "") -> str:
             f'<div class="tf-entry-name">{escape(name)}</div>{holdings(rows, decimals=0)}{extra}</div>')
 
 
-def qr_card(svg: str, title: str, sentence: str) -> str:
-    """svg comes from segno (generated locally), so it is inserted as is."""
-    return (f'<div class="tf-qr"><div class="code">{svg}</div><h3>{escape(title)}</h3>'
-            f'<p>{escape(sentence)}</p></div>')
-
-
 def league_intro() -> str:
     """The League tab's heading: weekly matchups on live prices, plus today's simulated trading day."""
     return ('<div class="tf-intro"><h2>Fantasy Fund League</h2>'
@@ -630,7 +622,3 @@ def league_intro() -> str:
             "4:00 PM in 60 seconds. Testnet MON only.</p>"
             '<div class="modes"><span><b>Weekly</b> · live prices · locks Mon 6:30 AM PT</span>'
             '<span><b>Today</b> · simulated trading day · 60-second race</span></div></div>')
-
-
-def qr_text(title: str, sentence: str) -> str:
-    return f'<div class="tf-qrtext"><h3>{escape(title)}</h3><p>{escape(sentence)}</p></div>'

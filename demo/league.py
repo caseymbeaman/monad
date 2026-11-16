@@ -1,4 +1,4 @@
-"""Turn the dashboard's fund into a Fantasy Fund League entry: the pre-filled League link and its QR code.
+"""Turn the dashboard's fund into a Fantasy Fund League entry: the pre-filled League link.
 
 Nothing here touches the chain. The League page (league/index.html) reads ?etf=TICKER:PCT,...&name=... and fills in
 the player's ETF; the player still reviews it and confirms the entry in their own wallet.
@@ -13,8 +13,6 @@ import json
 from functools import cache
 from pathlib import Path
 from urllib.parse import quote
-
-import segno
 
 LEAGUE_URL = "https://shannon-maccallum.github.io/portfolio_risk_exposure/league/"  # defaults to Monad testnet
 POOL_FILE = Path(__file__).resolve().parent.parent / "league" / "pool.json"
@@ -101,16 +99,3 @@ def prefill_url(etf: dict[str, int], name: str) -> str:
     spec = ",".join(f"{t}:{w}" for t, w in etf.items())  # in the fund's order
     return f"{LEAGUE_URL}?etf={quote(spec, safe=':,')}&name={quote(name)}"
 
-
-def qr_png(url: str, scale: int = 8) -> bytes:
-    """The QR code as a PNG (shown with st.image), drawn locally. Dark on light so phone cameras read it."""
-    import io
-
-    buf = io.BytesIO()
-    segno.make(url, error="m").save(buf, kind="png", scale=scale, border=3, dark="#0B0A0B", light="#F5EEF1")
-    return buf.getvalue()
-
-
-def qr_svg(url: str) -> str:
-    """A QR code for the link, drawn locally (no outside service). Dark on light so phone cameras read it."""
-    return segno.make(url, error="m").svg_inline(scale=5, border=3, dark="#0B0A0B", light="#F5EEF1")

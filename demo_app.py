@@ -541,21 +541,18 @@ def league_tab() -> None:
     name = league.fund_name(prefs, {k: t["name"] for k, t in themes().items()})
     etf, notes = league.league_fund(interleaved(weights, portfolio))
     url = league.prefill_url(etf, name) if etf else league.LEAGUE_URL
-    left, right = st.columns(2, gap="large")
+    left, right = st.columns([3, 2], gap="large")
     with left:
         if etf:
             st.html(style.league_entry(name, league_rows(etf, portfolio), " ".join(notes)))
-            st.link_button("Enter my fund", url, type="primary", width="stretch")
         else:
             for n in notes:
                 st.warning(n)
+    with right:
+        if etf:
+            st.link_button("Enter my fund", url, type="primary", width="stretch")
+            st.caption("Opens the League with your fund already filled in. You confirm the entry in MetaMask.")
         st.link_button("Open the League", league.LEAGUE_URL, width="stretch")
-    with right, st.container(key="tf_qr"):
-        st.image(league.qr_png(url), width=220)
-        st.html(style.qr_text("Scan to enter from your phone" if etf else "Scan to open the League",
-                              "Scan with the MetaMask app (or open the link in MetaMask's browser) so your wallet can "
-                              "connect. Your fund is already filled in."))
-        st.code(url, language=None, wrap_lines=True)
     st.html('<div style="height:24px"></div>')
     st.iframe(league.LEAGUE_URL, height=900)
 
