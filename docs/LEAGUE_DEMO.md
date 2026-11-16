@@ -221,6 +221,23 @@ python -m chain.league demo-day --network monad-testnet --entry-seconds 300 --st
 - It opens the round, pushes the deployment file and replay file for the page, then waits for the deadline and
   runs the race. Cost: the same as a replay round, about 1 MON for the operator with ~20 distinct stocks.
 
+### Picking the trading day yourself (`--day`)
+
+By default a future block picks the simulated day after entries close, so nobody can know it in advance. To race a
+specific real trading day instead, add `--day YYYY-MM-DD` to `demo-day` or `always-on`:
+
+```bash
+python -m chain.league demo-day  --network monad-testnet --entry-seconds 300 --stake 1 --day 2026-04-09
+python -m chain.league always-on --network monad-testnet --entry-seconds 150 --stake 1 --data simulated --day 2026-04-09
+```
+
+- The price file then holds only that day (built from its real moves, same simulation otherwise), so the contract has
+  one day to pick. No contract change and no redeploy: the next round opened this way uses it.
+- A weekend, holiday or date outside the price history is refused, and the message names the nearest trading days.
+- **The day is public.** The price file is published when the round opens, so anyone can read that day's prices
+  before entries close. The page switches its wording to "picked by the organiser" and drops "nobody can know it in
+  advance". Use it for a themed demo ("race the day of the tariff sell-off"), not when the surprise matters.
+
 ### Always-on League (one round always open)
 
 ```bash

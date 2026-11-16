@@ -209,7 +209,7 @@
   <header class="top">
     <div>
       <h1>Fantasy Fund League</h1>
-      <p class="sub">Build your own fund, stake testnet MON and race everyone else over a random month of real past
+      <p class="sub" id="intro">Build your own fund, stake testnet MON and race everyone else over a random month of real past
         prices. A future block picks the month after entries close, so nobody can know it in advance. Best return
         takes the pot.</p>
     </div>
@@ -595,6 +595,10 @@ async function load() {
   pool = await get("pool.json");
   presets = (await get("presets.json")).presets;
   try { replay = await get("replay_prices.json"); } catch { replay = null; }
+  // When the organiser picked the trading day, say so plainly: the day is public, not a surprise.
+  if (chosenDay()) $("intro").textContent = `Build your own fund, stake testnet MON and race everyone else over one ` +
+    `trading day: ${prettyDay(chosenDay())}, picked by the organiser. The day is public, so this round is about ` +
+    `the fund you build, not about guessing the day. Best return takes the pot.`;
   readProvider = new ethers.JsonRpcProvider(dep.rpc);
   league = new ethers.Contract(cfg.fundLeague, LEAGUE_ABI, readProvider);
   oracle = new ethers.Contract(cfg.oracle, ORACLE_ABI, readProvider);
@@ -673,6 +677,11 @@ async function raceDay() {
 // a historical file's windows overlap (stride 1).
 function windowStart() { return Number(round.windowIndex) * (replay.window_stride || 1); }
 const isDemoDay = () => !!replay && replay.mode === "demo-day";
+// The real trading day the organiser picked for this League (YYYY-MM-DD), or null when a future block picks it.
+const chosenDay = () => (replay && replay.chosen_day) || (cfg && cfg.replay && cfg.replay.chosenDay) || null;
+const dayLabel = () => chosenDay() ? `Trading day ${prettyDay(chosenDay())}, picked by the organiser`
+  : `Simulated trading day ${Number(round.windowIndex) + 1} of ${Number(round.windowCount)}`;
+const prettyDay = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 function clockTime(hhmm) {  // "13:10" -> "1:10 PM"
   const [h, m] = hhmm.split(":").map(Number);
   return `${((h + 11) % 12) + 1}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
@@ -705,7 +714,9 @@ async function render(phase) {
     ring.classList.remove("off");
     $("ringfg").style.strokeDashoffset = (276.46 * (1 - s / ringTotal)).toFixed(1);
   } else if (phase === "Open" || phase === "Locked") {
-    $("phase").innerHTML = `<strong>Entries closed.</strong> Waiting for the future block that picks the ${isDemoDay() ? "trading day" : "window"}…`;
+    $("phase").innerHTML = chosenDay()
+      ? `<strong>Entries closed.</strong> Starting the race on ${prettyDay(chosenDay())}, the day the organiser picked…`
+      : `<strong>Entries closed.</strong> Waiting for the future block that picks the ${isDemoDay() ? "trading day" : "window"}…`;
     $("clock").textContent = "Locked"; ring.classList.add("off");
   } else if (phase === "Started") {
     const d = await raceDay();
@@ -714,14 +725,14 @@ async function render(phase) {
     if (d) $("ringfg").style.strokeDashoffset = (276.46 * (1 - d.day / d.days)).toFixed(1);
     drawChart(d ? d.day : 0);
     $("raceday").textContent = !d ? "" : isDemoDay()
-      ? `Simulated trading day ${Number(round.windowIndex) + 1} of ${Number(round.windowCount)} · 9:30 AM → 4:00 PM · now ${stepTime(d.day)}`
+      ? `${dayLabel()} · 9:30 AM → 4:00 PM · now ${stepTime(d.day)}`
       : `Replaying ${d.first} → ${d.last} · now ${d.date}`;
   } else if (phase === "Settled") {
     $("phase").innerHTML = "<strong>Race finished.</strong>"; $("clock").textContent = "Finished"; ring.classList.add("off");
     if (replay) drawChart(replay.race_days);
     if (replay) {
       const w = windowStart();
-      $("raceday").textContent = isDemoDay() ? `Simulated trading day ${Number(round.windowIndex) + 1} of ${Number(round.windowCount)} · 9:30 AM → 4:00 PM`
+      $("raceday").textContent = isDemoDay() ? `${dayLabel()} · 9:30 AM → 4:00 PM`
         : `Replayed ${replay.dates[w]} → ${replay.dates[w + replay.race_days]}`;
     }
   } else if (phase === "Cancelled") {

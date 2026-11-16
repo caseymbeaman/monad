@@ -419,7 +419,8 @@ def open_round(chain: Chain, entry_seconds: int, stake_mon: float, prepared: tup
                "replay": {"file": "league/replay_prices.json", "dataHash": Web3.to_hex(data_hash), "windows": windows,
                           "raceDays": RACE_DAYS, "daySeconds": DAY_SECONDS, "firstDate": data["dates"][0],
                           "lastDate": data["dates"][-1], "mode": data.get("mode", "replay"),
-                          "windowStride": data.get("window_stride", 1)}})
+                          "windowStride": data.get("window_stride", 1),
+                          "chosenDay": data.get("chosen_day")}})  # set when the organiser picked the day
     lg.pop("weekly", None)
     lg.update(extra or {})
     write_league_section(chain.network, lg)
@@ -574,8 +575,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--simulate-prices", action="store_true", help="weekly (tests): random-walk prices, not live FMP")
     ap.add_argument("--data", default="simulated", help="always-on: price data (simulated)")
     ap.add_argument("--rounds", type=int, help="always-on (tests): stop after opening this many rounds")
+    ap.add_argument("--day", help="demo-day / always-on: race this real trading day (YYYY-MM-DD) instead of a random "
+                                  "one. The day is then public, not a secret")
     ap.add_argument("--ignore-market-hours", action="store_true", help="weekly (tests): post prices around the clock")
     args = ap.parse_args(argv)
+    if args.day and args.command not in ("demo-day", "always-on"):
+        ap.error("--day only works with demo-day and always-on")
     try:
         chain = Chain(args.network, rpc=args.rpc, keystore=args.keystore)
         if args.command in ("deploy", "demo"):
@@ -594,11 +599,11 @@ def main(argv: list[str] | None = None) -> int:
                    ignore_market_hours=args.ignore_market_hours, weeks=args.weeks)
         if args.command == "demo-day":
             from chain.league_live import demo_day, run_demo_day
-            demo_day(chain, args.entry_seconds, args.stake)
+            demo_day(chain, args.entry_seconds, args.stake, day=args.day)
             run_demo_day(chain)
         if args.command == "always-on":
             from chain.league_live import always_on
-            always_on(chain, args.entry_seconds, args.stake, data=args.data, max_rounds=args.rounds)
+            always_on(chain, args.entry_seconds, args.stake, data=args.data, max_rounds=args.rounds, day=args.day)
         if args.command == "status":
             print_results(results(chain, args.round or league_section(args.network).get("currentRound", 1)))
         if chain.costs:

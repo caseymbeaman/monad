@@ -33,7 +33,7 @@ import json
 import re
 import subprocess
 import time
-from datetime import UTC, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -375,16 +375,34 @@ def step_times(steps: int = SIM_STEPS) -> list[str]:
             for k in range(steps + 1)]
 
 
+def chosen_day_row(rets, day: str) -> int:
+    """Row of `rets` for the trading day the organiser picked (YYYY-MM-DD). Says what is available if it isn't one."""
+    try:
+        want = date.fromisoformat(day.strip())
+    except ValueError:
+        raise LeagueError(f"--day '{day}' isn't a date. Use YYYY-MM-DD, e.g. 2026-04-09.") from None
+    dates = [d.date() for d in rets.index]
+    if want in dates:
+        return dates.index(want)
+    if not dates[0] <= want <= dates[-1]:
+        raise LeagueError(f"{want} is outside the price history. Pick a trading day from {dates[0]} to {dates[-1]}.")
+    before = max(d for d in dates if d < want)
+    after = min(d for d in dates if d > want)
+    raise LeagueError(f"{want} wasn't a trading day in the price history (weekend or holiday). "
+                      f"Nearest trading days: {before} and {after}.")
+
+
 def simulate_days(prices, days: int = SIM_DAYS, steps: int = SIM_STEPS, seed: int = SIM_SEED,
-                  cap: float = SIM_CAP) -> tuple[list[str], list[list[float]], list[str]]:
+                  cap: float = SIM_CAP, day: str | None = None) -> tuple[list[str], list[list[float]], list[str]]:
     """Rows of simulated intraday prices: `days` blocks of steps + 1 rows, all stocks sharing each day's real date.
 
-    Returns (row labels, closes rows, the real dates sampled)."""
+    With `day` (YYYY-MM-DD) there is exactly ONE block, built from that real trading day's moves, so that is the
+    day every round races. Returns (row labels, closes rows, the real dates sampled)."""
     rng = np.random.default_rng(seed)
     rets = prices.pct_change().dropna()
     vol = rets.std().to_numpy()  # each stock's real daily volatility
     base = prices.iloc[-1].to_numpy()  # start every day from the latest real close
-    picks = rng.choice(len(rets), size=days, replace=True)
+    picks = [chosen_day_row(rets, day)] if day else rng.choice(len(rets), size=days, replace=True)
     times = step_times(steps)
     labels, rows, sampled = [], [], []
     for k, i in enumerate(picks):
@@ -399,29 +417,41 @@ def simulate_days(prices, days: int = SIM_DAYS, steps: int = SIM_STEPS, seed: in
     return labels, rows, sampled
 
 
-def write_demo_day_file(tickers: list[str]) -> tuple[bytes, int, dict]:
+def write_demo_day_file(tickers: list[str], day: str | None = None) -> tuple[bytes, int, dict]:
+    """Write the simulated-day price file. With `day` (YYYY-MM-DD) it holds only that real trading day, so the
+    contract has one day to "pick" and every round races it. NOTE: this file is public, so with a chosen day the
+    prices can be read before entries close; the page says the organiser picked the day instead of promising
+    nobody can know it."""
     from engine.data import get_prices
 
     prices, _ = get_prices(tickers)
-    labels, rows, sampled = simulate_days(prices)
-    data = {"about": "Fantasy Fund League demo day: 50 simulated trading days (9:30 AM-4:00 PM, 20 steps). Each "
+    labels, rows, sampled = simulate_days(prices, day=day)
+    what = (f"ONE simulated trading day chosen by the organiser, built from the real moves of {sampled[0]}"
+            if day else "50 simulated trading days")
+    data = {"about": f"Fantasy Fund League demo day: {what} (9:30 AM-4:00 PM, 20 steps). Each "
                      "day resamples one real historical date for all stocks together, split into intraday steps "
                      "pinned to that day's real close; daily moves capped at +/-15%; fixed seed. Window w is rows "
                      "w*window_stride .. w*window_stride + race_days.",
             "mode": "demo-day", "race_days": RACE_DAYS, "day_seconds": DAY_SECONDS, "base_price": BASE_PRICE,
             "window_stride": SIM_STEPS + 1, "step_times": step_times(), "sampled_dates": sampled,
             "dates": labels, "tickers": list(prices.columns), "closes": rows}
+    if day:
+        data["chosen_day"] = sampled[0]
     raw = json.dumps(data, separators=(",", ":")).encode()
     REPLAY_FILE.write_bytes(raw)
-    return Web3.keccak(raw), SIM_DAYS, data
+    return Web3.keccak(raw), len(sampled), data
 
 
-def demo_day(chain: Chain, entry_seconds: int, stake_mon: float, log=print) -> dict:
+def demo_day(chain: Chain, entry_seconds: int, stake_mon: float, log=print, day: str | None = None) -> dict:
     lg = league_section(chain.network)
-    data_hash, windows, data = write_demo_day_file(lg["pool"])
+    data_hash, windows, data = write_demo_day_file(lg["pool"], day)
     rid = open_round(chain, entry_seconds, stake_mon, prepared=(data_hash, windows, data))
-    log(f"Demo day: {windows} simulated trading days (9:30 AM → 4:00 PM); a future block picks one after entries "
-        f"close; one step every {DAY_SECONDS}s.")
+    if day:
+        log(f"Demo day: the organiser picked {data['chosen_day']} (9:30 AM → 4:00 PM); one step every {DAY_SECONDS}s. "
+            "The price file is public, so this day is not a secret.")
+    else:
+        log(f"Demo day: {windows} simulated trading days (9:30 AM → 4:00 PM); a future block picks one after entries "
+            f"close; one step every {DAY_SECONDS}s.")
     if chain.network != "anvil":
         git_push([ROOT / "deployments" / f"{chain.network}-league.json", REPLAY_FILE],
                  f"League: open demo-day round {rid}", log)
@@ -439,13 +469,14 @@ def run_demo_day(chain: Chain, log=print) -> dict:
 # ---------------------------------------------------------------------------------------------
 
 def always_on(chain: Chain, entry_seconds: int, stake_mon: float, data: str = "simulated", push: bool = True,
-              max_rounds: int | None = None, log=print) -> None:
+              max_rounds: int | None = None, log=print, day: str | None = None) -> None:
     """Keep one round open. At each deadline: open the NEXT round first, then race the closed one in the background
     (simulated trading day, 60 s). Fewer than 2 entries: lock() cancels it and entrants claim their stake back, so
     no round is ever left 'locked'. Ctrl+C: stop opening rounds, finish every round that has stakes, then exit.
 
     All rounds share one simulated-day file (fixed seed, hash recorded at every openRound); each round's day is
-    still picked by its own future block after its entries close."""
+    still picked by its own future block after its entries close. With `day` (YYYY-MM-DD) the file holds only that
+    trading day, so every round races the day the organiser picked."""
     import threading
 
     import chain.league as lg_mod
@@ -467,7 +498,10 @@ def always_on(chain: Chain, entry_seconds: int, stake_mon: float, data: str = "s
 
     lg_mod.write_live = lambda st: save(st)  # run_round's progress goes into the 'race' part of live.json
 
-    prepared = write_demo_day_file(league_section(chain.network)["pool"])
+    prepared = write_demo_day_file(league_section(chain.network)["pool"], day)
+    if day:
+        log(f"Every round races {prepared[2]['chosen_day']}, the day you picked. The price file is public, so this "
+            "day is not a secret.")
     racers: list[threading.Thread] = []
 
     def open_next() -> int:
