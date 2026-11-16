@@ -1,0 +1,643 @@
+{
+ "preferences": {
+  "healthcare": "want",
+  "defense": "want"
+ },
+ "region": "all",
+ "well_known_only": true,
+ "universe_size": 666,
+ "funnel": [
+  {
+   "step": "Universe (scored stocks)",
+   "left": 666
+  },
+  {
+   "step": "Want Healthcare: rated High or Moderate",
+   "left": 63
+  },
+  {
+   "step": "Want Healthcare: well-known (reference or \u2265 $20B)",
+   "left": 58
+  },
+  {
+   "step": "Want Aerospace & defense: rated High or Moderate",
+   "left": 16
+  },
+  {
+   "step": "Want Aerospace & defense: well-known (reference or \u2265 $20B)",
+   "left": 13
+  },
+  {
+   "step": "Basket",
+   "left": 15
+  }
+ ],
+ "survivors": 666,
+ "ranked_by": "Tier 1 references first, then 50% t-statistic + 50% market-cap percentile (High before Moderate); picks alternate across wanted themes",
+ "theme_share_pct": {
+  "Healthcare": 53.33,
+  "Aerospace & defense": 46.67
+ },
+ "floors": {
+  "Healthcare": 20000000000.0,
+  "Aerospace & defense": 20000000000.0
+ },
+ "holdings": [
+  {
+   "ticker": "MRK",
+   "weight_pct": 6.67,
+   "name": "Merck & Co., Inc.",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 364265340000.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Limited (lower confidence)"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.6658311697530166,
+    "Aerospace & defense": -0.005941224285842116
+   },
+   "t_stat": {
+    "Healthcare": 10.642622713930566,
+    "Aerospace & defense": -0.07356085868801471
+   },
+   "reference": {
+    "Healthcare": true,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "LLY",
+   "weight_pct": 6.67,
+   "name": "Eli Lilly and Company",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 1357965407500.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not determined"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.7642743680898244,
+    "Aerospace & defense": 0.2233155511546683
+   },
+   "t_stat": {
+    "Healthcare": 8.284928103802772,
+    "Aerospace & defense": 2.2726253953008366
+   },
+   "reference": {
+    "Healthcare": true,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "PFE",
+   "weight_pct": 6.67,
+   "name": "Pfizer Inc.",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 164668666500.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Limited (lower confidence)"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.41704109317895677,
+    "Aerospace & defense": -0.0067701826248534255
+   },
+   "t_stat": {
+    "Healthcare": 9.861073121122331,
+    "Aerospace & defense": -0.10663976420626353
+   },
+   "reference": {
+    "Healthcare": true,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "GEHC",
+   "weight_pct": 6.67,
+   "name": "GE HealthCare Technologies Inc.",
+   "industry": "Medical - Devices",
+   "market_cap": 37536481816.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Moderate"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Market-driven"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.17011543886943678,
+    "Aerospace & defense": 0.19319562506226123
+   },
+   "t_stat": {
+    "Healthcare": 2.5954941212443394,
+    "Aerospace & defense": 2.6334778541385218
+   },
+   "reference": {
+    "Healthcare": true,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Market-driven"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "ABBV",
+   "weight_pct": 6.67,
+   "name": "AbbVie Inc.",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 521499838759.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Limited (lower confidence)"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.5596321268114963,
+    "Aerospace & defense": 0.03913940616420535
+   },
+   "t_stat": {
+    "Healthcare": 10.043037107863572,
+    "Aerospace & defense": 0.6390521851038958
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "AMGN",
+   "weight_pct": 6.67,
+   "name": "Amgen Inc.",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 251886253548.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Limited (lower confidence)"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.7233436161267686,
+    "Aerospace & defense": -0.0032880704059049318
+   },
+   "t_stat": {
+    "Healthcare": 12.436137991435421,
+    "Aerospace & defense": -0.04927256453841162
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "NVS",
+   "weight_pct": 6.67,
+   "name": "Novartis AG",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 303124086677.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not determined"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.5099878525220247,
+    "Aerospace & defense": 0.10549112462748342
+   },
+   "t_stat": {
+    "Healthcare": 9.952688122675383,
+    "Aerospace & defense": 1.9378797250240662
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "JNJ",
+   "weight_pct": 6.67,
+   "name": "Johnson & Johnson",
+   "industry": "Drug Manufacturers - General",
+   "market_cap": 687888908510.0,
+   "picked_for": "Healthcare",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Limited (lower confidence)"
+   },
+   "want_tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.3261005999713181,
+    "Aerospace & defense": 0.03340917074215952
+   },
+   "t_stat": {
+    "Healthcare": 7.5219806170965935,
+    "Aerospace & defense": 0.7392628869078232
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": false
+   },
+   "tiers": {
+    "Healthcare": "High",
+    "Aerospace & defense": "Not exposed"
+   },
+   "labels": [
+    "picked for Healthcare"
+   ]
+  },
+  {
+   "ticker": "RTX",
+   "weight_pct": 6.67,
+   "name": "RTX Corporation",
+   "industry": "Aerospace & Defense",
+   "market_cap": 267971795200.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "Moderate",
+   "regression_tiers": {
+    "Healthcare": "Not determined",
+    "Aerospace & defense": "Moderate"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.07976937456616454,
+    "Aerospace & defense": 0.6636040077814507
+   },
+   "t_stat": {
+    "Healthcare": 1.1709811188466943,
+    "Aerospace & defense": 15.035523568041565
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "GE",
+   "weight_pct": 6.67,
+   "name": "GE Aerospace",
+   "industry": "Aerospace & Defense",
+   "market_cap": 342876500907.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "Moderate",
+   "regression_tiers": {
+    "Healthcare": "Limited (lower confidence)",
+    "Aerospace & defense": "Moderate"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": -0.015168904967369008,
+    "Aerospace & defense": 0.5855353038664137
+   },
+   "t_stat": {
+    "Healthcare": -0.21090593709807223,
+    "Aerospace & defense": 9.468221734654634
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "GD",
+   "weight_pct": 6.67,
+   "name": "General Dynamics Corporation",
+   "industry": "Aerospace & Defense",
+   "market_cap": 98215615040.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "Limited",
+    "Aerospace & defense": "High"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": -0.08897311329161259,
+    "Aerospace & defense": 0.43691865189470835
+   },
+   "t_stat": {
+    "Healthcare": -1.7284153293063538,
+    "Aerospace & defense": 12.01918017487522
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "LMT",
+   "weight_pct": 6.67,
+   "name": "Lockheed Martin Corporation",
+   "industry": "Aerospace & Defense",
+   "market_cap": 137688005626.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "Limited",
+    "Aerospace & defense": "High"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": -0.07855558307694624,
+    "Aerospace & defense": 0.719713877872249
+   },
+   "t_stat": {
+    "Healthcare": -1.0215392680899371,
+    "Aerospace & defense": 10.874556056945416
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "BA",
+   "weight_pct": 6.67,
+   "name": "The Boeing Company",
+   "industry": "Aerospace & Defense",
+   "market_cap": 135905164710.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "Moderate",
+   "regression_tiers": {
+    "Healthcare": "Limited (lower confidence)",
+    "Aerospace & defense": "Moderate"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.02857702116013601,
+    "Aerospace & defense": 0.44136985403298884
+   },
+   "t_stat": {
+    "Healthcare": 0.3357703367866239,
+    "Aerospace & defense": 5.842205819943585
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "Moderate"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "NOC",
+   "weight_pct": 6.67,
+   "name": "Northrop Grumman Corporation",
+   "industry": "Aerospace & Defense",
+   "market_cap": 78196287520.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "Limited (lower confidence)",
+    "Aerospace & defense": "High"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": 0.003984584014748188,
+    "Aerospace & defense": 0.4597041108172122
+   },
+   "t_stat": {
+    "Healthcare": 0.05402287543054461,
+    "Aerospace & defense": 8.447310151223308
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  },
+  {
+   "ticker": "HII",
+   "weight_pct": 6.67,
+   "name": "Huntington Ingalls Industries, Inc.",
+   "industry": "Aerospace & Defense",
+   "market_cap": 12067711814.0,
+   "picked_for": "Aerospace & defense",
+   "picked_tier": "High",
+   "regression_tiers": {
+    "Healthcare": "Limited (lower confidence)",
+    "Aerospace & defense": "High"
+   },
+   "want_tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "avoid_tiers": {},
+   "strength": {
+    "Healthcare": -0.0678139095543947,
+    "Aerospace & defense": 1.1207201673033804
+   },
+   "t_stat": {
+    "Healthcare": -0.666856442526223,
+    "Aerospace & defense": 11.830045020267606
+   },
+   "reference": {
+    "Healthcare": false,
+    "Aerospace & defense": true
+   },
+   "tiers": {
+    "Healthcare": "Not exposed",
+    "Aerospace & defense": "High"
+   },
+   "labels": [
+    "picked for Aerospace & defense"
+   ]
+  }
+ ],
+ "cash_pct": 0.0,
+ "invested_pct": 100.0,
+ "warnings": [],
+ "diagnosis": null,
+ "verification": {
+  "all_pass": true,
+  "checks": {
+   "healthcare": {
+    "theme": "Healthcare",
+    "choice": "want",
+    "goal": "the 53% picked for it is rated High/Moderate",
+    "pass": true,
+    "high_moderate_pct": 53.33,
+    "exposure_pct": 53.33,
+    "by_tier_pct": {
+     "High": 53.33,
+     "Moderate": 0.0,
+     "Limited": 13.33,
+     "Limited (lower confidence)": 26.67,
+     "Not determined": 6.67
+    },
+    "sentence": "Healthcare exposure: 53% of your portfolio (MRK, LLY, PFE, GEHC, ABBV, AMGN, NVS, JNJ). For 7% the data can't tell (regression Not determined)."
+   },
+   "defense": {
+    "theme": "Aerospace & defense",
+    "choice": "want",
+    "goal": "the 47% picked for it is rated High/Moderate",
+    "pass": true,
+    "high_moderate_pct": 46.67,
+    "exposure_pct": 46.67,
+    "by_tier_pct": {
+     "High": 26.67,
+     "Moderate": 26.67,
+     "Limited": 0.0,
+     "Limited (lower confidence)": 33.33,
+     "Not determined": 13.33
+    },
+    "sentence": "Aerospace & defense exposure: 47% of your portfolio (GD, LMT, NOC, HII, RTX, GE, BA). For 13% the data can't tell (regression Not determined). Caution, market-driven: 7% (GEHC) moves with aerospace and defense companies, but isn't a Aerospace & defense business."
+   }
+  }
+ }
+}

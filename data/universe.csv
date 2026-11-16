@@ -1,0 +1,667 @@
+ticker,name,country,sector,industry,market_cap,exchange,avg_volume,source,source_date
+AAPL,Apple Inc.,US,Technology,Consumer Electronics,5177386894000,NASDAQ,42760568,screener: top US,2026-11-15
+NVDA,NVIDIA Corporation,US,Technology,Semiconductors,3924685000000,NASDAQ,146134656,screener: top US,2026-11-15
+MSFT,Microsoft Corporation,US,Technology,Software - Infrastructure,3890432417200,NASDAQ,23217510,screener: top US,2026-11-15
+GOOGL,Alphabet Inc.,US,Communication Services,Internet Content & Information,3596862995430,NASDAQ,29781611,Tier 2,2026-11-15
+AMZN,"Amazon.com, Inc.",US,Consumer Cyclical,Specialty Retail,2883421246000,NASDAQ,39301387,screener: top US,2026-11-15
+TSM,Taiwan Semiconductor Manufacturing Company Limited,TW,Technology,Semiconductors,2068005170400,NYSE,11570657,screener: top international,2026-11-15
+SPCX,Space Exploration Technologies Corp.,US,Industrials,Aerospace & Defense,1832661195025,NASDAQ,95022671,screener: top US,2026-11-15
+AVGO,Broadcom Inc.,US,Technology,Semiconductors,1656497299454,NASDAQ,25283023,screener: top US,2026-11-15
+META,"Meta Platforms, Inc.",US,Communication Services,Internet Content & Information,1640314437445,NASDAQ,21241726,screener: top US,2026-11-15
+TSLA,"Tesla, Inc.",US,Consumer Cyclical,Auto - Manufacturers,1542445205688,NASDAQ,37643070,screener: top US,2026-11-15
+LLY,Eli Lilly and Company,US,Healthcare,Drug Manufacturers - General,1357965407500,NYSE,2572262,screener: top US,2026-11-15
+BRK-B,Berkshire Hathaway Inc.,US,Financial Services,Insurance - Diversified,1259712413262,NYSE,4629475,screener: top US,2026-11-15
+WMT,Walmart Inc.,US,Consumer Defensive,Discount Stores,1019350358964,NASDAQ,23979296,screener: top US,2026-11-15
+SKHY,SK hynix Inc.,KR,Technology,Semiconductors,935517760849,NASDAQ,20564418,screener: top international,2026-11-15
+JPM,JPMorgan Chase & Co.,US,Financial Services,Banks - Diversified,919345625900,NYSE,7108515,screener: top US,2026-11-15
+MU,"Micron Technology, Inc.",US,Technology,Semiconductors,880595500200,NASDAQ,27690034,screener: top US,2026-11-15
+AMD,"Advanced Micro Devices, Inc.",US,Technology,Semiconductors,875904997269,NASDAQ,24660270,screener: top US,2026-11-15
+V,Visa Inc.,US,Financial Services,Financial - Credit Services,794383023753,NYSE,6534876,screener: top US,2026-11-15
+XOM,Exxonmobil Holdings Corporation,US,Energy,Oil & Gas Integrated,695874556722,NYSE,13657870,screener: top US,2026-11-15
+JNJ,Johnson & Johnson,US,Healthcare,Drug Manufacturers - General,687888908510,NYSE,7089926,screener: top US,2026-11-15
+ASML,ASML Holding N.V.,NL,Technology,Semiconductors,576261563424,NASDAQ,1460485,screener: top international,2026-11-15
+MA,Mastercard Incorporated,US,Financial Services,Financial - Credit Services,576012933493,NYSE,2983635,screener: top US,2026-11-15
+ABBV,AbbVie Inc.,US,Healthcare,Drug Manufacturers - General,521499838759,NYSE,4800337,screener: top US,2026-11-15
+COST,Costco Wholesale Corporation,US,Consumer Defensive,Discount Stores,490194117157,NASDAQ,2221904,screener: top US,2026-11-15
+CVX,Chevron Corporation,US,Energy,Oil & Gas Integrated,429061173015,NYSE,8507589,screener: top US,2026-11-15
+KO,The Coca-Cola Company,US,Consumer Defensive,Beverages - Non-Alcoholic,426963806749,NYSE,16486381,screener: top US,2026-11-15
+PG,The Procter & Gamble Company,US,Consumer Defensive,Household & Personal Products,393559577681,NYSE,9309487,screener: top US,2026-11-15
+PLTR,Palantir Technologies Inc.,US,Technology,Software - Infrastructure,387503430235,NASDAQ,25741014,screener: top US,2026-11-15
+ORCL,Oracle Corporation,US,Technology,Software - Infrastructure,379025809000,NYSE,33398837,screener: top US,2026-11-15
+CSCO,"Cisco Systems, Inc.",US,Technology,Communication Equipment,376532795318,NASDAQ,17892607,screener: top US,2026-11-15
+UNH,UnitedHealth Group Incorporated,US,Healthcare,Medical - Healthcare Plans,365093531580,NYSE,5232287,screener: top US,2026-11-15
+MRK,"Merck & Co., Inc.",US,Healthcare,Drug Manufacturers - General,364265340000,NYSE,10263632,screener: top US,2026-11-15
+BAC,Bank of America Corporation,US,Financial Services,Banks - Diversified,352048714200,NYSE,37327453,screener: top US,2026-11-15
+HD,"The Home Depot, Inc.",US,Consumer Cyclical,Home Improvement,347884395690,NYSE,4721867,screener: top US,2026-11-15
+GE,GE Aerospace,US,Industrials,Aerospace & Defense,342876500907,NYSE,4617453,screener: top US,2026-11-15
+INTC,Intel Corp.,US,Technology,Semiconductors,317092900000,NASDAQ,115130239,screener: top US,2026-11-15
+PM,Philip Morris International Inc.,US,Consumer Defensive,Tobacco,310110123946,NYSE,4604003,screener: top US,2026-11-15
+HSBC,HSBC Holdings plc,GB,Financial Services,Banks - Diversified,307004064400,NYSE,1621225,screener: top international,2026-11-15
+NVS,Novartis AG,CH,Healthcare,Drug Manufacturers - General,303124086677,NYSE,2122001,screener: top international,2026-11-15
+MS,Morgan Stanley,US,Financial Services,Financial - Capital Markets,300709350361,NYSE,5538295,screener: top US,2026-11-15
+AMAT,"Applied Materials, Inc.",US,Technology,Semiconductors,294027852632,NASDAQ,7185059,screener: top US,2026-11-15
+AZN,AstraZeneca PLC,GB,Healthcare,Drug Manufacturers - General,286058423956,NYSE,3042276,screener: top international,2026-11-15
+LRCX,Lam Research Corporation,US,Technology,Semiconductors,282212712320,NASDAQ,10193645,screener: top US,2026-11-15
+SHEL,Shell plc,GB,Energy,Oil & Gas Integrated,280826902600,NYSE,6117015,screener: top international,2026-11-15
+RY,Royal Bank of Canada,CA,Financial Services,Banks - Diversified,280523046000,NYSE,1224212,screener: top international,2026-11-15
+TXN,Texas Instruments Incorporated,US,Technology,Semiconductors,277420572000,NASDAQ,6808267,screener: top US,2026-11-15
+CAT,Caterpillar Inc.,US,Industrials,Agricultural - Machinery,274648023235,NYSE,2912842,screener: top US,2026-11-15
+SAP,SAP SE,DE,Technology,Software - Application,273713740024,NYSE,2238878,screener: top international,2026-11-15
+RTX,RTX Corporation,US,Industrials,Aerospace & Defense,267971795200,NYSE,4696851,screener: top US,2026-11-15
+GS,"The Goldman Sachs Group, Inc.",US,Financial Services,Financial - Capital Markets,264367983600,NYSE,2114903,screener: top US,2026-11-15
+PANW,"Palo Alto Networks, Inc.",US,Technology,Software - Infrastructure,263840954261,NASDAQ,6096907,screener: top US,2026-11-15
+TMO,Thermo Fisher Scientific Inc.,US,Healthcare,Medical - Diagnostics & Research,259442621091,NYSE,2148509,screener: top US,2026-11-15
+WFC,Wells Fargo & Company,US,Financial Services,Banks - Diversified,258279174000,NYSE,14031398,screener: top US,2026-11-15
+NFLX,"Netflix, Inc.",US,Communication Services,Entertainment,255208409500,NASDAQ,36915643,screener: top US,2026-11-15
+TM,Toyota Motor Corporation,JP,Consumer Cyclical,Auto - Manufacturers,253133079896,NYSE,330462,screener: top international,2026-11-15
+AMGN,Amgen Inc.,US,Healthcare,Drug Manufacturers - General,251886253548,NASDAQ,2801965,screener: top US,2026-11-15
+ANET,"Arista Networks, Inc.",US,Technology,Computer Hardware,249256186000,NYSE,6301017,screener: top US,2026-11-15
+MUFG,"Mitsubishi UFJ Financial Group, Inc.",JP,Financial Services,Banks - Diversified,245774028422,NYSE,2836632,screener: top international,2026-11-15
+LIN,Linde plc,GB,Basic Materials,Chemicals - Specialty,241505729040,NASDAQ,2055626,screener: top international,2026-11-15
+IBM,International Business Machines Corporation,US,Technology,Information Technology Services,233567704540,NYSE,5197909,screener: top US,2026-11-15
+CRWD,"CrowdStrike Holdings, Inc.",US,Technology,Software - Infrastructure,232033874546,NASDAQ,10069110,screener: top US,2026-11-15
+BABA,Alibaba Group Holding Limited,CN,Consumer Cyclical,Specialty Retail,229644485885,NYSE,10411498,screener: top international,2026-11-15
+DELL,Dell Technologies Inc.,US,Technology,Computer Hardware,219056568825,NYSE,8044629,screener: top US,2026-11-15
+AXP,American Express Company,US,Financial Services,Financial - Credit Services,214978976971,NYSE,2971995,screener: top US,2026-11-15
+GEV,GE Vernova Inc.,US,Industrials,Industrial - Machinery,212570092017,NYSE,2851885,screener: top US,2026-11-15
+TD,The Toronto-Dominion Bank,CA,Financial Services,Banks - Diversified,209092520000,NYSE,1797910,screener: top international,2026-11-15
+GILD,"Gilead Sciences, Inc.",US,Healthcare,Drug Manufacturers - General,208476114241,NASDAQ,5984854,screener: top US,2026-11-15
+DIS,The Walt Disney Company,US,Communication Services,Entertainment,205424309300,NYSE,8180889,screener: top US,2026-11-15
+C,Citigroup Inc.,US,Financial Services,Banks - Diversified,205261912401,NYSE,9470096,screener: top US,2026-11-15
+ARM,Arm Holdings plc American Depositary Shares,GB,Technology,Semiconductors,202734454594,NASDAQ,5241156,screener: top international,2026-11-15
+TTE,TotalEnergies SE,FR,Energy,Oil & Gas Integrated,202548711354,NYSE,1820115,screener: top international,2026-11-15
+BHP,BHP Group Limited,AU,Basic Materials,Industrial Materials,202021998860,NYSE,2845895,screener: top international,2026-11-15
+KLAC,KLA Corporation,US,Technology,Semiconductors,198467238099,NASDAQ,11045829,screener: top US,2026-11-15
+PEP,"PepsiCo, Inc.",US,Consumer Defensive,Beverages - Non-Alcoholic,198197064420,NASDAQ,9204129,screener: top US,2026-11-15
+APH,Amphenol Corporation,US,Technology,"Hardware, Equipment & Parts",193170209800,NYSE,12965207,screener: top US,2026-11-15
+ADI,"Analog Devices, Inc.",US,Technology,Semiconductors,192842518106,NASDAQ,3903084,screener: top US,2026-11-15
+VZ,Verizon Communications Inc.,US,Communication Services,Telecommunications Services,192143656000,NYSE,23547540,screener: top US,2026-11-15
+MCD,McDonald's Corporation,US,Consumer Cyclical,Restaurants,191952346450,NYSE,5537393,screener: top US,2026-11-15
+SHOP,Shopify Inc.,CA,Technology,Software - Application,189234524951,NASDAQ,8703810,screener: top international,2026-11-15
+BLK,"BlackRock, Inc.",US,Financial Services,Asset Management,188845945775,NYSE,608773,screener: top US,2026-11-15
+ABT,Abbott Laboratories,US,Healthcare,Medical - Devices,187950128800,NYSE,9003000,screener: top US,2026-11-15
+QCOM,QUALCOMM Incorporated,US,Technology,Semiconductors,184542900000,NASDAQ,12726167,screener: top US,2026-11-15
+NVO,Novo Nordisk A/S,DK,Healthcare,Drug Manufacturers - General,183519838174,NYSE,12361665,screener: top international,2026-11-15
+DE,Deere & Company,US,Industrials,Agricultural - Machinery,181603499998,NYSE,1274709,screener: top US,2026-11-15
+TMUS,"T-Mobile US, Inc.",US,Communication Services,Telecommunications Services,180023373441,NASDAQ,5606896,screener: top US,2026-11-15
+UNP,Union Pacific Corporation,US,Industrials,Railroads,179724970000,NYSE,2523790,screener: top US,2026-11-15
+WELL,Welltower Inc.,US,Real Estate,REIT - Healthcare Facilities,179338267109,NYSE,2730814,screener: top US,2026-11-15
+CRM,"Salesforce, Inc.",US,Technology,Software - Application,179282320000,NYSE,11080068,screener: top US,2026-11-15
+NEE,"NextEra Energy, Inc.",US,Utilities,Regulated Electric,178522690891,NYSE,12270332,screener: top US,2026-11-15
+SAN,"Banco Santander, S.A.",ES,Financial Services,Banks - Diversified,178255889143,NYSE,11144675,screener: top international,2026-11-15
+COP,ConocoPhillips,US,Energy,Oil & Gas Exploration & Production,168223335200,NYSE,6714231,screener: top US,2026-11-15
+BUD,Anheuser-Busch InBev SA/NV,BE,Consumer Defensive,Beverages - Alcoholic,167759358499,NYSE,2349775,screener: top international,2026-11-15
+PFE,Pfizer Inc.,US,Healthcare,Drug Manufacturers - General,164668666500,NYSE,33564532,screener: top US,2026-11-15
+DHR,Danaher Corporation,US,Healthcare,Medical - Diagnostics & Research,163936750511,NYSE,4031539,screener: top US,2026-11-15
+SONY,Sony Group Corporation,JP,Technology,Consumer Electronics,161314726378,NYSE,4148518,screener: top international,2026-11-15
+SCHW,The Charles Schwab Corporation,US,Financial Services,Financial - Capital Markets,160484409800,NYSE,8509700,screener: top US,2026-11-15
+ISRG,"Intuitive Surgical, Inc.",US,Healthcare,Medical - Instruments & Supplies,153767811960,NASDAQ,2363195,screener: top US,2026-11-15
+T,AT&T Inc.,US,Communication Services,Telecommunications Services,149414980744,NYSE,43013207,screener: top US,2026-11-15
+ACN,Accenture plc,IE,Technology,Information Technology Services,148049146945,NYSE,6090889,screener: top international,2026-11-15
+UBS,UBS Group AG,CH,Financial Services,Banks - Diversified,147912763411,NYSE,1964387,screener: top international,2026-11-15
+TJX,"The TJX Companies, Inc.",US,Consumer Cyclical,Apparel - Retail,147803514577,NYSE,7834998,screener: top US,2026-11-15
+IBKR,"Interactive Brokers Group, Inc.",US,Financial Services,Investment - Banking & Investment Services,143753002861,NASDAQ,4344729,screener: top US,2026-11-15
+CB,Chubb Limited,CH,Financial Services,Insurance - Property & Casualty,143562446874,NYSE,1590856,screener: top international,2026-11-15
+BBVA,"Banco Bilbao Vizcaya Argentaria, S.A.",ES,Financial Services,Banks - Diversified,143207667939,NYSE,1538900,screener: top international,2026-11-15
+UL,Unilever PLC,GB,Consumer Defensive,Household & Personal Products,142638189300,NYSE,3692578,screener: top international,2026-11-15
+UBER,"Uber Technologies, Inc.",US,Technology,Software - Application,142300011000,NYSE,17356990,screener: top US,2026-11-15
+SCCO,Southern Copper Corporation,US,Basic Materials,Copper,140008315440,NYSE,1144639,screener: top US,2026-11-15
+BX,Blackstone Inc.,US,Financial Services,Asset Management,138428825168,NYSE,4664834,screener: top US,2026-11-15
+LMT,Lockheed Martin Corporation,US,Industrials,Aerospace & Defense,137688005626,NYSE,1299298,screener: top US,2026-11-15
+SPGI,S&P Global Inc.,US,Financial Services,Financial - Data & Stock Exchanges,137293741000,NYSE,1839721,screener: top US,2026-11-15
+MRVL,"Marvell Technology, Inc.",US,Technology,Semiconductors,137285144469,NASDAQ,24566256,screener: top US,2026-11-15
+ETN,Eaton Corporation plc,IE,Industrials,Electrical Equipment & Parts,137128845000,NYSE,2406604,screener: top international,2026-11-15
+PGR,The Progressive Corporation,US,Financial Services,Insurance - Property & Casualty,136602013622,NYSE,2607546,screener: top US,2026-11-15
+VRTX,Vertex Pharmaceuticals Incorporated,US,Healthcare,Biotechnology,136555391216,NASDAQ,1238728,screener: top US,2026-11-15
+BA,The Boeing Company,US,Industrials,Aerospace & Defense,135905164710,NYSE,8148696,screener: top US,2026-11-15
+RIO,Rio Tinto Group,GB,Basic Materials,Industrial Materials,134917947385,NYSE,2372506,screener: top international,2026-11-15
+BTI,British American Tobacco p.l.c.,GB,Consumer Defensive,Tobacco,132940275710,NYSE,5003240,screener: top international,2026-11-15
+HDB,HDFC Bank Limited,IN,Financial Services,Banks - Regional,132490812913,NYSE,9752412,screener: top international,2026-11-15
+MDT,Medtronic Plc,IE,Healthcare,Medical - Devices,131575426200,NYSE,16559525,screener: top international,2026-11-15
+MO,"Altria Group, Inc.",US,Consumer Defensive,Tobacco,130812921600,NYSE,8333128,screener: top US,2026-11-15
+BMY,Bristol-Myers Squibb Company,US,Healthcare,Drug Manufacturers - General,129656364260,NYSE,10918142,screener: top US,2026-11-15
+LOW,"Lowe's Companies, Inc.",US,Consumer Cyclical,Home Improvement,127768827420,NYSE,3335600,screener: top US,2026-11-15
+MCK,McKesson Corporation,US,Healthcare,Medical - Distribution,127327134170,NYSE,806945,screener: top US,2026-11-15
+SNDK,Sandisk Corporation,US,Technology,Computer Hardware,125927515344,NASDAQ,10693029,screener: top US,2026-11-15
+SPOT,Spotify Technology S.A.,SE,Communication Services,Internet Content & Information,125911058884,NYSE,1637785,screener: top international,2026-11-15
+MFG,"Mizuho Financial Group, Inc.",JP,Financial Services,Banks - Regional,124834111483,NYSE,3637746,screener: top international,2026-11-15
+IBN,ICICI Bank Limited,IN,Financial Services,Banks - Regional,123941502966,NYSE,5734565,screener: top international,2026-11-15
+APP,AppLovin Corporation,US,Technology,Software - Application,123244647800,NASDAQ,5170915,screener: top US,2026-11-15
+ADP,"Automatic Data Processing, Inc.",US,Technology,Software - Application,122347790760,NASDAQ,2170404,screener: top US,2026-11-15
+PLD,"Prologis, Inc.",US,Real Estate,REIT - Industrial,122302507710,NYSE,3652054,screener: top US,2026-11-15
+SBUX,Starbucks Corporation,US,Consumer Cyclical,Restaurants,121352244000,NASDAQ,7850139,screener: top US,2026-11-15
+STX,Seagate Technology Holdings plc,SG,Technology,Computer Hardware,121274780690,NASDAQ,4819484,screener: top international,2026-11-15
+PH,Parker-Hannifin Corporation,US,Industrials,Industrial - Machinery,120508380960,NYSE,641837,screener: top US,2026-11-15
+BMO,Bank of Montreal,CA,Financial Services,Banks - Diversified,120417779138,NYSE,714695,screener: top international,2026-11-15
+BP,BP p.l.c.,GB,Energy,Oil & Gas Integrated,119848478500,NYSE,9190318,screener: top international,2026-11-15
+BKNG,Booking Holdings Inc.,US,Consumer Cyclical,Travel Services,118679846592,NASDAQ,7372356,screener: top US,2026-11-15
+PBR,Petróleo Brasileiro S.A. - Petrobras,BR,Energy,Oil & Gas Integrated,118189678584,NYSE,24713885,screener: top international,2026-11-15
+SYK,Stryker Corporation,US,Healthcare,Medical - Devices,117877162479,NYSE,2896787,screener: top US,2026-11-15
+NEM,Newmont Corporation,US,Basic Materials,Gold,117574316951,NYSE,6951656,screener: top US,2026-11-15
+COF,Capital One Financial Corporation,US,Financial Services,Financial - Credit Services,117347087487,NYSE,3839684,screener: top US,2026-11-15
+SNY,Sanofi,FR,Healthcare,Drug Manufacturers - General,116657355773,NASDAQ,3345057,screener: top international,2026-11-15
+CVS,CVS Health Corp.,US,Healthcare,Medical - Healthcare Plans,114320644500,NYSE,8949943,screener: top US,2026-11-15
+CME,CME Group Inc.,US,Financial Services,Financial - Data & Stock Exchanges,113812242183,NASDAQ,1933443,screener: top US,2026-11-15
+MPC,Marathon Petroleum Corporation,US,Energy,Oil & Gas Refining & Marketing,112901847402,NYSE,2526528,screener: top US,2026-11-15
+BNS,The Bank of Nova Scotia,CA,Financial Services,Banks - Diversified,112790528200,NYSE,1705370,screener: top international,2026-11-15
+PDD,PDD Holdings Inc.,IE,Consumer Cyclical,Specialty Retail,112405618604,NASDAQ,6184976,screener: top international,2026-11-15
+ABNB,"Airbnb, Inc.",US,Consumer Cyclical,Travel Services,111459508116,NASDAQ,4611826,screener: top US,2026-11-15
+WDC,Western Digital Corporation,US,Technology,Computer Hardware,110668594950,NASDAQ,7998190,screener: top US,2026-11-15
+MAR,"Marriott International, Inc.",US,Consumer Cyclical,Travel Lodging,108965560635,NASDAQ,1540551,screener: top US,2026-11-15
+SO,The Southern Company,US,Utilities,Regulated Electric,108963093400,NYSE,6759904,screener: top US,2026-11-15
+NET,"Cloudflare, Inc.",US,Technology,Software - Infrastructure,108842907740,NYSE,3419940,screener: top US,2026-11-15
+ENB,Enbridge Inc.,CA,Energy,Oil & Gas Midstream,106251095155,NYSE,5082535,screener: top international,2026-11-15
+NOW,"ServiceNow, Inc.",US,Technology,Software - Application,106127013250,NYSE,15655262,screener: top US,2026-11-15
+VLO,Valero Energy Corporation,US,Energy,Oil & Gas Refining & Marketing,105928661652,NYSE,3094268,screener: top US,2026-11-15
+CM,Canadian Imperial Bank of Commerce,CA,Financial Services,Banks - Diversified,105141304800,NYSE,1068928,screener: top international,2026-11-15
+EQIX,"Equinix, Inc.",US,Real Estate,REIT - Specialty,104312880657,NASDAQ,572443,screener: top US,2026-11-15
+HCA,"HCA Healthcare, Inc.",US,Healthcare,Medical - Care Facilities,104248051650,NYSE,1363148,screener: top US,2026-11-15
+PSX,Phillips 66,US,Energy,Oil & Gas Refining & Marketing,103330168694,NYSE,2982250,screener: top US,2026-11-15
+BNY,Bank of New York Mellon Corp,US,Financial Services,Investment - Banking & Investment Services,103229435590,NYSE,3467532,screener: top US,2026-11-15
+EQNR,Equinor ASA,NO,Energy,Oil & Gas Integrated,102682712500,NYSE,3905712,screener: top international,2026-11-15
+SNOW,Snowflake Inc.,US,Technology,Software - Application,102664800000,NYSE,4701150,screener: top US,2026-11-15
+GSK,GSK plc,GB,Healthcare,Drug Manufacturers - General,101405632956,NYSE,4053693,screener: top international,2026-11-15
+CNQ,Canadian Natural Resources Limited,CA,Energy,Oil & Gas Exploration & Production,101247719042,NYSE,6260620,screener: top international,2026-11-15
+DUK,Duke Energy Corporation,US,Utilities,Regulated Electric,100706310320,NYSE,4099589,screener: top US,2026-11-15
+ICE,"Intercontinental Exchange, Inc.",US,Financial Services,Financial - Data & Stock Exchanges,99761815126,NYSE,3169789,screener: top US,2026-11-15
+CEG,Constellation Energy Corporation,US,Utilities,Independent Power Producers,99276925074,NASDAQ,3501042,screener: top US,2026-11-15
+MRSH,"Marsh & McLennan Companies, Inc.",US,Financial Services,Insurance - Brokers,99154957265,NYSE,2491103,screener: top US,2026-11-15
+REGN,"Regeneron Pharmaceuticals, Inc.",US,Healthcare,Biotechnology,98824944306,NASDAQ,797859,screener: top US,2026-11-15
+GLW,Corning Inc,US,Technology,"Hardware, Equipment & Parts",98268626080,NYSE,9161592,screener: top US,2026-11-15
+GD,General Dynamics Corporation,US,Industrials,Aerospace & Defense,98215615040,NYSE,1221481,screener: top US,2026-11-15
+WM,"Waste Management, Inc.",US,Industrials,Waste Management,96955342050,NYSE,2262923,screener: top US,2026-11-15
+CSX,CSX Corporation,US,Industrials,Railroads,95948970000,NASDAQ,10705751,screener: top US,2026-11-15
+SMFG,"Sumitomo Mitsui Financial Group, Inc.",JP,Financial Services,Banks - Diversified,95849291360,NYSE,1401414,screener: top international,2026-11-15
+USB,U.S. Bancorp,US,Financial Services,Banks - Regional,95035156237,NYSE,7391159,screener: top US,2026-11-15
+MMM,3M Company,US,Industrials,Conglomerates,94902553561,NYSE,3219834,screener: top US,2026-11-15
+ADBE,Adobe Inc.,US,Technology,Software - Application,94606736000,NASDAQ,4598009,screener: top US,2026-11-15
+ING,ING Groep N.V.,NL,Financial Services,Banks - Diversified,94468046200,NYSE,2281820,screener: top international,2026-11-15
+FTNT,"Fortinet, Inc.",US,Technology,Software - Infrastructure,93469773250,NASDAQ,4761050,screener: top US,2026-11-15
+ELV,Elevance Health Inc.,US,Healthcare,Medical - Healthcare Plans,92837102640,NYSE,1219723,screener: top US,2026-11-15
+PNC,"The PNC Financial Services Group, Inc.",US,Financial Services,Banks - Regional,92167563711,NYSE,1829742,screener: top US,2026-11-15
+TT,Trane Technologies plc,IE,Industrials,Industrial - Machinery,91496061913,NYSE,1309001,screener: top international,2026-11-15
+BN,Brookfield Corporation,CA,Financial Services,Asset Management,91459444724,NYSE,4862071,screener: top international,2026-11-15
+INTU,Intuit Inc.,US,Technology,Software - Application,91314541200,NASDAQ,3560659,screener: top US,2026-11-15
+EMR,Emerson Electric Co.,US,Industrials,Industrial - Machinery,91276068000,NYSE,2584264,screener: top US,2026-11-15
+MNST,Monster Beverage Corporation,US,Consumer Defensive,Beverages - Non-Alcoholic,90946003896,NASDAQ,9821192,screener: top US,2026-11-15
+PWR,"Quanta Services, Inc.",US,Industrials,Engineering & Construction,90709060770,NYSE,1215342,screener: top US,2026-11-15
+MRNA,"Moderna, Inc.",US,Healthcare,Biotechnology,90380187186,NASDAQ,22049943,screener: top US,2026-11-15
+AEM,Agnico Eagle Mines Limited,CA,Basic Materials,Gold,90214769534,NYSE,2243323,screener: top international,2026-11-15
+CTAS,Cintas Corporation,US,Industrials,Specialty Business Services,89834269040,NASDAQ,1925512,screener: top US,2026-11-15
+CMCSA,Comcast Corporation,US,Communication Services,Telecommunications Services,89105649600,NASDAQ,28991984,screener: top US,2026-11-15
+AMT,American Tower Corporation,US,Real Estate,REIT - Specialty,88875732960,NYSE,2836870,screener: top US,2026-11-15
+CDNS,"Cadence Design Systems, Inc.",US,Technology,Software - Application,88627160790,NASDAQ,2406107,screener: top US,2026-11-15
+MSI,"Motorola Solutions, Inc.",US,Technology,Communication Equipment,87825420800,NYSE,999204,screener: top US,2026-11-15
+HWM,Howmet Aerospace Inc.,US,Industrials,Aerospace & Defense,87811389402,NYSE,3611545,screener: top US,2026-11-15
+MCO,Moody's Corporation,US,Financial Services,Financial - Data & Stock Exchanges,87625918472,NYSE,829778,screener: top US,2026-11-15
+KKR,KKR & Co. Inc.,US,Financial Services,Asset Management,87474281309,NYSE,4611504,screener: top US,2026-11-15
+SNPS,"Synopsys, Inc.",US,Technology,Software - Infrastructure,87233001259,NASDAQ,2151129,screener: top US,2026-11-15
+ECL,Ecolab Inc.,US,Basic Materials,Chemicals - Specialty,86740271867,NYSE,1446754,screener: top US,2026-11-15
+RCL,Royal Caribbean Cruises Ltd.,US,Consumer Cyclical,Travel Services,86465325925,NYSE,2386951,screener: top US,2026-11-15
+WMB,"The Williams Companies, Inc.",US,Energy,Oil & Gas Midstream,86376318000,NYSE,8134056,screener: top US,2026-11-15
+MDLZ,"Mondelez International, Inc.",US,Consumer Defensive,Food Confectioners,85494833600,NASDAQ,7720735,screener: top US,2026-11-15
+FCX,Freeport-McMoRan Inc.,US,Basic Materials,Copper,85189797600,NYSE,12513029,screener: top US,2026-11-15
+NGG,National Grid plc,GB,Utilities,Regulated Electric,84744660260,NYSE,930735,screener: top international,2026-11-15
+SHW,The Sherwin-Williams Company,US,Basic Materials,Chemicals - Specialty,84529250512,NYSE,1776073,screener: top US,2026-11-15
+UPS,"United Parcel Service, Inc.",US,Industrials,Integrated Freight & Logistics,84486284454,NYSE,4834937,screener: top US,2026-11-15
+JCI,Johnson Controls International plc,IE,Basic Materials,Construction Materials,84397893530,NYSE,3793279,screener: top international,2026-11-15
+E,Eni S.p.A.,IT,Energy,Oil & Gas Integrated,83979027582,NYSE,385085,screener: top international,2026-11-15
+HLT,Hilton Worldwide Holdings Inc.,US,Consumer Cyclical,Travel Lodging,83014149807,NASDAQ,1773242,screener: top US,2026-11-15
+ITUB,Itaú Unibanco Holding S.A.,BR,Financial Services,Banks,82995855358,NYSE,31024300,screener: top international,2026-11-15
+TRV,"The Travelers Companies, Inc.",US,Financial Services,Insurance - Property & Casualty,82640375580,NYSE,1455601,screener: top US,2026-11-15
+EPD,Enterprise Products Partners L.P.,US,Energy,Oil & Gas Midstream,82554833964,NYSE,3364917,screener: top US,2026-11-15
+BAM,Brookfield Asset Management Ltd.,US,Financial Services,Asset Management,82337566881,NYSE,2857289,screener: top US,2026-11-15
+EOG,"EOG Resources, Inc.",US,Energy,Oil & Gas Exploration & Production,82086422344,NYSE,3091056,screener: top US,2026-11-15
+CP,Canadian Pacific Kansas City Ltd.,CA,Industrials,Railroads,81868578771,NYSE,2245454,screener: top international,2026-11-15
+ITW,Illinois Tool Works Inc.,US,Industrials,Industrial - Machinery,81713184000,NYSE,1277603,screener: top US,2026-11-15
+SU,Suncor Energy Inc.,CA,Energy,Oil & Gas Integrated,80493598301,NYSE,4009332,screener: top international,2026-11-15
+CVNA,Carvana Co.,US,Consumer Cyclical,Auto - Dealerships,79377997221,NYSE,9005828,screener: top US,2026-11-15
+CL,Colgate-Palmolive Company,US,Consumer Defensive,Household & Personal Products,79229776070,NYSE,4944475,screener: top US,2026-11-15
+ASX,"ASE Technology Holding Co., Ltd.",TW,Technology,Semiconductors,78316865646,NYSE,8121603,screener: top international,2026-11-15
+CI,Cigna Corporation,US,Healthcare,Medical - Healthcare Plans,78260391000,NYSE,1573418,screener: top US,2026-11-15
+NOC,Northrop Grumman Corporation,US,Industrials,Aerospace & Defense,78196287520,NYSE,920201,screener: top US,2026-11-15
+NTES,"NetEase, Inc.",CN,Technology,Electronic Gaming & Multimedia,77815863981,NASDAQ,761353,screener: top international,2026-11-15
+VRT,Vertiv Holdings Co,US,Industrials,Electrical Equipment & Parts,77809074200,NYSE,6171350,screener: top US,2026-11-15
+RSG,"Republic Services, Inc.",US,Industrials,Waste Management,77070873600,NYSE,1461226,screener: top US,2026-11-15
+CNI,Canadian National Railway Company,CA,Industrials,Railroads,76269846000,NYSE,1232614,screener: top international,2026-11-15
+SLB,Slb N.V.,US,Energy,Oil & Gas Equipment & Services,76266450104,NYSE,12596353,screener: top US,2026-11-15
+AMX,"América Móvil, S.A.B. de C.V.",MX,Communication Services,Telecommunications Services,76031509433,NYSE,2913865,screener: top international,2026-11-15
+BCS,Barclays PLC,GB,Financial Services,Banks - Diversified,76005014500,NYSE,5075165,screener: top international,2026-11-15
+FDX,FedEx Corporation,US,Industrials,Integrated Freight & Logistics,75913378281,NYSE,1475690,screener: top US,2026-11-15
+MELI,"MercadoLibre, Inc.",UY,Consumer Cyclical,Specialty Retail,75613773215,NASDAQ,595898,screener: top international,2026-11-15
+SPG,"Simon Property Group, Inc.",US,Real Estate,REIT - Retail,75377796450,NYSE,1276854,screener: top US,2026-11-15
+DASH,"DoorDash, Inc.",US,Communication Services,Internet Content & Information,74774298472,NASDAQ,4543887,screener: top US,2026-11-15
+ROST,"Ross Stores, Inc.",US,Consumer Cyclical,Apparel - Retail,74318559688,NASDAQ,2291215,screener: top US,2026-11-15
+LYG,Lloyds Banking Group plc,GB,Financial Services,Banks - Regional,74289867080,NYSE,17148003,screener: top international,2026-11-15
+ORLY,"O'Reilly Automotive, Inc.",US,Consumer Cyclical,Specialty Retail,73940897310,NASDAQ,6005725,screener: top US,2026-11-15
+NSC,Norfolk Southern Corporation,US,Industrials,Railroads,73647319006,NYSE,1036440,screener: top US,2026-11-15
+TGT,Target Corporation,US,Consumer Defensive,Discount Stores,73346208027,NYSE,4048725,screener: top US,2026-11-15
+APO,"Apollo Global Management, Inc.",US,Financial Services,Asset Management,72914344210,NYSE,3287204,screener: top US,2026-11-15
+MFC,Manulife Financial Corporation,CA,Financial Services,Insurance - Life,72785357600,NYSE,1827850,screener: top international,2026-11-15
+AJG,Arthur J. Gallagher & Co.,US,Financial Services,Insurance - Brokers,72550060100,NYSE,1551750,screener: top US,2026-11-15
+GM,General Motors Company,US,Consumer Cyclical,Auto - Manufacturers,72545250378,NYSE,7332476,screener: top US,2026-11-15
+RACE,Ferrari N.V.,IT,Consumer Cyclical,Auto - Manufacturers,72039192712,NYSE,425290,screener: top international,2026-11-15
+AON,Aon plc,IE,Financial Services,Insurance - Brokers,71774834670,NYSE,1667081,screener: top international,2026-11-15
+KMI,"Kinder Morgan, Inc.",US,Energy,Oil & Gas Midstream,71108670110,NYSE,13111660,screener: top US,2026-11-15
+HON,Honeywell International Inc.,US,Industrials,Industrial - Machinery,70599575914,NASDAQ,2759553,screener: top US,2026-11-15
+APD,"Air Products and Chemicals, Inc.",US,Basic Materials,Chemicals - Specialty,70486650811,NYSE,1074385,screener: top US,2026-11-15
+RELX,RELX Plc,GB,Industrials,Specialty Business Services,70448281924,NYSE,2164482,screener: top international,2026-11-15
+AEP,"American Electric Power Company, Inc.",US,Utilities,Regulated Electric,70341868680,NASDAQ,3756368,screener: top US,2026-11-15
+GWW,"W.W. Grainger, Inc.",US,Industrials,Industrial - Distribution,69720310616,NYSE,264125,screener: top US,2026-11-15
+URI,"United Rentals, Inc.",US,Industrials,Rental & Leasing Services,69628931696,NYSE,497848,screener: top US,2026-11-15
+COR,"Cencora, Inc.",US,Healthcare,Medical - Distribution,68512677050,NYSE,1268793,screener: top US,2026-11-15
+TAK,Takeda Pharmaceutical Company Limited,JP,Healthcare,Drug Manufacturers - Specialty & Generic,68131902467,NYSE,2639400,screener: top international,2026-11-15
+DLR,"Digital Realty Trust, Inc.",US,Real Estate,REIT - Specialty,68094873161,NYSE,2223296,screener: top US,2026-11-15
+DB,Deutsche Bank AG,DE,Financial Services,Banks - Regional,67897142000,NYSE,2297860,screener: top international,2026-11-15
+MPWR,"Monolithic Power Systems, Inc.",US,Technology,Semiconductors,67813854720,NASDAQ,826126,screener: top US,2026-11-15
+TRP,TC Energy Corporation,CA,Energy,Oil & Gas Midstream,67485659523,NYSE,2548528,screener: top international,2026-11-15
+NXPI,NXP Semiconductors N.V.,NL,Technology,Semiconductors,66816729770,NASDAQ,4012570,screener: top international,2026-11-15
+DDOG,"Datadog, Inc.",US,Technology,Software - Application,66489597850,NASDAQ,3700701,screener: top US,2026-11-15
+TDG,TransDigm Group Incorporated,US,Industrials,Aerospace & Defense,66451115566,NYSE,385929,screener: top US,2026-11-15
+ALL,The Allstate Corporation,US,Financial Services,Insurance - Property & Casualty,66227518000,NYSE,1881048,screener: top US,2026-11-15
+CAH,"Cardinal Health, Inc.",US,Healthcare,Medical - Distribution,64972610700,NYSE,1706365,screener: top US,2026-11-15
+MET,"MetLife, Inc.",US,Financial Services,Insurance - Life,64509585979,NYSE,3115181,screener: top US,2026-11-15
+BSX,Boston Scientific Corporation,US,Healthcare,Medical - Devices,64269499800,NYSE,19654721,screener: top US,2026-11-15
+HPE,Hewlett Packard Enterprise Company,US,Technology,Computer Hardware,64103043400,NYSE,20332190,screener: top US,2026-11-15
+NU,Nu Holdings Ltd.,BR,Financial Services,Banks - Regional,63859006200,NYSE,81352726,screener: top international,2026-11-15
+TRGP,Targa Resources Corp.,US,Energy,Oil & Gas Midstream,63793340820,NYSE,1254673,screener: top US,2026-11-15
+FAST,Fastenal Company,US,Industrials,Industrial - Distribution,63319569123,NASDAQ,7132842,screener: top US,2026-11-15
+AFL,Aflac Incorporated,US,Financial Services,Insurance - Life,63116806927,NYSE,1920770,screener: top US,2026-11-15
+LNG,"Cheniere Energy, Inc.",US,Energy,Oil & Gas Midstream,63047985000,NYSE,2049450,screener: top US,2026-11-15
+PSA,Public Storage,US,Real Estate,REIT - Industrial,62142262703,NYSE,934014,screener: top US,2026-11-15
+TEL,TE Connectivity plc,IE,Technology,Semiconductors,62023619665,NYSE,1984868,screener: top international,2026-11-15
+CMI,Cummins Inc.,US,Industrials,Industrial - Machinery,61983930040,NYSE,1226582,screener: top US,2026-11-15
+CRH,CRH plc,IE,Basic Materials,Construction Materials,61972901328,NYSE,5232232,screener: top international,2026-11-15
+B,Barrick Mining Corporation,CA,Basic Materials,Gold,61868629200,NYSE,8620421,screener: top international,2026-11-15
+HOOD,"Robinhood Markets, Inc.",US,Financial Services,Financial - Capital Markets,61776082257,NASDAQ,20939178,screener: top US,2026-11-15
+EW,Edwards Lifesciences Corporation,US,Healthcare,Medical - Devices,61611250000,NYSE,3822389,screener: top US,2026-11-15
+ARGX,argenx SE,NL,Healthcare,Biotechnology,60373142643,NASDAQ,367071,screener: top international,2026-11-15
+NDAQ,"Nasdaq, Inc.",US,Financial Services,Financial - Data & Stock Exchanges,60196836610,NASDAQ,3250481,screener: top US,2026-11-15
+TFC,Truist Financial Corporation,US,Financial Services,Banks - Regional,59888545300,NYSE,7482060,screener: top US,2026-11-15
+WPM,Wheaton Precious Metals Corp.,CA,Basic Materials,Gold,59699332000,NYSE,2011951,screener: top international,2026-11-15
+D,"Dominion Energy, Inc.",US,Utilities,Regulated Electric,59511435560,NYSE,4574435,screener: top US,2026-11-15
+BDX,"Becton, Dickinson and Company",US,Healthcare,Medical - Instruments & Supplies,59388537610,NYSE,1803585,screener: top US,2026-11-15
+OXY,Occidental Petroleum Corporation,US,Energy,Oil & Gas Exploration & Production,58743816269,NYSE,9127926,screener: top US,2026-11-15
+MPLX,MPLX Lp,US,Energy,Oil & Gas Midstream,57995967500,NYSE,1456525,screener: top US,2026-11-15
+BE,Bloom Energy Corporation,US,Industrials,Electrical Equipment & Parts,56763127721,NYSE,15905745,screener: top US,2026-11-15
+DAL,"Delta Air Lines, Inc.",US,Industrials,"Airlines, Airports & Air Services",56744910000,NYSE,6664081,screener: top US,2026-11-15
+NUE,Nucor Corporation,US,Basic Materials,Steel,56625197676,NYSE,1399381,screener: top US,2026-11-15
+OKE,"ONEOK, Inc.",US,Energy,Oil & Gas Midstream,56582887500,NYSE,3420260,screener: top US,2026-11-15
+DEO,Diageo plc,GB,Consumer Defensive,Beverages - Alcoholic,56524422025,NYSE,1047607,screener: top international,2026-11-15
+NKE,"NIKE, Inc.",US,Consumer Cyclical,Apparel - Footwear & Accessories,56426882376,NYSE,32837779,screener: top US,2026-11-15
+PCAR,PACCAR Inc,US,Industrials,Industrial - Machinery,56157023300,NASDAQ,3407289,screener: top US,2026-11-15
+O,Realty Income Corporation,US,Real Estate,REIT - Retail,55937643540,NYSE,7380785,screener: top US,2026-11-15
+AME,"AMETEK, Inc.",US,Industrials,Electrical Equipment & Parts,55520180496,NYSE,1494793,screener: top US,2026-11-15
+IDXX,"IDEXX Laboratories, Inc.",US,Healthcare,Medical - Diagnostics & Research,55483651401,NASDAQ,568557,screener: top US,2026-11-15
+ADSK,"Autodesk, Inc.",US,Technology,Software - Application,55263780000,NASDAQ,2053985,screener: top US,2026-11-15
+GRMN,Garmin Ltd.,CH,Technology,"Hardware, Equipment & Parts",54538550193,NYSE,873114,screener: top international,2026-11-15
+LITE,Lumentum Holdings Inc.,US,Technology,Communication Equipment,54104433391,NASDAQ,5173275,screener: top US,2026-11-15
+HUM,Humana Inc.,US,Healthcare,Medical - Healthcare Plans,54046350000,NYSE,1353839,screener: top US,2026-11-15
+ETR,Entergy Corporation,US,Utilities,Regulated Electric,53110471050,NYSE,2853037,screener: top US,2026-11-15
+DVN,Devon Energy Corporation,US,Energy,Oil & Gas Exploration & Production,53087691800,NYSE,11067398,screener: top US,2026-11-15
+EBAY,eBay Inc.,US,Consumer Cyclical,Specialty Retail,53083880000,NASDAQ,4413840,screener: top US,2026-11-15
+CVE,Cenovus Energy Inc.,CA,Energy,Oil & Gas Integrated,52556928965,NYSE,6958665,screener: top international,2026-11-15
+AZO,"AutoZone, Inc.",US,Consumer Cyclical,Specialty Retail,52462723358,NYSE,270682,screener: top US,2026-11-15
+XEL,Xcel Energy Inc.,US,Utilities,Regulated Electric,52383337140,NASDAQ,6351746,screener: top US,2026-11-15
+HONA,Honeywell Aerospace Inc,US,Industrials,Aerospace & Defense,52313422268,NASDAQ,3544709,screener: top US,2026-11-15
+CCEP,Coca-Cola Europacific Partners PLC,GB,Consumer Defensive,Beverages - Non-Alcoholic,52040965850,NASDAQ,1733060,screener: top international,2026-11-15
+SRE,Sempra,US,Utilities,Diversified Utilities,52011206000,NYSE,3977964,screener: top US,2026-11-15
+TEVA,Teva Pharmaceutical Industries Limited,IL,Healthcare,Drug Manufacturers - Specialty & Generic,51923791888,NYSE,6088964,screener: top international,2026-11-15
+FANG,"Diamondback Energy, Inc.",US,Energy,Oil & Gas Exploration & Production,51626538240,NASDAQ,2440195,screener: top US,2026-11-15
+LHX,"L3Harris Technologies, Inc.",US,Industrials,Aerospace & Defense,50711842350,NYSE,1724659,screener: top US,2026-11-15
+KEYS,"Keysight Technologies, Inc.",US,Technology,"Hardware, Equipment & Parts",50698961000,NYSE,1348784,screener: top US,2026-11-15
+WAB,Westinghouse Air Brake Technologies Corporation,US,Industrials,Railroads,49998398337,NYSE,904320,screener: top US,2026-11-15
+INFY,Infosys Limited,IN,Technology,Information Technology Services,49876384100,NYSE,18114632,screener: top international,2026-11-15
+FERG,Ferguson Enterprises Inc.,US,Industrials,Industrial - Distribution,49665056442,NYSE,1439603,screener: top US,2026-11-15
+KDP,Keurig Dr Pepper Inc.,US,Consumer Defensive,Beverages - Non-Alcoholic,49456863039,NASDAQ,14030323,screener: top US,2026-11-15
+FITB,Fifth Third Bancorp,US,Financial Services,Banks - Regional,49408228500,NYSE,6361779,screener: top US,2026-11-15
+PYPL,"PayPal Holdings, Inc.",US,Financial Services,Financial - Credit Services,49241423905,NASDAQ,11756204,screener: top US,2026-11-15
+BKR,Baker Hughes Company,US,Energy,Oil & Gas Equipment & Services,49097776320,NASDAQ,7982746,screener: top US,2026-11-15
+A,"Agilent Technologies, Inc.",US,Healthcare,Medical - Diagnostics & Research,49050772829,NYSE,2325304,screener: top US,2026-11-15
+VEEV,Veeva Systems Inc.,US,Technology,Software - Application,48820420770,NYSE,1590589,screener: top US,2026-11-15
+WCN,"Waste Connections, Inc.",CA,Industrials,Waste Management,48526638720,NYSE,1639103,screener: top international,2026-11-15
+VYLR,Vylor Inc.,US,Basic Materials,Agricultural Inputs,48398397840,NYSE,5109965,screener: top US,2026-11-15
+EXC,Exelon Corporation,US,Utilities,Regulated Electric,47863971728,NASDAQ,7828535,screener: top US,2026-11-15
+VALE,Vale S.A.,BR,Basic Materials,Industrial Materials,47749668860,NYSE,33016235,screener: top international,2026-11-15
+FNV,Franco-Nevada Corporation,CA,Basic Materials,Gold,47641758573,NYSE,721229,screener: top international,2026-11-15
+F,Ford Motor Company,US,Consumer Cyclical,Auto - Manufacturers,47599153422,NYSE,43874775,screener: top US,2026-11-15
+ROP,"Roper Technologies, Inc.",US,Technology,Software - Application,47534996090,NASDAQ,883210,screener: top US,2026-11-15
+HEI,HEICO Corporation,US,Industrials,Aerospace & Defense,47393765341,NYSE,478937,screener: top US,2026-11-15
+TRI,Thomson Reuters Corporation,CA,Industrials,Specialty Business Services,47377053945,NASDAQ,1651737,screener: top international,2026-11-15
+MT,ArcelorMittal S.A.,LU,Basic Materials,Steel,47346278217,NYSE,1386601,screener: top international,2026-11-15
+WDAY,"Workday, Inc.",US,Technology,Software - Application,47344449214,NASDAQ,2728981,screener: top US,2026-11-15
+STT,State Street Corporation,US,Financial Services,Asset Management,47191936558,NYSE,1887951,screener: top US,2026-11-15
+MSCI,MSCI Inc.,US,Financial Services,Financial - Data & Stock Exchanges,47059155000,NYSE,573289,screener: top US,2026-11-15
+VTR,"Ventas, Inc.",US,Real Estate,REIT - Healthcare Facilities,47022674400,NYSE,3606454,screener: top US,2026-11-15
+NTRA,"Natera, Inc.",US,Healthcare,Medical - Diagnostics & Research,46269492606,NASDAQ,1714631,screener: top US,2026-11-15
+XYZ,"Block, Inc.",US,Technology,Software - Infrastructure,46057700680,NYSE,4833654,screener: top US,2026-11-15
+WAT,Waters Corporation,US,Healthcare,Medical - Diagnostics & Research,45235947400,NYSE,830151,screener: top US,2026-11-15
+VST,Vistra Corp.,US,Utilities,Independent Power Producers,45142884259,NYSE,6108159,screener: top US,2026-11-15
+AMP,"Ameriprise Financial, Inc.",US,Financial Services,Asset Management,45093016875,NYSE,563312,screener: top US,2026-11-15
+MSTR,Strategy Inc,US,Technology,Software - Application,44950936680,NASDAQ,22657714,screener: top US,2026-11-15
+FMX,"Fomento Económico Mexicano, S.A.B. de C.V.",MX,Consumer Defensive,Beverages - Non-Alcoholic,44939230710,NYSE,561937,screener: top international,2026-11-15
+ED,"Consolidated Edison, Inc.",US,Utilities,Regulated Electric,44907184960,NYSE,2259920,screener: top US,2026-11-15
+SE,Sea Limited,SG,Consumer Cyclical,Specialty Retail,44830497879,NYSE,5638934,screener: top international,2026-11-15
+HMC,"Honda Motor Co., Ltd.",JP,Consumer Cyclical,Auto - Manufacturers,44829507605,NYSE,892745,screener: top international,2026-11-15
+CMG,"Chipotle Mexican Grill, Inc.",US,Consumer Cyclical,Restaurants,44628318000,NYSE,17989317,screener: top US,2026-11-15
+ONC,BeOne Medicines AG,CH,Healthcare,Biotechnology,44510827927,NASDAQ,402481,screener: top international,2026-11-15
+FER,Ferrovial N.V.,NL,Industrials,Engineering & Construction,44479408375,NASDAQ,2091768,screener: top international,2026-11-15
+CARR,Carrier Global Corporation,US,Industrials,Industrial - Machinery,44344283165,NYSE,6239918,screener: top US,2026-11-15
+ARES,Ares Management Corporation,US,Financial Services,Asset Management,44207937227,NYSE,2177109,screener: top US,2026-11-15
+ROK,"Rockwell Automation, Inc.",US,Industrials,Industrial - Machinery,44173607140,NYSE,835729,screener: top US,2026-11-15
+AIG,"American International Group, Inc.",US,Financial Services,Insurance - Diversified,43932887472,NYSE,4191520,screener: top US,2026-11-15
+IQV,IQVIA Holdings Inc.,US,Healthcare,Medical - Diagnostics & Research,43691776000,NYSE,1446068,screener: top US,2026-11-15
+AU,AngloGold Ashanti Plc,US,Basic Materials,Gold,43652624396,NYSE,2620940,screener: top US,2026-11-15
+NOK,Nokia Oyj,FI,Technology,Communication Equipment,43585198440,NYSE,76772751,screener: top international,2026-11-15
+YUM,"Yum! Brands, Inc.",US,Consumer Cyclical,Restaurants,43278224470,NYSE,2411959,screener: top US,2026-11-15
+ABEV,Ambev S.A.,BR,Consumer Defensive,Beverages - Alcoholic,43216102069,NYSE,26190837,screener: top international,2026-11-15
+COHR,"Coherent, Inc.",US,Technology,"Hardware, Equipment & Parts",42966533642,NYSE,7622693,screener: top US,2026-11-15
+TTWO,"Take-Two Interactive Software, Inc.",US,Technology,Electronic Gaming & Multimedia,42650865660,NASDAQ,2825059,screener: top US,2026-11-15
+PRU,"Prudential Financial, Inc.",US,Financial Services,Insurance - Life,42377650124,NYSE,1666734,screener: top US,2026-11-15
+LYV,"Live Nation Entertainment, Inc.",US,Communication Services,Entertainment,42048862495,NYSE,2132195,screener: top US,2026-11-15
+KR,The Kroger Co.,US,Consumer Defensive,Grocery Stores,41813701200,NYSE,6867351,screener: top US,2026-11-15
+STM,STMicroelectronics N.V.,CH,Technology,Semiconductors,41755533274,NYSE,9479465,screener: top international,2026-11-15
+PAYX,"Paychex, Inc.",US,Industrials,Staffing & Employment Services,41179766400,NASDAQ,2945406,screener: top US,2026-11-15
+EL,The Estée Lauder Companies Inc.,US,Consumer Defensive,Household & Personal Products,40490430358,NYSE,3545400,screener: top US,2026-11-15
+SLF,Sun Life Financial Inc.,CA,Financial Services,Insurance - Diversified,40466669100,NYSE,642946,screener: top international,2026-11-15
+HLN,Haleon plc,GB,Healthcare,Drug Manufacturers - Specialty & Generic,40248193023,NYSE,18602414,screener: top international,2026-11-15
+VIK,Viking Holdings Ltd,BM,Consumer Cyclical,Travel Services,40139366317,NYSE,4079503,screener: top international,2026-11-15
+WDS,Woodside Energy Group Ltd,AU,Energy,Oil & Gas Exploration & Production,39977401253,NYSE,592992,screener: top international,2026-11-15
+CIEN,Ciena Corporation,US,Technology,Communication Equipment,39782963604,NYSE,2866950,screener: top US,2026-11-15
+DHI,"D.R. Horton, Inc.",US,Consumer Cyclical,Residential Construction,39507509800,NYSE,2887001,screener: top US,2026-11-15
+CCL,Carnival Corporation & plc,US,Consumer Cyclical,Travel Services,39302954071,NYSE,21511053,screener: top US,2026-11-15
+TER,"Teradyne, Inc.",US,Technology,Semiconductors,38960993750,NASDAQ,3156306,screener: top US,2026-11-15
+FIX,"Comfort Systems USA, Inc.",US,Industrials,Engineering & Construction,38921818200,NYSE,495815,screener: top US,2026-11-15
+RKLB,"Rocket Lab USA, Inc.",US,Industrials,Aerospace & Defense,38888246900,NASDAQ,19619417,screener: top US,2026-11-15
+ALAB,"Astera Labs, Inc. Common Stock",US,Technology,Semiconductors,38771906588,NASDAQ,4276625,screener: top US,2026-11-15
+RKT,"Rocket Companies, Inc.",US,Financial Services,Financial - Mortgages,38717234463,NYSE,34325648,screener: top US,2026-11-15
+WEC,"WEC Energy Group, Inc.",US,Utilities,Regulated Electric,38689459200,NYSE,2761262,screener: top US,2026-11-15
+CHT,"Chunghwa Telecom Co., Ltd.",TW,Communication Services,Telecommunications Services,38686385945,NYSE,206993,screener: top international,2026-11-15
+CCI,Crown Castle Inc.,US,Real Estate,REIT - Specialty,38646456397,NYSE,4217929,screener: top US,2026-11-15
+UMC,United Microelectronics Corporation,TW,Technology,Semiconductors,38413111814,NYSE,12261973,screener: top international,2026-11-15
+CBRE,"CBRE Group, Inc.",US,Real Estate,Real Estate - Services,38364685332,NYSE,2127253,screener: top US,2026-11-15
+IX,ORIX Corporation,JP,Financial Services,Financial - Credit Services,38180229128,NYSE,323476,screener: top international,2026-11-15
+TEAM,Atlassian Corporation,AU,Technology,Software - Application,37968293862,NASDAQ,3326242,screener: top international,2026-11-15
+SYY,Sysco Corporation,US,Consumer Defensive,Food Distribution,37954075288,NYSE,3644562,screener: top US,2026-11-15
+PEG,Public Service Enterprise Group Incorporated,US,Utilities,Regulated Electric,37827318200,NYSE,3526323,screener: top US,2026-11-15
+BSBR,Banco Santander (Brasil) S.A.,BR,Financial Services,Banks - Regional,37813573512,NYSE,4005325,screener: top international,2026-11-15
+JD,"JD.com, Inc.",CN,Consumer Cyclical,Specialty Retail,37692455000,NASDAQ,7324345,screener: top international,2026-11-15
+GEHC,GE HealthCare Technologies Inc.,US,Healthcare,Medical - Devices,37536481816,NASDAQ,3652268,screener: top US,2026-11-15
+BIIB,Biogen Inc.,US,Healthcare,Drug Manufacturers - General,37457588000,NASDAQ,1075135,screener: top US,2026-11-15
+RVMD,"Revolution Medicines, Inc.",US,Healthcare,Biotechnology,37264948680,NASDAQ,2177218,screener: top US,2026-11-15
+HIG,"The Hartford Insurance Group, Inc.",US,Financial Services,Insurance - Diversified,36763993820,NYSE,1716701,screener: top US,2026-11-15
+KMB,Kimberly-Clark Corporation,US,Consumer Defensive,Household & Personal Products,36394119970,NASDAQ,5240204,screener: top US,2026-11-15
+VOD,Vodafone Group Public Limited Company,GB,Communication Services,Telecommunications Services,36193023778,NASDAQ,3451106,screener: top international,2026-11-15
+P,"Everpure, Inc.",US,Technology,Computer Hardware,35976853055,NYSE,4839132,screener: top US,2026-11-15
+ODFL,"Old Dominion Freight Line, Inc.",US,Industrials,Trucking,35962221600,NASDAQ,1860960,screener: top US,2026-11-15
+VMC,Vulcan Materials Company,US,Basic Materials,Construction Materials,35760606302,NYSE,1189581,screener: top US,2026-11-15
+ACGL,Arch Capital Group Ltd.,BM,Financial Services,Insurance - Diversified,35680832079,NASDAQ,2884064,screener: top international,2026-11-15
+NTAP,"NetApp, Inc.",US,Technology,Computer Hardware,35624514030,NASDAQ,2340668,screener: top US,2026-11-15
+ALC,Alcon Inc.,CH,Healthcare,Medical - Specialties,35607248000,NYSE,1826365,screener: top international,2026-11-15
+UAL,"United Airlines Holdings, Inc.",US,Industrials,"Airlines, Airports & Air Services",35514163140,NASDAQ,4486965,screener: top US,2026-11-15
+PCG,PG&E Corporation,US,Utilities,Regulated Electric,35509580214,NYSE,39701112,screener: top US,2026-11-15
+CNC,Centene Corp.,US,Healthcare,Medical - Healthcare Plans,35283496360,NYSE,4820667,screener: top US,2026-11-15
+ERIC,Telefonaktiebolaget LM Ericsson (publ),SE,Technology,Communication Equipment,35244591550,NASDAQ,9840167,screener: top international,2026-11-15
+HSY,The Hershey Company,US,Consumer Defensive,Food Confectioners,35024850823,NYSE,1553775,screener: top US,2026-11-15
+ADM,Archer-Daniels-Midland Company,US,Consumer Defensive,Agricultural Farm Products,34694509097,NYSE,3510290,screener: top US,2026-11-15
+MDLN,Medline Inc.,US,Healthcare,Medical - Instruments & Supplies,34680593369,NASDAQ,8832732,screener: top US,2026-11-15
+MTD,Mettler-Toledo International Inc.,US,Healthcare,Medical - Diagnostics & Research,34587624159,NYSE,200123,screener: top US,2026-11-15
+ZTS,Zoetis Inc.,US,Healthcare,Drug Manufacturers - Specialty & Generic,34057420531,NYSE,4533659,screener: top US,2026-11-15
+FISV,"Fiserv, Inc.",US,Technology,Information Technology Services,33934003518,NASDAQ,15606482,screener: top US,2026-11-15
+IRM,Iron Mountain Incorporated,US,Real Estate,REIT - Specialty,33878591338,NYSE,1565435,screener: top US,2026-11-15
+COIN,"Coinbase Global, Inc.",US,Financial Services,Financial - Data & Stock Exchanges,33795727256,NASDAQ,9355920,screener: top US,2026-11-15
+NTR,Nutrien Ltd.,CA,Basic Materials,Agricultural Inputs,33777092440,NYSE,2459029,screener: top international,2026-11-15
+RMD,ResMed Inc.,US,Healthcare,Medical - Instruments & Supplies,33691571210,NYSE,1314025,screener: top US,2026-11-15
+SUNB,Sunbelt Rentals Holdings Inc,US,Industrials,Rental & Leasing Services,33682674780,NYSE,5037854,screener: top US,2026-11-15
+MCHP,Microchip Technology Incorporated,US,Technology,Semiconductors,33567713313,NASDAQ,10865828,screener: top US,2026-11-15
+RBLX,Roblox Corporation,US,Technology,Electronic Gaming & Multimedia,33506080300,NYSE,10859660,screener: top US,2026-11-15
+EXR,Extra Space Storage Inc.,US,Real Estate,REIT - Industrial,33082120000,NYSE,1345721,screener: top US,2026-11-15
+EQT,EQT Corporation,US,Energy,Oil & Gas Exploration & Production,33035242690,NYSE,7923740,screener: top US,2026-11-15
+TS,Tenaris S.A.,LU,Energy,Oil & Gas Equipment & Services,32875314390,NYSE,1190020,screener: top international,2026-11-15
+VG,"Venture Global, Inc.",US,Energy,Oil & Gas Midstream,32856418180,NYSE,14709950,screener: top US,2026-11-15
+TWLO,Twilio Inc.,US,Technology,Software - Infrastructure,32681368140,NYSE,3007695,screener: top US,2026-11-15
+IR,Ingersoll Rand Inc.,US,Industrials,Industrial - Machinery,32664741200,NYSE,4361707,screener: top US,2026-11-15
+STLD,"Steel Dynamics, Inc.",US,Basic Materials,Steel,32628958042,NASDAQ,1051825,screener: top US,2026-11-15
+RJF,"Raymond James Financial, Inc.",US,Financial Services,Asset Management,32395744000,NYSE,1220332,screener: top US,2026-11-15
+NTRS,Northern Trust Corporation,US,Financial Services,Asset Management,32282472320,NASDAQ,1094656,screener: top US,2026-11-15
+SN,"SharkNinja, Inc.",US,Consumer Cyclical,"Furnishings, Fixtures & Appliances",31900954711,NYSE,1618076,screener: top US,2026-11-15
+HBAN,Huntington Bancshares Incorporated,US,Financial Services,Banks - Regional,31883469800,NASDAQ,24480101,screener: top US,2026-11-15
+GFI,Gold Fields Limited,ZA,Basic Materials,Gold,31833674120,NYSE,3828023,screener: top international,2026-11-15
+AEE,Ameren Corporation,US,Utilities,Regulated Electric,31784115842,NYSE,1765382,screener: top US,2026-11-15
+EC,Ecopetrol S.A.,CO,Energy,Oil & Gas Integrated,31721529961,NYSE,1606989,screener: top international,2026-11-15
+MTB,M&T Bank Corporation,US,Financial Services,Banks - Regional,31716221825,NYSE,987282,screener: top US,2026-11-15
+GMAB,Genmab A/S,DK,Healthcare,Biotechnology,31674415801,NASDAQ,4214614,screener: top international,2026-11-15
+ZS,"Zscaler, Inc.",US,Technology,Software - Infrastructure,31383137724,NASDAQ,2904442,screener: top US,2026-11-15
+NWG,NatWest Group plc,GB,Financial Services,Banks - Regional,31322875424,NYSE,3854057,screener: top international,2026-11-15
+ILMN,"Illumina, Inc.",US,Healthcare,Medical - Diagnostics & Research,31299912000,NASDAQ,2840585,screener: top US,2026-11-15
+PUK,Prudential plc,HK,Financial Services,Insurance - Life,31238471668,NYSE,1231273,screener: top international,2026-11-15
+DXCM,"DexCom, Inc.",US,Healthcare,Medical - Devices,31078006830,NASDAQ,4228675,screener: top US,2026-11-15
+WTW,Willis Towers Watson Public Limited Company,GB,Financial Services,Insurance - Brokers,30923791239,NASDAQ,526095,screener: top international,2026-11-15
+RPRX,Royalty Pharma plc,US,Healthcare,Medical - Pharmaceuticals,30861372945,NASDAQ,3169157,screener: top US,2026-11-15
+MLM,"Martin Marietta Materials, Inc.",US,Basic Materials,Construction Materials,30850395538,NYSE,833678,screener: top US,2026-11-15
+CCJ,Cameco Corporation,CA,Energy,Uranium,30805249090,NYSE,3376475,screener: top international,2026-11-15
+FTS,Fortis Inc.,CA,Utilities,Regulated Electric,30751995881,NYSE,906845,screener: top international,2026-11-15
+OKTA,"Okta, Inc.",US,Technology,Software - Infrastructure,30564847363,NASDAQ,4269873,screener: top US,2026-11-15
+CLS,Celestica Inc.,CA,Technology,"Hardware, Equipment & Parts",30309711935,NYSE,2709876,screener: top international,2026-11-15
+LH,Labcorp Holdings Inc.,US,Healthcare,Medical - Diagnostics & Research,30082976000,NYSE,742542,screener: top US,2026-11-15
+WSM,"Williams-Sonoma, Inc.",US,Consumer Cyclical,Specialty Retail,29921754950,NYSE,1117357,screener: top US,2026-11-15
+RYAAY,Ryanair Holdings plc,IE,Industrials,"Airlines, Airports & Air Services",29894631000,NASDAQ,1654231,screener: top international,2026-11-15
+ATO,Atmos Energy Corporation,US,Utilities,Regulated Gas,29792681894,NYSE,1021026,screener: top US,2026-11-15
+AWK,"American Water Works Company, Inc.",US,Utilities,Regulated Water,29786057286,NYSE,1991198,screener: top US,2026-11-15
+KHC,The Kraft Heinz Company,US,Consumer Defensive,Packaged Foods,29725971300,NYSE,16979518,screener: top US,2026-11-15
+TDY,Teledyne Technologies Incorporated,US,Technology,"Hardware, Equipment & Parts",29635022715,NYSE,310764,screener: top US,2026-11-15
+DG,Dollar General Corporation,US,Consumer Defensive,Discount Stores,29593536211,NYSE,2369015,screener: top US,2026-11-15
+CPAY,"Corpay, Inc.",US,Technology,Software - Infrastructure,29569057876,NYSE,484778,screener: top US,2026-11-15
+OTIS,Otis Worldwide Corporation,US,Industrials,Industrial - Machinery,29505064758,NYSE,4481034,screener: top US,2026-11-15
+CPRT,"Copart, Inc.",US,Industrials,Specialty Business Services,29486610403,NASDAQ,10861925,screener: top US,2026-11-15
+PHG,Koninklijke Philips N.V.,NL,Healthcare,Medical - Devices,29471603453,NYSE,1133685,screener: top international,2026-11-15
+BAP,Credicorp Ltd.,PE,Financial Services,Banks - Diversified,29291432496,NYSE,332820,screener: top international,2026-11-15
+PBA,Pembina Pipeline Corporation,CA,Energy,Oil & Gas Midstream,29258032050,NYSE,1024253,screener: top international,2026-11-15
+EXPE,"Expedia Group, Inc.",US,Consumer Cyclical,Travel Services,29163766470,NASDAQ,1984803,screener: top US,2026-11-15
+CRWV,"CoreWeave, Inc. Class A Common Stock",US,Technology,Software - Infrastructure,29161552571,NASDAQ,45195746,screener: top US,2026-11-15
+ZM,"Zoom Communications, Inc.",US,Technology,Software - Application,29120014258,NASDAQ,2966734,screener: top US,2026-11-15
+CINF,Cincinnati Financial Corporation,US,Financial Services,Insurance - Property & Casualty,29113171500,NASDAQ,623715,screener: top US,2026-11-15
+TECK,Teck Resources Limited,CA,Basic Materials,Copper,29095846000,NYSE,2798560,screener: top international,2026-11-15
+DTE,DTE Energy Company,US,Utilities,Regulated Electric,29084534360,NYSE,1543112,screener: top US,2026-11-15
+WST,"West Pharmaceutical Services, Inc.",US,Healthcare,Medical - Instruments & Supplies,29008249860,NYSE,605135,screener: top US,2026-11-15
+EME,"EMCOR Group, Inc.",US,Industrials,Engineering & Construction,28868102157,NYSE,417026,screener: top US,2026-11-15
+WRB,W. R. Berkley Corporation,US,Financial Services,Insurance - Property & Casualty,28770181693,NYSE,2558984,screener: top US,2026-11-15
+VLTO,Veralto Corporation,US,Industrials,Industrial - Pollution & Treatment Controls,28751521398,NYSE,1810662,screener: top US,2026-11-15
+ROIV,Roivant Sciences Ltd.,GB,Healthcare,Biotechnology,28641896330,NASDAQ,8121025,screener: top international,2026-11-15
+DGX,Quest Diagnostics Incorporated,US,Healthcare,Medical - Diagnostics & Research,28560951351,NYSE,1020485,screener: top US,2026-11-15
+TW,Tradeweb Markets Inc.,US,Financial Services,Financial - Capital Markets,28424175566,NASDAQ,1408735,screener: top US,2026-11-15
+NMR,"Nomura Holdings, Inc.",JP,Financial Services,Financial - Capital Markets,28352817109,NYSE,829729,screener: top international,2026-11-15
+TCOM,Trip.com Group Limited,SG,Consumer Cyclical,Travel Services,28308846184,NASDAQ,3221918,screener: top international,2026-11-15
+ULTA,"Ulta Beauty, Inc.",US,Consumer Cyclical,Specialty Retail,28248169950,NASDAQ,535845,screener: top US,2026-11-15
+CTSH,Cognizant Technology Solutions Corporation,US,Technology,Information Technology Services,28167387079,NASDAQ,6273225,screener: top US,2026-11-15
+VRSN,"VeriSign, Inc.",US,Technology,Software - Infrastructure,28077894000,NASDAQ,873120,screener: top US,2026-11-15
+HAL,Halliburton Company,US,Energy,Oil & Gas Equipment & Services,27940327833,NYSE,10364532,screener: top US,2026-11-15
+DOV,Dover Corporation,US,Industrials,Industrial - Machinery,27925029600,NYSE,1245890,screener: top US,2026-11-15
+NBIS,Nebius Group N.V.,NL,Technology,Software - Application,27811200000,NASDAQ,21217646,screener: top international,2026-11-15
+FLEX,Flex Ltd.,US,Technology,"Hardware, Equipment & Parts",27702171084,NASDAQ,4469915,screener: top US,2026-11-15
+ON,ON Semiconductor Corporation,US,Technology,Semiconductors,27662555788,NASDAQ,10506143,screener: top US,2026-11-15
+BBD,Banco Bradesco S.A.,BR,Financial Services,Banks - Regional,27600794374,NYSE,44545693,screener: top international,2026-11-15
+VICI,VICI Properties Inc.,US,Real Estate,REIT - Diversified,27538150456,NYSE,9912584,screener: top US,2026-11-15
+CFG,"Citizens Financial Group, Inc.",US,Financial Services,Banks - Regional,27356667593,NYSE,4063598,screener: top US,2026-11-15
+CNP,"CenterPoint Energy, Inc.",US,Utilities,Regulated Electric,27304010971,NYSE,7196432,screener: top US,2026-11-15
+FOX,Fox Corporation,US,Communication Services,Entertainment,27237782614,NASDAQ,1048879,screener: top US,2026-11-15
+CPNG,"Coupang, Inc.",US,Consumer Cyclical,Specialty Retail,27225000073,NYSE,15526562,screener: top US,2026-11-15
+FE,FirstEnergy Corp.,US,Utilities,Regulated Electric,27207971000,NYSE,4402157,screener: top US,2026-11-15
+AER,AerCap Holdings N.V.,IE,Industrials,Rental & Leasing Services,27131806700,NYSE,1175725,screener: top international,2026-11-15
+PPG,"PPG Industries, Inc.",US,Basic Materials,Chemicals - Specialty,27073504000,NYSE,1760970,screener: top US,2026-11-15
+ES,Eversource Energy,US,Utilities,Regulated Electric,27018880104,NYSE,2682587,screener: top US,2026-11-15
+JBS,Jbs N.V.,NL,Consumer Defensive,Packaged Foods,26972174918,NYSE,6278568,screener: top international,2026-11-15
+MDB,"MongoDB, Inc.",US,Technology,Software - Infrastructure,26880350003,NASDAQ,2138115,screener: top US,2026-11-15
+PPL,PPL Corporation,US,Utilities,Regulated Electric,26843280150,NYSE,7738890,screener: top US,2026-11-15
+CHD,"Church & Dwight Co., Inc.",US,Consumer Defensive,Household & Personal Products,26673982197,NYSE,1902650,screener: top US,2026-11-15
+VRSK,"Verisk Analytics, Inc.",US,Technology,Software - Services,26660483181,NASDAQ,1223281,screener: top US,2026-11-15
+BIDU,"Baidu, Inc.",CN,Communication Services,Internet Content & Information,26600697838,NASDAQ,2702295,screener: top international,2026-11-15
+INSM,Insmed Incorporated,US,Healthcare,Biotechnology,26580080800,NASDAQ,2778367,screener: top US,2026-11-15
+HPQ,HP Inc.,US,Technology,Computer Hardware,26476583760,NYSE,14328659,screener: top US,2026-11-15
+CASY,"Casey's General Stores, Inc.",US,Consumer Cyclical,Specialty Retail,26318619216,NASDAQ,539846,screener: top US,2026-11-15
+QSR,Restaurant Brands International Inc.,US,Consumer Cyclical,Restaurants,26269129303,NYSE,2953415,screener: top US,2026-11-15
+IHG,InterContinental Hotels Group PLC,GB,Consumer Cyclical,Travel Lodging,26223305520,NYSE,204882,screener: top international,2026-11-15
+JBL,Jabil Inc.,US,Technology,"Hardware, Equipment & Parts",26181258998,NYSE,1250310,screener: top US,2026-11-15
+FWONA,Formula One Group,US,Communication Services,Entertainment,26145693516,NASDAQ,214928,screener: top US,2026-11-15
+BSP,Bending Spoons S.p.A.,IT,Technology,Software - Application,26094809255,NASDAQ,2484451,screener: top international,2026-11-15
+TPR,"Tapestry, Inc.",US,Consumer Cyclical,Luxury Goods,26020815970,NYSE,3032250,screener: top US,2026-11-15
+DLTR,"Dollar Tree, Inc.",US,Consumer Defensive,Discount Stores,25907991686,NASDAQ,2437895,screener: top US,2026-11-15
+DRI,"Darden Restaurants, Inc.",US,Consumer Cyclical,Restaurants,25880381058,NYSE,1084121,screener: top US,2026-11-15
+FTI,TechnipFMC plc,GB,Energy,Oil & Gas Equipment & Services,25764097506,NYSE,2861235,screener: top international,2026-11-15
+AXON,"Axon Enterprise, Inc.",US,Industrials,Aerospace & Defense,25686316561,NASDAQ,1152979,screener: top US,2026-11-15
+STE,STERIS plc,US,Healthcare,Medical - Specialties,25667327526,NYSE,714565,screener: top US,2026-11-15
+KOF,"Coca-Cola FEMSA, S.A.B. de C.V.",MX,Consumer Defensive,Beverages - Non-Alcoholic,25342312290,NYSE,225435,screener: top international,2026-11-15
+LVS,Las Vegas Sands Corp.,US,Consumer Cyclical,"Gambling, Resorts & Casinos",25324132320,NYSE,5886403,screener: top US,2026-11-15
+UTHR,United Therapeutics Corporation,US,Healthcare,Biotechnology,25177177149,NASDAQ,703570,screener: top US,2026-11-15
+EXPD,"Expeditors International of Washington, Inc.",US,Industrials,Integrated Freight & Logistics,25150822800,NYSE,1101850,screener: top US,2026-11-15
+ATI,ATI Inc.,US,Industrials,Manufacturing - Metal Fabrication,24867833070,NYSE,1731240,screener: top US,2026-11-15
+Q,"Qnity Electronics, Inc.",US,Technology,Semiconductors,24742371498,NYSE,1831718,screener: top US,2026-11-15
+CRDO,Credo Technology Group Holding Ltd,KY,Technology,Semiconductors,24717556736,NASDAQ,8324075,screener: top international,2026-11-15
+INCY,Incyte Corporation,US,Healthcare,Biotechnology,24657557040,NASDAQ,1619704,screener: top US,2026-11-15
+STZ,"Constellation Brands, Inc.",US,Consumer Defensive,Beverages - Alcoholic,24640739257,NYSE,2345101,screener: top US,2026-11-15
+CBRS,Cerebras Systems Inc.,US,Technology,Semiconductors,24628620684,NASDAQ,9455171,screener: top US,2026-11-15
+RF,Regions Financial Corporation,US,Financial Services,Banks - Regional,24497735675,NYSE,9558062,screener: top US,2026-11-15
+KGC,Kinross Gold Corporation,CA,Basic Materials,Gold,24456110400,NYSE,8196068,screener: top international,2026-11-15
+GPN,Global Payments Inc.,US,Financial Services,Financial - Credit Services,24320030939,NYSE,2851392,screener: top US,2026-11-15
+IOT,Samsara Inc.,US,Technology,Software - Infrastructure,24220631444,NYSE,5305301,screener: top US,2026-11-15
+PFG,"Principal Financial Group, Inc.",US,Financial Services,Asset Management,24115347828,NASDAQ,1278587,screener: top US,2026-11-15
+VMRK,Vivmark Residential,US,Real Estate,REIT - Residential,24078903680,NYSE,5634639,screener: top US,2026-11-15
+OMC,Omnicom Group Inc.,US,Communication Services,Advertising Agencies,24005120235,NYSE,2764367,screener: top US,2026-11-15
+DOW,Dow Inc.,US,Basic Materials,Chemicals,23917058207,NYSE,8600270,screener: top US,2026-11-15
+VTRS,Viatris Inc.,US,Healthcare,Drug Manufacturers - Specialty & Generic,23869188082,NASDAQ,8745303,screener: top US,2026-11-15
+BRO,"Brown & Brown, Inc.",US,Financial Services,Insurance - Brokers,23858605560,NYSE,2288932,screener: top US,2026-11-15
+U,Unity Software Inc.,US,Technology,Software - Application,23438594122,NYSE,10991107,screener: top US,2026-11-15
+PHM,"PulteGroup, Inc.",US,Consumer Cyclical,Residential Construction,23380889870,NYSE,1813610,screener: top US,2026-11-15
+USFD,US Foods Holding Corp.,US,Consumer Defensive,Food Distribution,23283347400,NYSE,2257915,screener: top US,2026-11-15
+TROW,"T. Rowe Price Group, Inc.",US,Financial Services,Asset Management,23237593446,NASDAQ,1751287,screener: top US,2026-11-15
+KEY,KeyCorp,US,Financial Services,Banks - Regional,23163251100,NYSE,14728923,screener: top US,2026-11-15
+EIX,Edison International,US,Utilities,Regulated Electric,23156494960,NYSE,5170103,screener: top US,2026-11-15
+HUBB,Hubbell Incorporated,US,Industrials,Electrical Equipment & Parts,23087838300,NYSE,572239,screener: top US,2026-11-15
+RL,Ralph Lauren Corporation,US,Consumer Cyclical,Apparel - Manufacturers,22838222109,NYSE,607667,screener: top US,2026-11-15
+LPLA,LPL Financial Holdings Inc.,US,Financial Services,Financial - Capital Markets,22773396066,NASDAQ,893385,screener: top US,2026-11-15
+THC,Tenet Healthcare Corporation,US,Healthcare,Medical - Care Facilities,22764555640,NYSE,779551,screener: top US,2026-11-15
+GFS,GLOBALFOUNDRIES Inc.,US,Technology,Semiconductors,22756708117,NASDAQ,4792384,screener: top US,2026-11-15
+L,Loews Corporation,US,Financial Services,Insurance - Property & Casualty,22629003237,NYSE,816015,screener: top US,2026-11-15
+RBRK,"Rubrik, Inc.",US,Technology,Software - Infrastructure,22616440744,NYSE,3238129,screener: top US,2026-11-15
+ENTG,"Entegris, Inc.",US,Technology,Semiconductors,22524248000,NASDAQ,2647792,screener: top US,2026-11-15
+SYF,Synchrony Financial,US,Financial Services,Financial - Credit Services,22499011250,NYSE,3692428,screener: top US,2026-11-15
+XPO,"XPO Logistics, Inc.",US,Industrials,Trucking,22464100290,NYSE,1108010,screener: top US,2026-11-15
+PKG,Packaging Corporation of America,US,Consumer Cyclical,Packaging & Containers,22364551594,NYSE,640475,screener: top US,2026-11-15
+AMRZ,Amrize AG,CH,Basic Materials,Construction Materials,22363790237,NYSE,4088064,screener: top international,2026-11-15
+SW,Smurfit Westrock plc,IE,Consumer Cyclical,Packaging & Containers,22213717434,NYSE,4616732,screener: top international,2026-11-15
+ALNY,"Alnylam Pharmaceuticals, Inc.",US,Healthcare,Biotechnology,22105057543,NASDAQ,2046731,screener: top US,2026-11-15
+NI,NiSource Inc,US,Utilities,Regulated Gas,22078177232,NYSE,5602479,screener: top US,2026-11-15
+CMS,CMS Energy Corporation,US,Utilities,Regulated Electric,22072970995,NYSE,3845553,screener: top US,2026-11-15
+EFX,Equifax Inc.,US,Industrials,Consulting Services,22013270773,NYSE,1701656,screener: top US,2026-11-15
+LUV,Southwest Airlines Co.,US,Industrials,"Airlines, Airports & Air Services",22002713880,NYSE,5924482,screener: top US,2026-11-15
+BBY,"Best Buy Co., Inc.",US,Consumer Cyclical,Specialty Retail,21826392960,NYSE,3391154,screener: top US,2026-11-15
+RGLD,"Royal Gold, Inc.",US,Basic Materials,Gold,21801381388,NASDAQ,670168,screener: top US,2026-11-15
+RS,Reliance Steel & Aluminum Co.,US,Basic Materials,Steel,21769006400,NYSE,316100,screener: top US,2026-11-15
+BR,"Broadridge Financial Solutions, Inc.",US,Technology,Information Technology Services,21767249700,NYSE,1033010,screener: top US,2026-11-15
+JBHT,"J.B. Hunt Transport Services, Inc.",US,Industrials,Integrated Freight & Logistics,21705979883,NASDAQ,975212,screener: top US,2026-11-15
+XYL,Xylem Inc.,US,Industrials,Industrial - Machinery,21598770300,NYSE,2751932,screener: top US,2026-11-15
+CDW,CDW Corporation,US,Technology,Information Technology Services,21423520293,NASDAQ,1625000,screener: top US,2026-11-15
+PTC,PTC Inc.,US,Technology,Software - Application,21292068000,NASDAQ,2479487,screener: top US,2026-11-15
+BNTX,BioNTech SE,DE,Healthcare,Biotechnology,21222651780,NASDAQ,1238681,screener: top international,2026-11-15
+CIB,Grupo Cibest S.A.,CO,Financial Services,Banks - Regional,21139173368,NYSE,303532,screener: top international,2026-11-15
+SWKS,"Skyworks Solutions, Inc.",US,Technology,Semiconductors,21122824523,NASDAQ,6472193,screener: top US,2026-11-15
+SYM,Symbotic Inc.,US,Industrials,Industrial - Machinery,21084626942,NASDAQ,1625504,screener: top US,2026-11-15
+WIT,Wipro Limited,IN,Technology,Information Technology Services,20974955926,NYSE,9672051,screener: top international,2026-11-15
+LYB,LyondellBasell Industries N.V.,NL,Basic Materials,Chemicals - Specialty,20826482060,NYSE,3631031,screener: top international,2026-11-15
+EVRG,"Evergy, Inc.",US,Utilities,Regulated Electric,20817440015,NASDAQ,2288390,screener: top US,2026-11-15
+TSN,"Tyson Foods, Inc.",US,Consumer Defensive,Agricultural Farm Products,20692965348,NYSE,3523717,screener: top US,2026-11-15
+GH,"Guardant Health, Inc.",US,Healthcare,Medical - Diagnostics & Research,20522880891,NASDAQ,2015882,screener: top US,2026-11-15
+EXE,Expand Energy Corporation,US,Energy,Oil & Gas Exploration & Production,20446654018,NASDAQ,3150365,screener: top US,2026-11-15
+NRG,"NRG Energy, Inc.",US,Utilities,Independent Power Producers,20393066482,NYSE,3282385,screener: top US,2026-11-15
+DD,"DuPont de Nemours, Inc.",US,Basic Materials,Chemicals,20380824322,NYSE,1094662,screener: top US,2026-11-15
+IFF,International Flavors & Fragrances Inc.,US,Basic Materials,Chemicals - Specialty,20321757340,NYSE,1981948,screener: top US,2026-11-15
+AMCR,Amcor plc,CH,Consumer Cyclical,Packaging & Containers,20250754800,NYSE,3457553,screener: top international,2026-11-15
+FTV,Fortive Corporation,US,Technology,"Hardware, Equipment & Parts",20216011452,NYSE,2508409,screener: top US,2026-11-15
+TPL,Texas Pacific Land Corporation,US,Energy,Oil & Gas Exploration & Production,20134399715,NYSE,384406,screener: top US,2026-11-15
+FDXF,"FedEx Freight Holding Company, Inc.",US,Industrials,Integrated Freight & Logistics,20023237865,NYSE,1496296,screener: top US,2026-11-15
+SOFI,"SoFi Technologies, Inc.",US,Financial Services,Financial - Credit Services,20012692800,NASDAQ,48615959,screener: top US,2026-11-15
+BCE,BCE Inc.,CA,Communication Services,Telecommunications Services,19984028258,NYSE,4317104,screener: top international,2026-11-15
+LEN,Lennar Corporation,US,Consumer Cyclical,Residential Construction,19890839484,NYSE,4392401,screener: top US,2026-11-15
+SBAC,SBA Communications Corporation,US,Real Estate,REIT - Specialty,19773441800,NASDAQ,1020673,screener: top US,2026-11-15
+ZBH,"Zimmer Biomet Holdings, Inc.",US,Healthcare,Medical - Devices,19532905340,NYSE,2049140,screener: top US,2026-11-15
+BG,Bunge Global S.A.,US,Consumer Defensive,Agricultural Farm Products,19531415644,NYSE,1737873,screener: top US,2026-11-15
+WWD,"Woodward, Inc.",US,Industrials,Aerospace & Defense,19476854185,NASDAQ,675268,screener: top US,2026-11-15
+AFRM,"Affirm Holdings, Inc.",US,Financial Services,Financial - Credit Services,19434328920,NASDAQ,4650503,screener: top US,2026-11-15
+PR,Permian Resources Corporation,US,Energy,Oil & Gas Exploration & Production,19299491258,NYSE,9990429,screener: top US,2026-11-15
+LNT,Alliant Energy Corporation,US,Utilities,Regulated Electric,19044926106,NASDAQ,2688907,screener: top US,2026-11-15
+SNA,Snap-on Incorporated,US,Industrials,Manufacturing - Tools & Accessories,19013874108,NYSE,342973,screener: top US,2026-11-15
+RDDT,"Reddit, Inc.",US,Communication Services,Internet Content & Information,19010076832,NYSE,6144762,screener: top US,2026-11-15
+SNX,TD Synnex Corp,US,Technology,Technology Distributors,18953541063,NYSE,834262,screener: top US,2026-11-15
+TSCO,Tractor Supply Company,US,Consumer Cyclical,Specialty Retail,18902022300,NASDAQ,10978159,screener: top US,2026-11-15
+ITT,ITT Inc.,US,Industrials,Industrial - Machinery,18837256000,NYSE,811260,screener: top US,2026-11-15
+SSNC,"SS&C Technologies Holdings, Inc.",US,Technology,Software - Application,18667867310,NASDAQ,1704465,screener: top US,2026-11-15
+APG,APi Group Corporation,US,Industrials,Engineering & Construction,18659845260,NYSE,3285587,screener: top US,2026-11-15
+CHTR,"Charter Communications, Inc.",US,Communication Services,Telecommunications Services,18651856011,NASDAQ,3059276,screener: top US,2026-11-15
+ROL,"Rollins, Inc.",US,Industrials,Specialty Business Services,18586400759,NYSE,6763145,screener: top US,2026-11-15
+J,Jacobs Solutions Inc.,US,Industrials,Engineering & Construction,18519080970,NYSE,871279,screener: top US,2026-11-15
+TPG,TPG Inc.,US,Financial Services,Asset Management,18499758538,NASDAQ,2702240,screener: top US,2026-11-15
+FTAI,FTAI Aviation Ltd.,US,Industrials,Aerospace & Defense,18427612400,NASDAQ,1645975,screener: top US,2026-11-15
+FSLR,"First Solar, Inc.",US,Energy,Solar,18421168590,NASDAQ,2484665,screener: top US,2026-11-15
+BEN,"Franklin Resources, Inc.",US,Financial Services,Asset Management,18411856049,NYSE,3834248,screener: top US,2026-11-15
+GIS,"General Mills, Inc.",US,Consumer Defensive,Packaged Foods,18350457840,NYSE,9519929,screener: top US,2026-11-15
+CF,"CF Industries Holdings, Inc.",US,Basic Materials,Agricultural Inputs,18298790650,NYSE,2469134,screener: top US,2026-11-15
+MEDP,"Medpace Holdings, Inc.",US,Healthcare,Medical - Diagnostics & Research,18291804343,NASDAQ,256517,screener: top US,2026-11-15
+IP,International Paper Company,US,Basic Materials,"Paper, Lumber & Forest Products",18234215452,NYSE,5206707,screener: top US,2026-11-15
+NDSN,Nordson Corporation,US,Industrials,Industrial - Machinery,18087823156,NASDAQ,381245,screener: top US,2026-11-15
+GEN,Gen Digital Inc.,US,Technology,Software - Infrastructure,18035592832,NASDAQ,8575975,screener: top US,2026-11-15
+TOST,"Toast, Inc.",US,Technology,Software - Infrastructure,17998920000,NYSE,8820556,screener: top US,2026-11-15
+EWBC,"East West Bancorp, Inc.",US,Financial Services,Banks - Regional,17980624770,NASDAQ,829084,screener: top US,2026-11-15
+RGA,"Reinsurance Group of America, Incorporated",US,Financial Services,Insurance - Reinsurance,17898482737,NYSE,400387,screener: top US,2026-11-15
+PS,Pershing Square Inc.,US,Financial Services,Asset Management,17884000000,NYSE,460471,screener: top US,2026-11-15
+RIVN,"Rivian Automotive, Inc.",US,Consumer Cyclical,Auto - Manufacturers,17730378961,NASDAQ,26072206,screener: top US,2026-11-15
+MTSI,"MACOM Technology Solutions Holdings, Inc.",US,Technology,Semiconductors,17722631054,NASDAQ,1584423,screener: top US,2026-11-15
+SMCI,"Super Micro Computer, Inc.",US,Technology,Computer Hardware,17710133355,NASDAQ,40568825,screener: top US,2026-11-15
+OVV,Ovintiv Inc.,US,Energy,Oil & Gas Exploration & Production,17570820436,NYSE,3328514,screener: top US,2026-11-15
+ESS,"Essex Property Trust, Inc.",US,Real Estate,REIT - Residential,17564018503,NYSE,542651,screener: top US,2026-11-15
+FFIV,"F5, Inc.",US,Technology,Software - Infrastructure,17562552540,NASDAQ,719182,screener: top US,2026-11-15
+PFGC,Performance Food Group Co,US,Consumer Defensive,Food Distribution,17540906422,NYSE,1601175,screener: top US,2026-11-15
+H,Hyatt Hotels Corporation,US,Consumer Cyclical,Travel Lodging,17529319330,NYSE,772295,screener: top US,2026-11-15
+DINO,HF Sinclair Corporation,US,Energy,Oil & Gas Refining & Marketing,17510704822,NYSE,2505156,screener: top US,2026-11-15
+HST,"Host Hotels & Resorts, Inc.",US,Real Estate,REIT - Hotel & Motel,17471478000,NASDAQ,8518510,screener: top US,2026-11-15
+IEX,IDEX Corporation,US,Industrials,Industrial - Machinery,17454589102,NYSE,675548,screener: top US,2026-11-15
+WES,"Western Midstream Partners, LP",US,Energy,Oil & Gas Midstream,17450322830,NYSE,1165629,screener: top US,2026-11-15
+EXEL,"Exelixis, Inc.",US,Healthcare,Biotechnology,17343500727,NASDAQ,2410862,screener: top US,2026-11-15
+PAA,"Plains All American Pipeline, L.P.",US,Energy,Oil & Gas Midstream,17301980280,NASDAQ,2620629,screener: top US,2026-11-15
+RBA,"RB Global, Inc.",US,Industrials,Specialty Business Services,17250695000,NYSE,1980893,screener: top US,2026-11-15
+RVTY,"Revvity, Inc.",US,Healthcare,Medical - Diagnostics & Research,17235907693,NYSE,1923231,screener: top US,2026-11-15
+CW,Curtiss-Wright Corporation,US,Industrials,Aerospace & Defense,17122701938,NYSE,425507,screener: top US,2026-11-15
+BALL,Ball Corporation,US,Consumer Cyclical,Packaging & Containers,17041317240,NYSE,2154006,screener: top US,2026-11-15
+GPC,Genuine Parts Company,US,Consumer Cyclical,Auto - Parts,17004229878,NYSE,1001021,screener: top US,2026-11-15
+KIM,Kimco Realty Corporation,US,Real Estate,REIT - Retail,16977719500,NYSE,5679476,screener: top US,2026-11-15
+NBIX,"Neurocrine Biosciences, Inc.",US,Healthcare,Biotechnology,16944060600,NASDAQ,1309890,screener: top US,2026-11-15
+WMG,Warner Music Group Corp.,US,Communication Services,Entertainment,16896444828,NASDAQ,2054979,screener: top US,2026-11-15
+HAS,"Hasbro, Inc.",US,Consumer Cyclical,Leisure,16860484650,NASDAQ,1955700,screener: top US,2026-11-15
+TYL,"Tyler Technologies, Inc.",US,Technology,Software - Application,16860423747,NYSE,831570,screener: top US,2026-11-15
+SWK,"Stanley Black & Decker, Inc.",US,Industrials,Manufacturing - Tools & Accessories,16842821519,NYSE,1687542,screener: top US,2026-11-15
+JLL,Jones Lang LaSalle Incorporated,US,Real Estate,Real Estate - Services,16756545689,NYSE,437087,screener: top US,2026-11-15
+NTNX,"Nutanix, Inc.",US,Technology,Software - Infrastructure,16467558160,NASDAQ,2510782,screener: top US,2026-11-15
+LAMR,Lamar Advertising Company,US,Real Estate,REIT - Specialty,16431635151,NASDAQ,576335,screener: top US,2026-11-15
+TLN,Talen Energy Corporation,US,Utilities,Independent Power Producers,16358433117,NASDAQ,1037203,screener: top US,2026-11-15
+MAS,Masco Corporation,US,Basic Materials,Construction Materials,16323687642,NYSE,2199631,screener: top US,2026-11-15
+APA,APA Corporation,US,Energy,Oil & Gas Exploration & Production,16264020882,NASDAQ,5655218,screener: top US,2026-11-15
+ULS,UL Solutions Inc.,US,Industrials,Specialty Business Services,16224920499,NYSE,866545,screener: top US,2026-11-15
+CRL,"Charles River Laboratories International, Inc.",US,Healthcare,Medical - Diagnostics & Research,16194666322,NYSE,1053371,screener: top US,2026-11-15
+NWS,News Corporation,US,Communication Services,Publishing,16038218732,NASDAQ,1138917,screener: top US,2026-11-15
+LSCC,Lattice Semiconductor Corporation,US,Technology,Semiconductors,15979056384,NASDAQ,2044546,screener: top US,2026-11-15
+CRCL,Circle Internet Group,US,Financial Services,Financial - Capital Markets,15957603318,NYSE,12701359,screener: top US,2026-11-15
+PAAS,Pan American Silver Corp.,CA,Basic Materials,Gold,15462075000,NYSE,4317727,theme reference,2026-11-15
+SQM,Sociedad Química y Minera de Chile S.A.,CL,Basic Materials,Chemicals - Specialty,15313043423,NYSE,962995,theme reference,2026-11-15
+CHKP,Check Point Software Technologies Ltd.,IL,Technology,Software - Infrastructure,15027225180,NASDAQ,1224245,theme reference,2026-11-15
+CDE,"Coeur Mining, Inc.",US,Basic Materials,Gold,14462460509,NYSE,34990115,theme reference,2026-11-15
+AKAM,"Akamai Technologies, Inc.",US,Technology,Software - Infrastructure,12317156600,NASDAQ,4878638,Tier 2,2026-11-15
+HII,"Huntington Ingalls Industries, Inc.",US,Industrials,Aerospace & Defense,12067711814,NYSE,518263,theme reference,2026-11-15
+ALB,Albemarle Corporation,US,Basic Materials,Chemicals - Specialty,11037461177,NYSE,2369264,theme reference,2026-11-15
+ZION,"Zions Bancorporation, National Association",US,Financial Services,Banks - Regional,9615717640,NASDAQ,1544943,theme reference,2026-11-15
+HBM,Hudbay Minerals Inc.,CA,Basic Materials,Copper,9495944574,NYSE,4584675,Tier 2,2026-11-15
+BEP,Brookfield Renewable Partners L.P.,CA,Utilities,Renewable Utilities,9077404360,NYSE,1095998,Tier 2,2026-11-15
+S,"SentinelOne, Inc.",US,Technology,Software - Infrastructure,7596484800,NYSE,9278461,Tier 2,2026-11-15
+SSRM,SSR Mining Inc.,US,Basic Materials,Gold,5418163442,NASDAQ,2627332,theme reference,2026-11-15
+ENPH,"Enphase Energy, Inc.",US,Energy,Solar,3449425980,NASDAQ,5344710,Tier 2,2026-11-15
+RUN,Sunrun Inc.,US,Energy,Solar,2088120504,NASDAQ,9299300,theme reference,2026-11-15
+SEDG,"SolarEdge Technologies, Inc.",IL,Energy,Solar,1476658440,NASDAQ,3043258,theme reference,2026-11-15
+LAC,Lithium Americas Corp.,CA,Basic Materials,Industrial Materials,332685159,NYSE,9500338,Tier 2,2026-11-15

@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weekly Matchup</title>
+<meta name="description" content="Build your own ETF, stake testnet MON and race other players over real past prices. Testnet only, no real money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Same palette and type as the Theme Funds dashboard (demo/style.py). 8px spacing scale.
+     Type: Barlow Condensed for headings, labels and the big numbers (scoreboard feel), Inter for text and UI,
+     JetBrains Mono for addresses and hashes. Every digit is tabular so numbers don't jiggle while counting. */
+  :root {
+    --bg: #0B0A0B; --card: #171315; --raised: #211B1E; --line: #2E2529; --ink: #F5EEF1; --muted: #B8A9B0;
+    --rose: #C2456F; --rose-hover: #AD3A61; --rose-soft: #3A1A27; --blush: #F4A6BF; --blush-text: #F9C9D8;
+    --champagne: #E8C98F; --champagne-soft: #2E2516; --gain: #6FD6AE; --loss: #FF8A7A;
+    --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+    --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; --ease: cubic-bezier(.2, .8, .2, 1);
+    --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 40px; --s6: 48px;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+  .banner { border-bottom: 1px solid var(--line); color: var(--muted); text-align: center; padding: var(--s1) var(--s2);
+            font-size: 13px; letter-spacing: .02em; }
+  .banner b { color: var(--champagne); font-weight: 600; }
+  main { max-width: 1200px; margin: 0 auto; padding: var(--s4) var(--s2) var(--s6); }
+  header.top { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s3); flex-wrap: wrap;
+               padding-bottom: var(--s3); border-bottom: 1px solid var(--line); margin-bottom: var(--s3); }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(48px, 8vw, 80px); line-height: .9;
+       letter-spacing: .01em; text-transform: uppercase; margin: 0; }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 28px; line-height: 1; letter-spacing: .02em;
+       text-transform: uppercase; margin: 0 0 var(--s2); }
+  .sub { color: var(--muted); margin: var(--s2) 0 0; max-width: 640px; font-size: 17px; }
+  .grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s3); align-items: start; }
+  @media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 480px) { .ring { width: 72px; height: 72px; } .clockwrap { gap: var(--s2); } .winbig { font-size: 56px; } }
+  .col { display: flex; flex-direction: column; gap: var(--s3); min-width: 0; }
+  .row { display: flex; gap: var(--s1); flex-wrap: wrap; align-items: center; }
+  .btn { appearance: none; border: 0; border-radius: 12px; padding: 12px var(--s2); min-height: 48px; font: 600 16px var(--sans);
+         background: var(--rose); color: #fff; cursor: pointer; flex: 1 1 auto; transition: background .15s var(--ease), transform .15s var(--ease); }
+  .btn:hover:not(:disabled) { background: var(--rose-hover); }
+  .btn:active:not(:disabled) { transform: scale(.98); }
+  .btn.secondary { background: var(--raised); color: var(--ink); border: 1px solid var(--line); }
+  .btn.secondary:hover:not(:disabled) { background: #2A2226; }
+  .btn.small { min-height: 44px; padding: var(--s1) 12px; font-size: 15px; flex: 0 0 auto; }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: var(--s3); }
+  .status { font-size: 15px; color: var(--muted); }
+  .status strong { color: var(--ink); font-weight: 600; }
+  .label { font-family: var(--display); font-weight: 700; font-size: 15px; color: var(--muted); letter-spacing: .05em;
+           text-transform: uppercase; }
+  .label strong { color: var(--ink); font-weight: 700; }
+  .num, .board td, .pick input, .clock { font-variant-numeric: tabular-nums; }
+  .clock { font-family: var(--display); font-weight: 800; font-size: clamp(48px, 12vw, 80px); line-height: .95; letter-spacing: .01em;
+           text-transform: uppercase; margin: var(--s1) 0; }
+  #pot { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; vertical-align: -2px; }
+  .theme { display: flex; align-items: center; gap: var(--s1); padding: var(--s1) 0; border-bottom: 1px solid var(--line); }
+  .theme:last-child { border-bottom: 0; }
+  .theme .tn { flex: 1; font-size: 15px; font-weight: 600; min-width: 0; }
+  .seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; flex: 0 0 auto; background: var(--raised); }
+  .seg button { border: 0; background: transparent; color: var(--muted); padding: var(--s1) 12px; min-width: 60px; min-height: 40px;
+                font: 600 14px var(--sans); cursor: pointer; transition: background .15s var(--ease), color .15s var(--ease); }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button.on.want { background: var(--rose); color: #fff; }
+  .seg button.on.avoid { background: var(--champagne-soft); color: var(--champagne); }
+  .seg button.on.none { background: #2A2226; color: var(--ink); }
+  .pick { display: flex; gap: var(--s1); align-items: center; margin: var(--s1) 0; }
+  select, input { font-family: var(--sans); }
+  .pick select { flex: 1; min-width: 0; font-size: 15px; padding: 12px var(--s1); border-radius: 10px; border: 1px solid var(--line);
+                 background: var(--raised); color: var(--ink); }
+  .pick input { width: 72px; font-size: 17px; padding: 11px var(--s1); border-radius: 10px; border: 1px solid var(--line);
+                background: var(--raised); color: var(--ink); text-align: right; }
+  .pick span { color: var(--muted); }
+  .pick .x { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--raised); color: var(--muted);
+             font-size: 20px; cursor: pointer; }
+  input.name { width: 100%; font-size: 17px; padding: 12px var(--s2); border-radius: 12px; border: 1px solid var(--line);
+               background: var(--raised); color: var(--ink); }
+  input[type=checkbox] { accent-color: var(--rose); }
+  :focus-visible { outline: 2px solid var(--blush); outline-offset: 2px; }
+  .check { font-size: 14px; margin: var(--s2) 0; display: grid; gap: 4px; }
+  .check .ok { color: var(--gain); } .check .no { color: var(--muted); }
+  .entry { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .entry:last-child { border-bottom: 0; }
+  .entry { padding: var(--s2) 0; }
+  .entry .en { font: 800 22px/1.15 var(--display); letter-spacing: .02em; text-transform: uppercase; overflow-wrap: anywhere; }
+  .entry .en .you { font: 600 14px/1.35 var(--sans); text-transform: none; letter-spacing: 0; }
+  .entry .meta { font-size: 13px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+  /* One stock row (same layout as the dashboard's "Your N stocks" and League entry card):
+     TICKER | company (one line, ellipsis) / industry + theme chip | weight, then a full-width weight bar. */
+  .srows { display: flex; flex-direction: column; margin-top: var(--s1); }
+  .sr { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 4px 16px; align-items: start;
+        padding: 10px 0; border-top: 1px solid var(--line); line-height: 1.35; }
+  .sr:first-child { border-top: 0; }
+  .sr-tk { font: 700 20px/1.25 var(--display); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
+  .sr-main { min-width: 0; }
+  .sr-co { font: 500 15px/1.35 var(--sans); text-transform: none; letter-spacing: 0; color: var(--ink);
+           white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .sr-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 4px; min-width: 0; }
+  .sr-ind { font-size: 13px; line-height: 1.35; color: var(--muted); }
+  .sr-w { font: 600 15px/1.35 var(--sans); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+  .sr-bar { grid-column: 1 / -1; height: 6px; background: var(--raised); border-radius: 6px; overflow: hidden; margin-top: 6px; }
+  .sr-bar i { display: block; height: 100%; background: var(--rose); border-radius: 6px; }
+  .tchip { display: inline-block; font: 600 12px/1.35 var(--sans); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .tchip.hi { background: var(--rose-soft); color: var(--blush-text); }
+  .tchip.mod { background: #2C1A22; color: #E9A9BF; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--rose-soft);
+         color: var(--blush-text); margin: var(--s1) 4px 0 0; }
+  .you { color: var(--blush); font-weight: 600; }
+  .winner { border-color: var(--blush); }
+  .board { width: 100%; border-collapse: collapse; }
+  .board td { padding: 12px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .board td:last-child { text-align: right; font-family: var(--display); font-weight: 800; font-size: 26px; white-space: nowrap; }
+  .bar { height: 6px; background: var(--raised); border-radius: 6px; overflow: hidden; margin-top: 6px; }
+  .bar i { display: block; height: 100%; background: var(--rose); border-radius: 6px; }
+  .up, .status .up { color: var(--gain); } .down, .status .down { color: var(--loss); }
+  .winbanner { font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; letter-spacing: .02em;
+               text-transform: uppercase; text-align: center; color: var(--blush); margin-top: var(--s1); }
+  .msg { padding: 12px var(--s2); border-radius: 12px; font-size: 15px; border: 1px solid var(--line); }
+  .msg.err { background: #2B1513; border-color: #7A3530; color: #FFB8AC; }
+  .msg.ok { background: #13261E; border-color: #2B5A46; color: #A6EBCF; }
+  /* ?embed=1 (inside the dashboard's League tab): the dashboard shows the title, so hide this page's own. */
+  html.embed header.top > div:first-child { display: none; }
+  html.embed header.top { justify-content: flex-end; padding-bottom: var(--s2); margin-bottom: var(--s2); }
+  html.embed main { padding-top: var(--s2); }
+  .small { font-size: 13px; color: var(--muted); word-break: break-all; }
+  .mono { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .hidden { display: none !important; }
+  #race { display: none !important; }  /* weekly page: the live graph below replaces the replay chart */
+  #wchart { width: 100%; height: auto; display: block; overflow: visible; }
+  #wchart .ln { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  #wchart text { font: 600 12px var(--sans); }
+  #wchart .axis { stroke: var(--line); stroke-width: 1; }
+  #wchart .ax { fill: var(--muted); font: 500 11px var(--sans); }
+  .wb { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0;
+        border-bottom: 1px solid var(--line); }
+  .wb:last-child { border-bottom: 0; }
+  .wb .rk { font-family: var(--serif); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .wb .nm { font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wb .ow { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+  .wb .rt { font-family: var(--serif); font-size: 22px; font-variant-numeric: tabular-nums; text-align: right; }
+  .back { color: var(--blush); font-size: 14px; text-decoration: none; }
+  #msg:empty { display: none; }
+  /* ── motion and premium details (all motion: transform/opacity, 150-400ms, off under reduced motion) ── */
+  .live { display: inline-flex; align-items: center; gap: var(--s1); padding: 6px 12px; border: 1px solid var(--line);
+          border-radius: 999px; font: 700 14px/1 var(--display); letter-spacing: .05em; text-transform: uppercase;
+          color: var(--muted); background: var(--card); white-space: nowrap; }
+  .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--gain); animation: pulse 1.6s ease-in-out infinite; }
+  .live b { color: var(--ink); font: 600 13px/1 var(--sans); letter-spacing: 0; font-variant-numeric: tabular-nums;
+            min-width: 9ch; display: inline-block; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.8); } }
+  .clockwrap { display: flex; align-items: center; gap: var(--s3); }
+  .ring { width: 96px; height: 96px; flex: none; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 6; }
+  .ring .track { stroke: var(--raised); }
+  .ring .fg { stroke: var(--rose); stroke-linecap: round; transition: stroke-dashoffset .4s var(--ease); }
+  .ring.off { display: none; }
+  .skel { display: inline-block; height: 1em; width: 100%; border-radius: 6px; vertical-align: middle;
+          background: linear-gradient(90deg, var(--raised) 0%, #2A2226 50%, var(--raised) 100%); background-size: 200% 100%;
+          animation: shimmer 1.2s linear infinite; }
+  @keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+  .empty { text-align: center; padding: var(--s4) var(--s2); color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
+  .empty b { display: block; font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: .02em;
+             text-transform: uppercase; color: var(--ink); margin-bottom: 4px; }
+  .entry.new { animation: slidein .35s var(--ease) both, glow 1.2s ease-out .1s; border-radius: 10px; }
+  @keyframes slidein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes glow { 0% { background: rgba(244, 166, 191, .14); } 100% { background: transparent; } }
+  .racegrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+  #chart { width: 100%; height: auto; display: block; overflow: visible; }
+  #chart .ln { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke-dashoffset .4s var(--ease); }
+  #chart .ln.me { stroke-width: 3.5; }
+  #chart .dot { transition: transform .4s var(--ease); }
+  #chart text { font: 600 12px var(--sans); }
+  #chart .axis { stroke: var(--line); stroke-width: 1; }
+  #chart .ax { fill: var(--muted); font: 500 11px var(--sans); }
+  .lb { position: relative; }
+  .lbr { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0;
+         border-bottom: 1px solid var(--line); background: var(--card); will-change: transform; }
+  .lbr:last-child { border-bottom: 0; }
+  .lbr .rk { font-family: var(--display); font-weight: 700; font-size: 22px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .lbr .nm { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lbr .rt { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums;
+             text-align: right; }
+  .lbr .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; vertical-align: 0; }
+  .winner.reveal { animation: reveal 1.4s var(--ease) both; }
+  @keyframes reveal { 0% { opacity: 0; transform: translateY(8px); box-shadow: 0 0 0 0 rgba(244, 166, 191, 0); }
+                      40% { opacity: 1; transform: none; box-shadow: 0 0 48px 4px rgba(244, 166, 191, .28); }
+                      100% { box-shadow: 0 0 32px 0 rgba(244, 166, 191, .14); } }
+  .winbig { font-family: var(--display); font-weight: 800; font-size: 72px; line-height: 1; text-align: center; color: var(--ink);
+            font-variant-numeric: tabular-nums; margin-top: var(--s1); }
+  #toasts { position: fixed; right: var(--s2); bottom: var(--s2); display: flex; flex-direction: column; gap: var(--s1); z-index: 50;
+            max-width: min(360px, calc(100vw - 32px)); }
+  .toast { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px var(--s2); font-size: 14px;
+           animation: slidein .25s var(--ease) both; display: flex; gap: 10px; align-items: center; }
+  .toast.ok { border-color: #2B5A46; } .toast.err { border-color: #7A3530; color: #FFB8AC; }
+  .toast a { color: var(--blush); margin-left: auto; white-space: nowrap; }
+  .toast .spin { width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--blush); border-radius: 50%;
+                 animation: spin .8s linear infinite; flex: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  details.proof summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  details.proof summary::-webkit-details-marker { display: none; }
+  details.proof summary h2 { margin: 0; }
+  details.proof summary > span { color: var(--muted); font-size: 14px; transition: transform .2s var(--ease); }
+  details.proof[open] summary > span { transform: rotate(180deg); }
+  .pf { padding: 12px 0; border-top: 1px solid var(--line); }
+  .pf:first-of-type { margin-top: var(--s2); }
+  .pf .k { font-weight: 600; font-size: 14px; }
+  .pf .v { display: flex; gap: var(--s1); align-items: center; margin: 4px 0; flex-wrap: wrap; }
+  .pf .v a { color: var(--blush); font-size: 13px; }
+  .pf p { margin: 0; font-size: 13px; color: var(--muted); }
+  .copy { background: var(--raised); border: 1px solid var(--line); color: var(--muted); border-radius: 8px; font: 600 12px var(--sans);
+          padding: 2px 8px; cursor: pointer; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="banner"><b>Testnet only.</b> Stakes are Monad testnet MON, with no real money involved.</div>
+<main>
+  <header class="top">
+    <div>
+      <h1>This week's matchup</h1>
+      <p class="sub">Enter your fund once. Locks Mon 6:30 AM PT, live prices all week, best fund Friday wins the pot. Testnet MON only.</p>
+      <p style="margin:8px 0 0"><a class="back" href="./">← Back to the League</a></p>
+    </div>
+    <div class="live" title="Monad testnet's latest block, read live"><i></i>Live on Monad · block <b id="block">…</b></div>
+  </header>
+
+  <div class="grid">
+    <div class="col">
+      <div class="card">
+        <div class="clockwrap">
+          <svg class="ring off" id="ring" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="track" cx="50" cy="50" r="44"></circle>
+            <circle class="fg" id="ringfg" cx="50" cy="50" r="44" stroke-dasharray="276.46" stroke-dashoffset="0"></circle>
+          </svg>
+          <div style="min-width:0;flex:1">
+            <div class="label" id="phase"><span class="skel" style="width:180px"></span></div>
+            <div class="clock" id="clock"><span class="skel" style="width:140px;height:56px"></span></div>
+            <div class="status" id="potline"><span class="skel" style="width:220px"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="winbox" class="card winner hidden">
+        <div class="label" style="text-align:center">Winner</div>
+        <div class="winbanner" id="winbanner"></div>
+        <div class="winbig" id="winpot"></div>
+        <p class="status" id="winline" style="text-align:center"></p>
+        <button id="claim" class="btn hidden">Claim</button>
+      </div>
+
+      <div class="card" id="weekly">
+        <h2>Live graph</h2>
+        <div class="status" id="wnote" style="margin-bottom:16px"></div>
+        <div class="racegrid">
+          <svg id="wchart" viewBox="0 0 640 300" role="img" aria-label="Each fund's return this week"></svg>
+          <div id="wboard"></div>
+        </div>
+      </div>
+
+      <div id="race" class="card hidden">
+        <h2>The race</h2>
+        <div class="status" id="raceday" style="margin-bottom:16px"></div>
+        <div class="racegrid">
+          <svg id="chart" viewBox="0 0 640 300" role="img" aria-label="Each entry's return, day by day"></svg>
+          <div class="lb" id="board"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 id="entrieshead">Entries</h2>
+        <div id="entries"><div class="entry"><span class="skel" style="width:60%"></span></div>
+          <div class="entry"><span class="skel" style="width:45%"></span></div></div>
+      </div>
+
+      <details class="card proof" id="proof">
+        <summary><h2>Proof</h2><span>▾</span></summary>
+        <div id="proofbody"><p class="status">Loading…</p></div>
+      </details>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="row">
+          <button id="connect" class="btn">Connect MetaMask</button>
+          <button id="addnet" class="btn secondary">Add Monad Testnet</button>
+        </div>
+        <a id="openmm" class="btn secondary hidden" style="display:block;text-align:center;text-decoration:none;margin-top:8px">Open in MetaMask app</a>
+        <p id="wallet" class="status" style="margin:16px 0 0">Read-only mode: connect MetaMask to enter.</p>
+      </div>
+
+      <div id="msg"></div>
+
+      <div id="build" class="card hidden">
+        <h2>Build your fund</h2>
+        <p class="status">Choose what you want and what to avoid, and we suggest stocks from the pool.</p>
+        <div id="themes"></div>
+        <label class="theme" style="border:0"><span class="tn">Well-known names only (reference or ≥ $20B)</span>
+          <input id="wellknown" type="checkbox" checked style="width:24px;height:24px"></label>
+        <p class="status" style="margin-top:16px">Adjust it: 3 to 8 stocks, each at least 5%, adding up to 100%.</p>
+        <div id="picks"></div>
+        <div class="row">
+          <button id="addpick" class="btn secondary small">+ Add stock</button>
+          <button id="equal" class="btn secondary small">Equal weights</button>
+        </div>
+        <div class="check" id="check"></div>
+        <input id="etfname" class="name" maxlength="32" placeholder="Name your fund, e.g. AI Rocket">
+        <button id="enter" class="btn" style="width:100%;margin-top:16px">Enter</button>
+      </div>
+
+      <p class="small">Network: <span id="netname"></span> · League contract: <span id="addr" class="mono"></span></p>
+    </div>
+  </div>
+</main>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+<script>
+"use strict";
+const params = new URLSearchParams(location.search);
+if (params.get("embed") === "1") document.documentElement.classList.add("embed");
+const NETWORK = params.get("network") || "monad-testnet";
+const GAS_HEADROOM_PCT = 115n; // gas limit = estimate x 1.15 (Monad charges the limit)
+const MONAD = { chainId: "0x279f", chainName: "Monad Testnet", nativeCurrency: { name: "MON", symbol: "MON", decimals: 18 },
+                rpcUrls: ["https://testnet-rpc.monad.xyz"], blockExplorerUrls: ["https://testnet.monadexplorer.com"] };
+const LEAGUE_ABI = [
+  "function roundCount() view returns (uint256)",
+  "function getRound(uint256) view returns (tuple(bytes32[] used,uint256 entryStake,uint256 deadline,uint256 roundDuration,uint256 startedAt,uint256 targetBlock,uint256 windowCount,uint256 windowIndex,bytes32 dataHash,bytes32 seed,uint8 phase,uint256 entryCount,uint256 winnerCount,int256 bestScore,uint256 pot,bytes32 poolRoot,uint256 poolSize))",
+  "function getEntry(uint256,uint256) view returns (address owner, string name, bytes32[] tickers, uint16[] weightsBps, int256 score)",
+  "function liveScores(uint256) view returns (int256[])",
+  "function entryOf(uint256,address) view returns (uint256)",
+  "function claimable(uint256,address) view returns (uint256)",
+  "function claimed(uint256,address) view returns (bool)",
+  "function oracle() view returns (address)",
+  "function enter(uint256 roundId, string name, bytes32[] tickers, uint16[] weightsBps, bytes32[][] proofs) payable",
+  "function claim(uint256 roundId)",
+];
+const ORACLE_ABI = ["function priceOf(bytes32) view returns (uint256 price, uint256 timestamp)"];
+const PHASES = ["None", "Open", "Locked", "Started", "Settled", "Cancelled"];
+const $ = (id) => document.getElementById(id);
+
+let dep, cfg, readProvider, league, oracle, pool, presets, replay = null;
+let roundId = 0, round = null, entries = [], scores = null, me = null, signer = null, myIndex = 0;
+let ringTotal = 0, lastPot = null, knownEntries = null, prevScores = {}, chartKey = "", prevLen = {}, revealed = 0;
+const prefs = {};      // theme key -> "want" | "avoid"
+let picks = [];        // [{ticker, pct}]
+
+function msg(text, kind = "err") { $("msg").innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : ""; }
+function mon(wei, dp = 2) { return Number(ethers.formatEther(wei)).toLocaleString(undefined, { maximumFractionDigits: dp }); }
+function pctTxt(x) { return (x >= 0 ? "+" : "") + (100 * x).toFixed(2) + "%"; }
+function esc(s) { return String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function short(a) { return a.slice(0, 6) + "…" + a.slice(-4); }
+function dec32(b) { return ethers.decodeBytes32String(b); }
+// Merkle proof that a ticker is in the round's pool. Same tree as chain/league.py and FundLeague._inPool:
+// leaf = keccak256(32-byte ticker), each pair hashed in sorted order, an odd node at the end of a level moves up.
+let merkleLevels = null;
+function merkleUp(level) {
+  const out = [];
+  for (let i = 0; i < level.length; i += 2) {
+    if (i + 1 === level.length) { out.push(level[i]); continue; }
+    const [a, b] = level[i] < level[i + 1] ? [level[i], level[i + 1]] : [level[i + 1], level[i]];
+    out.push(ethers.keccak256(ethers.concat([a, b])));
+  }
+  return out;
+}
+function merkleProof(ticker) {
+  const list = cfg.pool || [];
+  if (!merkleLevels) {
+    merkleLevels = [list.map((t) => ethers.keccak256(ethers.encodeBytes32String(t)))];
+    while (merkleLevels[merkleLevels.length - 1].length > 1) merkleLevels.push(merkleUp(merkleLevels[merkleLevels.length - 1]));
+  }
+  let idx = list.indexOf(ticker);
+  if (idx < 0) throw new Error(ticker + " is not in this round's pool");
+  const proof = [];
+  for (const level of merkleLevels.slice(0, -1)) {
+    if ((idx ^ 1) < level.length) proof.push(level[idx ^ 1]);
+    idx = Math.floor(idx / 2);
+  }
+  return proof;
+}
+const byTicker = () => Object.fromEntries(pool.stocks.map((s) => [s.ticker, s]));
+
+// ───────────── builder (same rules as the engine's Way 2 builder, applied to the pool) ─────────────
+
+// Mirrors engine/builder.py on the pool, using each stock's FINAL rating (business link + revenue + regression):
+// want = rated High/Moderate; avoid = only "Not exposed" passes; several wants are combined (slots split);
+// well-known names only (reference or market cap >= $20B, lowered $20B -> $10B -> $2B per theme if needed);
+// ranking = references first, then 50% t-stat percentile + 50% market-cap percentile, High before Moderate;
+// picks alternate across wanted themes, at most 3 per industry (a theme's own industries don't count);
+// leftover slots go to the other wanted themes.
+let wellKnown = true;
+function pctRank(values) { // pandas rank(pct=True) with average ties
+  const idx = values.map((v, i) => [v, i]).sort((a, b) => a[0] - b[0]), out = new Array(values.length);
+  for (let i = 0; i < idx.length;) {
+    let j = i; while (j + 1 < idx.length && idx[j + 1][0] === idx[i][0]) j++;
+    const r = (i + j + 2) / 2 / values.length; for (let k = i; k <= j; k++) out[idx[k][1]] = r; i = j + 1;
+  }
+  return out;
+}
+function suggest(n = pool.rules.default_picks) {
+  const key = Object.keys(prefs).sort().map((k) => `${k}:${prefs[k]}`).join(",");
+  if (!key) return { picks: [], notes: [] };
+  const pre = wellKnown && presets.find((p) => p.key === key);
+  if (pre && (n === pool.rules.default_picks || n === 8)) {
+    const t = n === 8 ? pre.ranked : pre.picks, f = n === 8 ? pre.ranked_for : pre.picked_for;
+    return { picks: t.map((x, i) => ({ ticker: x, theme: f[i] })), notes: [] };
+  }
+  const R = pool.rules, floors = wellKnown ? R.well_known_floors : [0], notes = [];
+  const want = pool.themes.map((t) => t.key).filter((k) => prefs[k] === "want");
+  const avoid = pool.themes.map((t) => t.key).filter((k) => prefs[k] === "avoid");
+  const name = Object.fromEntries(pool.themes.map((t) => [t.key, t.name]));
+  const all = [...pool.stocks].sort((a, b) => (a.ticker < b.ticker ? -1 : 1));
+  const base = all.filter((s) => avoid.every((k) => s.themes[k].rating === "Not exposed"));
+  const rank = (cands, k) => {
+    const t = pctRank(cands.map((s) => s.themes[k].t ?? -99)), m = pctRank(cands.map((s) => s.market_cap || 0));
+    return cands.map((s, i) => ({ s, sc: 0.5 * t[i] + 0.5 * m[i] })).sort((a, b) =>
+      (b.s.themes[k].ref - a.s.themes[k].ref) || (b.sc - a.sc) ||
+      ((a.s.themes[k].rating !== "High") - (b.s.themes[k].rating !== "High")) || (a.s.ticker < b.s.ticker ? -1 : 1)).map((x) => x.s.ticker);
+  };
+  const lists = {}, slots = {};
+  if (want.length) {
+    const baseN = Math.floor(n / want.length), extra = n % want.length;
+    want.forEach((k, i) => {
+      slots[k] = baseN + (i < extra ? 1 : 0);
+      const fit = base.filter((s) => ["High", "Moderate"].includes(s.themes[k].rating));
+      let chosen = fit, used = floors[0];
+      for (const f of floors) {
+        used = f;
+        chosen = wellKnown ? fit.filter((s) => s.themes[k].ref || (s.market_cap || 0) >= f) : fit;
+        if (chosen.length >= slots[k]) break;
+      }
+      if (wellKnown && used < floors[0]) notes.push(`${name[k]}: floor lowered to $${used / 1e9}B to find enough stocks.`);
+      lists[k] = rank(chosen, k);
+    });
+  } else {
+    let chosen = base;
+    for (const f of floors) { chosen = wellKnown ? base.filter((s) => (s.market_cap || 0) >= f) : base; if (chosen.length >= n) break; }
+    lists._cap = [...chosen].sort((a, b) => (b.market_cap - a.market_cap) || (a.ticker < b.ticker ? -1 : 1)).map((s) => s.ticker);
+    slots._cap = n;
+  }
+  const ind = Object.fromEntries(pool.stocks.map((s) => [s.ticker, s.industry]));
+  const order = Object.keys(lists);
+  const pos = Object.fromEntries(order.map((k) => [k, 0])), taken = Object.fromEntries(order.map((k) => [k, 0]));
+  const pickedFor = new Map(), perInd = {};
+  const own = Object.fromEntries(pool.themes.map((t) => [t.key, new Set(t.industries || [])]));
+  const counts = (x, k) => !(own[k] && own[k].has(ind[x]));  // a theme's own industries don't count
+  const next = (k) => {
+    while (pos[k] < lists[k].length) {
+      const x = lists[k][pos[k]++];
+      if (pickedFor.has(x)) continue;
+      if (counts(x, k) && (perInd[ind[x]] || 0) >= R.max_per_industry) continue;
+      return x;
+    }
+    return null;
+  };
+  const take = (k, x) => { pickedFor.set(x, k); taken[k]++; if (counts(x, k)) perInd[ind[x]] = (perInd[ind[x]] || 0) + 1; };
+  let progress = true;
+  while (progress && pickedFor.size < n) {
+    progress = false;
+    for (const k of order) {
+      if (taken[k] >= slots[k] || pickedFor.size >= n) continue;
+      const x = next(k); if (x) { take(k, x); progress = true; }
+    }
+  }
+  if (want.length && order.some((k) => taken[k] < slots[k])) {
+    order.filter((k) => taken[k] < slots[k]).forEach((k) =>
+      notes.push(`${name[k]}: only ${taken[k]} of ${slots[k]} slots filled; the rest went to your other theme(s).`));
+    progress = true;
+    while (progress && pickedFor.size < n) {
+      progress = false;
+      for (const k of order) { if (pickedFor.size >= n) break; const x = next(k); if (x) { take(k, x); progress = true; } }
+    }
+  }
+  const picks = [...pickedFor.keys()].sort((a, b) =>
+    (order.indexOf(pickedFor.get(a)) - order.indexOf(pickedFor.get(b))) ||
+    (lists[pickedFor.get(a)].indexOf(a) - lists[pickedFor.get(b)].indexOf(b)));
+  return { picks: picks.map((x) => ({ ticker: x, theme: pickedFor.get(x) === "_cap" ? null : name[pickedFor.get(x)] })), notes };
+}
+
+function equalPcts(n) { const base = Math.floor(100 / n); return Array.from({ length: n }, (_, i) => base + (i < 100 - base * n ? 1 : 0)); }
+
+function applySuggestion() {
+  const { picks: sug, notes } = suggest();
+  if (Object.keys(prefs).length && sug.length < 3) {
+    const tip = Object.values(prefs).includes("avoid") ? " Try switching an Avoid to —." :
+      (wellKnown ? ' Try turning off "Well-known names only".' : "");
+    msg(`Only ${sug.length} pool stock(s) fit those choices.${tip} You can also add stocks yourself below.`);
+  } else { msg(notes.length ? notes.map(esc).join("<br>") : "", "ok"); }
+  const p = equalPcts(Math.max(sug.length, 1));
+  picks = sug.map((x, i) => ({ ticker: x.ticker, pct: p[i], theme: x.theme }));
+  renderPicks();
+}
+
+function renderThemes() {
+  $("themes").innerHTML = pool.themes.map((t) => {
+    const v = prefs[t.key] || "none";
+    const b = (val, label) => `<button class="${val}${v === val ? " on" : ""}" onclick="setPref('${t.key}','${val}')">${label}</button>`;
+    return `<div class="theme"><div class="tn">${esc(t.name)}</div><div class="seg">${b("want", "Want")}${b("none", "—")}${b("avoid", "Avoid")}</div></div>`;
+  }).join("");
+}
+
+window.setPref = (k, v) => { if (v === "none") delete prefs[k]; else prefs[k] = v; renderThemes(); applySuggestion(); };
+
+function renderPicks() {
+  const opts = (sel) => pool.stocks.map((s) => `<option value="${s.ticker}"${s.ticker === sel ? " selected" : ""}>${esc(s.ticker)} · ${esc(s.name)}</option>`).join("");
+  $("picks").innerHTML = picks.map((p, i) => `<div class="pick">
+      <select onchange="setPick(${i}, this.value)">${opts(p.ticker)}</select>
+      <input inputmode="numeric" value="${p.pct}" oninput="setPct(${i}, this.value)" aria-label="weight %"><span>%</span>
+      <button class="x" onclick="dropPick(${i})" aria-label="remove">×</button></div>
+      ${p.theme ? `<div class="small" style="margin:-4px 0 6px">picked for ${esc(p.theme)}</div>` : ""}`).join("") ||
+    `<p class="status">No stocks yet. Choose a theme above or tap "+ Add stock".</p>`;
+  validate();
+}
+
+window.setPick = (i, t) => { picks[i].ticker = t; picks[i].theme = null; renderPicks(); };
+window.setPct = (i, v) => { picks[i].pct = Number(v); validate(); };
+window.dropPick = (i) => { picks.splice(i, 1); renderPicks(); };
+
+function validate() {
+  const n = picks.length, sum = picks.reduce((a, p) => a + (p.pct || 0), 0);
+  const uniq = new Set(picks.map((p) => p.ticker)).size === n;
+  const minOk = picks.every((p) => p.pct >= 5 && Number.isInteger(p.pct));
+  const name = $("etfname").value.trim();
+  const nameOk = name.length > 0 && new TextEncoder().encode(name).length <= 32;
+  const items = [[n >= 3 && n <= 8, `${n} stocks (3 to 8)`], [sum === 100, `weights add up to ${sum}% (must be 100%)`],
+                 [minOk, "each weight a whole number, at least 5%"], [uniq, "no stock twice"], [nameOk, "a name (up to 32 characters)"]];
+  $("check").innerHTML = items.map(([ok, t]) => `<div class="${ok ? "ok" : "no"}">${ok ? "✓" : "✗"} ${esc(t)}</div>`).join("");
+  const good = items.every(([ok]) => ok);
+  $("enter").disabled = !(good && signer && round && PHASES[Number(round.phase)] === "Open" && !myIndex);
+  return good;
+}
+
+// ───────────── themes of an entry (business-linked High/Moderate weight per theme) ─────────────
+
+function entryThemes(tickers, weights) {
+  const s = byTicker(), out = [];
+  for (const t of pool.themes) {
+    let w = 0;
+    tickers.forEach((tk, i) => { const r = s[tk] && s[tk].themes[t.key]; if (r && ["High", "Moderate"].includes(r.rating)) w += weights[i]; });
+    if (w > 0) out.push([THEME_SHORT[t.key] || t.name, w / 100]);
+  }
+  return out.sort((a, b) => b[1] - a[1]).slice(0, 3);
+}
+
+// ───────────── one row per stock (ticker, company, industry + strongest theme, weight, weight bar) ─────────────
+const THEME_SHORT = { ai: "AI", oil: "Oil", cyber: "Cyber", clean_energy: "Clean energy", gold: "Gold", healthcare: "Health",
+  bank_lending: "Banks", consumer_disc: "Consumer", defense: "Aero & defense", metals: "Metals" };
+function bestTheme(stock) {  // High before Moderate, then a reference company, then the strongest co-movement
+  const rank = (r) => (r.rating === "High" ? 2 : r.rating === "Moderate" ? 1 : 0);
+  const hits = Object.entries(stock.themes || {}).filter(([, r]) => rank(r) > 0);
+  hits.sort(([, a], [, b]) => rank(b) - rank(a) || (b.ref - a.ref) || ((b.t ?? -99) - (a.t ?? -99)));
+  return hits.length ? [hits[0][0], hits[0][1].rating] : null;
+}
+function stockRows(tickers, weights) {
+  const s = byTicker(), top = Math.max(...weights, 1);
+  return `<div class="srows">${tickers.map((t, j) => {
+    const st = s[t] || {}, b = bestTheme(st);
+    const chip = b ? `<span class="tchip ${b[1] === "High" ? "hi" : "mod"}">${esc(THEME_SHORT[b[0]] || b[0])} · ${b[1]}</span>` : "";
+    return `<div class="sr"><span class="sr-tk">${esc(t)}</span><div class="sr-main"><div class="sr-co" title="${esc(st.name || "")}">${esc(st.name || "")}</div>` +
+      `<div class="sr-meta"><span class="sr-ind">${esc(st.industry || "")}</span>${chip}</div></div>` +
+      `<span class="sr-w">${(weights[j] / 100).toFixed(0)}%</span><div class="sr-bar"><i style="width:${(100 * weights[j] / top).toFixed(0)}%"></i></div></div>`;
+  }).join("")}</div>`;
+}
+
+// ───────────── motion helpers (short, eased; skipped under prefers-reduced-motion) ─────────────
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const EXPLORER = "https://testnet.monadscan.com";
+const LINE_COLORS = ["#F4A6BF", "#E8C98F", "#C2456F", "#F5EEF1", "#B8A9B0", "#E07A9B", "#D9B37A", "#8A6F7B"];
+const ease = (t) => 1 - Math.pow(1 - t, 3);
+function countTo(el, from, to, fmt, ms = 400) {
+  if (RM || from === to || from == null) { el.textContent = fmt(to); return; }
+  const t0 = performance.now();
+  const step = (t) => { const k = Math.min(1, (t - t0) / ms); el.textContent = fmt(from + (to - from) * ease(k)); if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+function toast(text, kind = "", link = null) {
+  const el = document.createElement("div");
+  const set = (t, k = "", l = null) => {
+    el.className = "toast " + k;
+    el.innerHTML = (k === "" ? '<span class="spin"></span>' : (k === "ok" ? "✓" : "!")) + `<span>${esc(t)}</span>` +
+      (l ? `<a href="${l}" target="_blank" rel="noopener">View ↗</a>` : "");
+  };
+  set(text, kind, link);
+  $("toasts").appendChild(el);
+  const done = () => setTimeout(() => el.remove(), 6000);
+  if (kind) done();
+  return { update: (t, k, l) => { set(t, k, l); if (k) done(); } };
+}
+function shortHash(h) { return h ? h.slice(0, 10) + "…" + h.slice(-6) : ""; }
+window.copyText = (t, b) => { navigator.clipboard && navigator.clipboard.writeText(t); b.textContent = "Copied"; setTimeout(() => { b.textContent = "Copy"; }, 1200); };
+
+// Live block number: shows how fast Monad is.
+async function tickBlock() {
+  try { const n = await readProvider.getBlockNumber(); $("block").textContent = n.toLocaleString(); } catch { /* keep the last one */ }
+}
+
+
+// ───────────── weekly: live graph (league/week_history.json + latest liveScores) and leaderboard ─────────────
+let WEEK = null, weekHist = null, historyAt = 0;
+async function drawWeekly(phase) {
+  if (!WEEK || !round) return;
+  if (Date.now() - historyAt > 60000) {  // refresh the history file every 60 s
+    historyAt = Date.now();
+    try { const r = await fetch("week_history.json", { cache: "no-store" }); weekHist = r.ok ? await r.json() : null; } catch { weekHist = null; }
+  }
+  const pts = (weekHist && weekHist.roundId === roundId ? weekHist.points : []).map((p) => ({ t: Date.parse(p.time), r: p.entries.map((e) => e.returnPct / 100) }));
+  if (scores) pts.push({ t: Date.now(), r: scores });
+  const started = phase === "Started" || phase === "Settled";
+  const lock = new Date(WEEK.lock), lockTxt = lock.toLocaleString("en-US", { weekday: "short", hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" }) + " PT";
+  const mine = me && entries.findIndex((e) => e.owner.toLowerCase() === me.toLowerCase());
+  $("wnote").innerHTML = (started ? `${esc(WEEK.label || "")} · live prices, updated during market hours` : `Live tracking starts ${esc(lockTxt)}`) +
+    (mine !== null && mine >= 0 ? ` · <span class="you">You're in ✓ "${esc(entries[mine].name)}"</span>` : "");
+  // A week-long countdown reads better as days and hours than as minutes:seconds.
+  const left = (to) => { const s = Math.max(0, Math.floor((to - Date.now()) / 1000)), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60);
+    return d ? `${d}d ${h}h` : h ? `${h}h ${m}m` : `${m}m ${s % 60}s`; };
+  if (phase === "Open" && Date.now() < lock) { $("phase").innerHTML = "<strong>Entries are open.</strong> Locks in:"; $("clock").textContent = left(lock); }
+  else if (phase === "Started") { $("phase").innerHTML = "<strong>The matchup is live.</strong> Ends in:"; $("clock").textContent = left(new Date(WEEK.end)); }
+  const W = 640, H = 300, L = 44, R = 120, T = 16, B = 28, n = entries.length;
+  const series = entries.map((_, i) => (started && pts.length ? pts.map((p) => ({ t: p.t, v: p.r[i] ?? 0 })) : [{ t: 0, v: 0 }, { t: 1, v: 0 }]));
+  const ts = series.flat().map((p) => p.t), vs = series.flat().map((p) => p.v).concat([0]);
+  const t0 = Math.min(...ts, 0), t1 = Math.max(...ts, 1);
+  let lo = Math.min(...vs), hi = Math.max(...vs); const pad = Math.max(0.005, (hi - lo) * 0.12); lo -= pad; hi += pad;
+  const x = (t) => L + (W - L - R) * (ts.length ? (t - t0) / Math.max(1, t1 - t0) : 0), y = (v) => T + (H - T - B) * (hi - v) / (hi - lo);
+  const fmt = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(100 * v).toFixed(2) + "%";
+  let svg = `<line class="axis" x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}"></line><text class="ax" x="${L - 8}" y="${y(0) + 4}" text-anchor="end">0%</text>`;
+  const ends = series.map((s, i) => ({ i, y: y(s[s.length - 1].v) })).sort((a, b) => a.y - b.y);
+  ends.forEach((e, k) => { e.ly = Math.max(e.y, k ? ends[k - 1].ly + 30 : T); });
+  const ly = Object.fromEntries(ends.map((e) => [e.i, e.ly]));
+  series.forEach((s, i) => {
+    const last = s[s.length - 1].v, col = last > 0 ? "var(--gain)" : last < 0 ? "var(--loss)" : "var(--muted)";
+    svg += `<path class="ln" d="${s.map((p, k) => `${k ? "L" : "M"}${x(p.t).toFixed(1)},${y(p.v).toFixed(1)}`).join("")}" style="stroke:${col}"></path>` +
+      `<circle cx="${x(s[s.length - 1].t).toFixed(1)}" cy="${y(last).toFixed(1)}" r="4" style="fill:${col}"></circle>` +
+      `<text x="${(W - R + 10).toFixed(1)}" y="${ly[i].toFixed(1)}" style="fill:${col}">${esc(entries[i].name.slice(0, 14))}</text>` +
+      `<text x="${(W - R + 10).toFixed(1)}" y="${(ly[i] + 14).toFixed(1)}" style="fill:${col}">${fmt(last)}</text>`;
+  });
+  $("wchart").innerHTML = n ? svg : "";
+  const rows = entries.map((e, i) => ({ e, i, r: started && scores ? scores[i] : 0 })).sort((a, b) => b.r - a.r);
+  $("wboard").innerHTML = n ? rows.map((x2, k) => `<div class="wb"><span class="rk">${k + 1}</span><div style="min-width:0"><div class="nm">${esc(x2.e.name)}</div>` +
+    `<div class="ow">${short(x2.e.owner)}</div></div><span class="rt ${x2.r > 0 ? "up" : x2.r < 0 ? "down" : ""}">${fmt(x2.r)}</span></div>`).join("")
+    : `<div class="empty"><b>No funds yet</b>Build yours and enter before ${esc(lockTxt)}.</div>`;
+}
+// ───────────── chain ─────────────
+
+async function load() {
+  const get = async (p) => { const r = await fetch(p, { cache: "no-store" }); if (!r.ok) throw new Error(`Missing ${p}`); return r.json(); };
+  dep = await get(`../deployments/${NETWORK}-league.json`);
+  cfg = dep.league;
+  if (!cfg || !cfg.fundLeague) throw new Error(`deployments/${NETWORK}-league.json has no League deployment yet.`);
+  pool = await get("pool.json");
+  presets = (await get("presets.json")).presets;
+  replay = null;  // weekly matchups run on live prices, not a replay file
+  try { WEEK = await get("week.json"); } catch { WEEK = null; }
+  readProvider = new ethers.JsonRpcProvider(dep.rpc);
+  league = new ethers.Contract(cfg.fundLeague, LEAGUE_ABI, readProvider);
+  oracle = new ethers.Contract(cfg.oracle, ORACLE_ABI, readProvider);
+  $("netname").textContent = NETWORK;
+  $("addr").textContent = cfg.fundLeague;
+  renderThemes(); renderPicks();
+}
+
+async function refresh() {
+  try {
+    if (!WEEK || !WEEK.roundId || WEEK.fundLeague !== cfg.fundLeague) {
+      $("phase").innerHTML = "<strong>No weekly matchup open yet.</strong> Check back soon."; $("clock").textContent = ""; return;
+    }
+    roundId = Number(WEEK.roundId);
+    if (!roundId) { $("phase").innerHTML = "<strong>No round yet.</strong> Waiting for the operator to open one."; return; }
+    round = await league.getRound(roundId);
+    const n = Number(round.entryCount);
+    if (entries.length !== n || ["Settled"].includes(PHASES[Number(round.phase)])) {
+      entries = await Promise.all(Array.from({ length: n }, (_, i) => league.getEntry(roundId, i)));
+    }
+    const phase = PHASES[Number(round.phase)];
+    scores = phase === "Started" || phase === "Settled" ? (await league.liveScores(roundId)).map((s) => Number(s) / 1e18) : null;
+    if (me) myIndex = Number(await league.entryOf(roundId, me));
+    await render(phase);
+    await drawWeekly(phase);
+  } catch (e) { msg("Couldn't read the chain: " + esc(e.shortMessage || e.message)); }
+}
+
+async function raceDay() {
+  // Which replay day is on-chain now: match the first used stock's price to the replay file.
+  if (!replay || !round.used.length) return null;
+  const t = dec32(round.used[0]), col = replay.tickers.indexOf(t), w = Number(round.windowIndex);
+  if (col < 0) return null;
+  const [p] = await oracle.priceOf(round.used[0]);
+  const now = Number(p) / 1e8;
+  let best = 0, err = Infinity;
+  for (let d = 0; d <= replay.race_days; d++) {
+    const v = replay.base_price * replay.closes[w + d][col] / replay.closes[w][col], e = Math.abs(v - now);
+    if (e < err) { err = e; best = d; }
+  }
+  return { day: best, days: replay.race_days, date: replay.dates[w + best], first: replay.dates[w], last: replay.dates[w + replay.race_days] };
+}
+
+async function render(phase) {
+  const now = Math.floor(Date.now() / 1000), deadline = Number(round.deadline);
+  const open = phase === "Open" && now < deadline;
+  $("enter").textContent = `Enter (${mon(round.entryStake, 4)} MON)`;
+  const potNow = Number(ethers.formatEther(round.pot));
+  $("potline").innerHTML = `Round ${roundId} · ${entries.length} ${entries.length === 1 ? "entry" : "entries"} · Pot <strong id="pot"></strong> <strong>MON</strong>`;
+  countTo($("pot"), lastPot, potNow, (v) => v.toLocaleString(undefined, { maximumFractionDigits: 2 }), 600);
+  lastPot = potNow;
+  const ring = $("ring");
+  $("build").classList.toggle("hidden", !open || !!myIndex);
+  if (open) {
+    const s = deadline - now;
+    $("phase").innerHTML = myIndex ? "<strong>You're in!</strong> Entries close in:" : "<strong>Entries are open.</strong> Closes in:";
+    $("clock").textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    ringTotal = Math.max(ringTotal, s, 60);
+    ring.classList.remove("off");
+    $("ringfg").style.strokeDashoffset = (276.46 * (1 - s / ringTotal)).toFixed(1);
+  } else if (phase === "Open" || phase === "Locked") {
+    $("phase").innerHTML = "<strong>Entries closed.</strong> Waiting for the future block that picks the window…";
+    $("clock").textContent = "Locked"; ring.classList.add("off");
+  } else if (phase === "Started") {
+    const d = await raceDay();
+    $("phase").innerHTML = "<strong>The race is on!</strong>";
+    $("clock").textContent = d ? `Day ${d.day} / ${d.days}` : "Racing"; ring.classList.remove("off");
+    if (d) $("ringfg").style.strokeDashoffset = (276.46 * (1 - d.day / d.days)).toFixed(1);
+    drawChart(d ? d.day : 0);
+    $("raceday").textContent = d ? `Replaying ${d.first} → ${d.last} · now ${d.date}` : "";
+  } else if (phase === "Settled") {
+    $("phase").innerHTML = "<strong>Race finished.</strong>"; $("clock").textContent = "Finished"; ring.classList.add("off");
+    if (replay) drawChart(replay.race_days);
+    if (replay) { const w = Number(round.windowIndex); $("raceday").textContent = `Replayed ${replay.dates[w]} → ${replay.dates[w + replay.race_days]}`; }
+  } else if (phase === "Cancelled") {
+    $("phase").innerHTML = "<strong>No race this round</strong> (fewer than 2 entries, or it stalled). Everyone gets their stake back.";
+    $("clock").textContent = "Refunded"; ring.classList.add("off");
+  }
+  validate();
+
+  // entries list
+  $("entrieshead").textContent = `Entries (${entries.length})`;
+  const fresh = knownEntries === null ? new Set() : new Set(entries.map((_, i) => i).filter((i) => !knownEntries.has(i)));
+  knownEntries = new Set(entries.map((_, i) => i));
+  $("entries").innerHTML = entries.length ? entries.map((e, i) => {
+    const w = e.weightsBps.map(Number), tk = e.tickers.map(dec32);
+    const tags = entryThemes(tk, w).map(([n, p]) => `<span class="tag">${esc(n)} ${p.toFixed(0)}%</span>`).join("");
+    const mine = me && e.owner.toLowerCase() === me.toLowerCase() ? ' <span class="you">(you)</span>' : "";
+    return `<div class="entry${fresh.has(i) ? " new" : ""}"><div class="en">${esc(e.name)}${mine}</div><div class="meta mono">${short(e.owner)}</div>
+      ${stockRows(tk, w)}${tags}</div>`;
+  }).join("") : `<div class="empty"><b>No entries yet</b>Be the first: build a fund and enter before the clock runs out.</div>`;
+
+  // leaderboard: rows glide to their new rank (FLIP) and returns count to the new value
+  if (scores) {
+    $("race").classList.remove("hidden");
+    const board = $("board");
+    const before = {};
+    board.querySelectorAll(".lbr").forEach((r) => { before[r.dataset.k] = r.getBoundingClientRect().top; });
+    const rows = entries.map((e, i) => ({ e, i, r: scores[i] })).sort((a, b) => b.r - a.r);
+    board.innerHTML = rows.map((x, k) => {
+      const mine = me && x.e.owner.toLowerCase() === me.toLowerCase() ? ' <span class="you">(you)</span>' : "";
+      return `<div class="lbr" data-k="${x.i}"><span class="rk">${k + 1}</span>
+        <div class="nm"><span class="sw" style="background:${LINE_COLORS[x.i % LINE_COLORS.length]}"></span>${esc(x.e.name)}${mine}</div>
+        <span class="rt ${x.r >= 0 ? "up" : "down"}" id="rt${x.i}"></span></div>`;
+    }).join("");
+    const fmt = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(100 * v).toFixed(2) + "%";
+    rows.forEach((x) => countTo($("rt" + x.i), prevScores[x.i], x.r, fmt, 400));
+    rows.forEach((x) => { prevScores[x.i] = x.r; });
+    if (!RM) board.querySelectorAll(".lbr").forEach((r) => {
+      const old = before[r.dataset.k]; if (old === undefined) return;
+      const dy = old - r.getBoundingClientRect().top; if (!dy) return;
+      r.style.transform = `translateY(${dy}px)`; r.style.transition = "none";
+      requestAnimationFrame(() => { r.style.transition = "transform .35s cubic-bezier(.2,.8,.2,1)"; r.style.transform = ""; });
+    });
+  } else { $("race").classList.add("hidden"); }
+
+  // winner + claim
+  if (phase === "Settled" || phase === "Cancelled") {
+    $("winbox").classList.remove("hidden");
+    if (phase === "Settled") {
+      const best = round.bestScore;
+      const winners = entries.filter((e) => e.score === best);
+      $("winbanner").textContent = winners.map((e) => e.name).join(" & ");
+      const b = Number(best) / 1e18;
+      $("winline").innerHTML = `<strong class="${b >= 0 ? "up" : "down"}">${b > 0 ? "+" : b < 0 ? "−" : ""}${Math.abs(100 * b).toFixed(2)}%</strong> over the month · ` +
+        (winners.length > 1 ? "the pot is split evenly" : "takes the whole pot");
+      if (revealed !== roundId) {  // the calm reveal: blush glow on the card, the pot counting into it
+        revealed = roundId;
+        $("winbox").classList.remove("reveal"); void $("winbox").offsetWidth; $("winbox").classList.add("reveal");
+        countTo($("winpot"), 0, potNow, (v) => v.toFixed(2) + " MON", 1200);
+      }
+    } else { $("winbanner").textContent = "Stakes refunded"; $("winpot").textContent = ""; $("winline").textContent = "Fewer than 2 entries, so there was no race. Everyone can claim their stake back."; }
+    await updateClaim();
+  } else { $("winbox").classList.add("hidden"); }
+  renderProof();
+}
+
+async function updateClaim() {
+  const b = $("claim");
+  if (!signer || !myIndex) { b.classList.add("hidden"); return; }
+  const amt = await league.claimable(roundId, me), done = await league.claimed(roundId, me);
+  b.classList.remove("hidden");
+  b.disabled = amt === 0n;
+  b.textContent = done ? "Claimed ✓" : (amt > 0n ? `Claim ${mon(amt, 4)} MON` : "No payout this time");
+}
+
+// ───────────── the race chart: every entry's return, day by day, drawing in as days arrive ─────────────
+function curve(e, upto) {
+  const w = Number(round.windowIndex), tk = e.tickers.map(dec32), wt = e.weightsBps.map(Number);
+  const cols = tk.map((t) => replay.tickers.indexOf(t));
+  if (cols.some((c) => c < 0)) return null;
+  const out = [];
+  for (let d = 0; d <= upto; d++) {
+    let v = 0;
+    cols.forEach((c, j) => { v += wt[j] * replay.closes[w + d][c] / replay.closes[w][c]; });
+    out.push(v / 10000 - 1);
+  }
+  return out;
+}
+function drawChart(upto) {
+  if (!replay || !entries.length) return;
+  const key = `${roundId}:${entries.length}:${upto}:${me || ""}`;
+  if (key === chartKey) return;
+  chartKey = key;
+  const W = 640, H = 300, L = 44, R = 120, T = 16, B = 28, days = replay.race_days;
+  const cs = entries.map((e) => curve(e, upto));
+  const all = cs.flat().filter((v) => v != null).concat([0]);
+  let lo = Math.min(...all), hi = Math.max(...all); const pad = Math.max(0.005, (hi - lo) * 0.12); lo -= pad; hi += pad;
+  const x = (d) => L + (W - L - R) * d / days, y = (v) => T + (H - T - B) * (hi - v) / (hi - lo);
+  const fmt = (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(100 * v).toFixed(1) + "%";
+  let svg = `<line class="axis" x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}"></line>` +
+    `<text class="ax" x="${L - 8}" y="${y(0) + 4}" text-anchor="end">0%</text>` +
+    `<text class="ax" x="${L - 8}" y="${y(hi) + 10}" text-anchor="end">${fmt(hi)}</text>` +
+    `<text class="ax" x="${L - 8}" y="${y(lo)}" text-anchor="end">${fmt(lo)}</text>` +
+    `<text class="ax" x="${L}" y="${H - 6}">Day 0</text><text class="ax" x="${W - R}" y="${H - 6}" text-anchor="end">Day ${days}</text>`;
+  // End labels: spread apart vertically so close finishers don't overlap (30px apart, kept inside the chart).
+  const ends = cs.map((c, i) => (c ? { i, y: y(c[c.length - 1]) } : null)).filter(Boolean).sort((a, b) => a.y - b.y);
+  ends.forEach((e, k) => { e.ly = Math.max(e.y, k ? ends[k - 1].ly + 30 : T); });
+  for (let k = ends.length - 1; k >= 0; k--) { ends[k].ly = Math.min(ends[k].ly, (k < ends.length - 1 ? ends[k + 1].ly - 30 : H - B)); }
+  const labelY = Object.fromEntries(ends.map((e) => [e.i, e.ly]));
+  cs.forEach((c, i) => {
+    if (!c) return;
+    const col = LINE_COLORS[i % LINE_COLORS.length], mine = me && entries[i].owner.toLowerCase() === me.toLowerCase();
+    const d = c.map((v, k) => `${k ? "L" : "M"}${x(k).toFixed(1)},${y(v).toFixed(1)}`).join("");
+    const last = c[c.length - 1], cls = last >= 0 ? "up" : "down", ex = x(c.length - 1);
+    svg += `<path class="ln${mine ? " me" : ""}" data-i="${i}" d="${d}" stroke="${col}"></path>` +
+      `<g class="dot" style="transform:translate(${ex.toFixed(1)}px,${y(last).toFixed(1)}px)"><circle r="${mine ? 5 : 4}" fill="${col}"></circle></g>` +
+      `<g class="dot" style="transform:translate(${(ex + 10).toFixed(1)}px,${labelY[i].toFixed(1)}px)">` +
+      `<text x="0" y="0" fill="${col}">${esc(entries[i].name.slice(0, 12))}</text>` +
+      `<text x="0" y="14" class="${cls}" style="fill:currentColor">${fmt(last)}</text></g>`;
+  });
+  const chart = $("chart");
+  chart.innerHTML = svg;
+  chart.querySelectorAll(".ln").forEach((p) => {  // draw only the new part of each line
+    const len = p.getTotalLength(), i = p.dataset.i, was = Math.min(prevLen[i] || 0, len);
+    prevLen[i] = len;
+    if (RM || was >= len) return;
+    p.style.strokeDasharray = `${len}`; p.style.strokeDashoffset = `${len - was}`; p.style.transition = "none";
+    requestAnimationFrame(() => requestAnimationFrame(() => { p.style.transition = ""; p.style.strokeDashoffset = "0"; }));
+  });
+}
+
+// ───────────── proof panel: what anyone can check on the explorer ─────────────
+function renderProof() {
+  const rows = [];
+  const item = (k, v, href, why) => rows.push(`<div class="pf"><div class="k">${k}</div><div class="v"><span class="mono">${esc(shortHash(v))}</span>
+    <button class="copy" onclick="copyText('${v}', this)">Copy</button>${href ? `<a href="${href}" target="_blank" rel="noopener">Explorer ↗</a>` : ""}</div><p>${why}</p></div>`);
+  item("League contract", cfg.fundLeague, `${EXPLORER}/address/${cfg.fundLeague}`,
+    "The program that holds the stakes, checks every entry and pays the winner. Nobody can change its rules.");
+  if (round) {
+    item("Replay data fingerprint", round.dataHash, null,
+      "A hash of the price file, recorded on-chain when the round opened, before anyone entered. The prices can't be swapped later.");
+    const tb = Number(round.targetBlock);
+    if (tb) rows.push(`<div class="pf"><div class="k">Block that picked the month</div><div class="v"><span class="mono">#${tb.toLocaleString()}</span>
+      <a href="${EXPLORER}/block/${tb}" target="_blank" rel="noopener">Explorer ↗</a></div>
+      <p>Chosen when entries closed; its hash didn't exist yet, so nobody could know the month in advance.</p></div>`);
+    item("Stock pool (Merkle root)", round.poolRoot, null,
+      `One fingerprint of all ${Number(round.poolSize).toLocaleString()} stocks you can pick; each entry proves its stocks are in it.`);
+  }
+  $("proofbody").innerHTML = rows.join("");
+}
+
+async function ensureChain() {
+  const want = "0x" + Number(dep.chainId).toString(16);
+  if ((await window.ethereum.request({ method: "eth_chainId" })) === want) return;
+  try { await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: want }] }); }
+  catch (e) {
+    const code = e.code || (e.data && e.data.originalError && e.data.originalError.code);
+    if (code === 4902 && NETWORK === "monad-testnet") await window.ethereum.request({ method: "wallet_addEthereumChain", params: [MONAD] });
+    else throw e;
+  }
+}
+
+async function connect() {
+  msg("");
+  if (!window.ethereum) { msg("No wallet found. On a phone, open this page inside the MetaMask app (button above)."); return; }
+  try {
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+    await ensureChain();
+    const bp = new ethers.BrowserProvider(window.ethereum);
+    signer = await bp.getSigner();
+    me = await signer.getAddress();
+    $("wallet").innerHTML = `Connected: <strong>${short(me)}</strong> · ${mon(await bp.getBalance(me), 3)} MON`;
+    $("connect").textContent = "Connected";
+    await refresh();
+  } catch (e) { msg("Couldn't connect: " + esc(e.shortMessage || e.message)); }
+}
+
+async function send(method, args, value) {
+  await ensureChain();
+  const c = league.connect(signer);
+  const est = await c[method].estimateGas(...args, { value });
+  return c[method](...args, { value, gasLimit: (est * GAS_HEADROOM_PCT) / 100n });
+}
+
+async function enter() {
+  msg("");
+  if (!validate()) return;
+  const name = $("etfname").value.trim();
+  const t = toast("Confirm in MetaMask");
+  try {
+    const proofs = picks.map((p) => merkleProof(p.ticker));  // one proof per stock: "it's in the pool"
+    const tx = await send("enter", [roundId, name, picks.map((p) => ethers.encodeBytes32String(p.ticker)), picks.map((p) => p.pct * 100), proofs], round.entryStake);
+    t.update("Submitting…", "", `${EXPLORER}/tx/${tx.hash}`);
+    await tx.wait();
+    t.update(`Confirmed ✓ "${name}" is in`, "ok", `${EXPLORER}/tx/${tx.hash}`);
+    await refresh();
+  } catch (e) { t.update("Entry failed: " + (e.shortMessage || e.reason || e.message), "err"); }
+}
+
+async function claim() {
+  msg("");
+  const t = toast("Confirm in MetaMask");
+  try {
+    const tx = await send("claim", [roundId], 0n);
+    t.update("Submitting…", "", `${EXPLORER}/tx/${tx.hash}`);
+    await tx.wait();
+    t.update("Confirmed ✓ Claimed. Check your MON balance.", "ok", `${EXPLORER}/tx/${tx.hash}`);
+    await refresh();
+  } catch (e) { t.update("Claim failed: " + (e.shortMessage || e.reason || e.message), "err"); }
+}
+
+async function addNetwork() {
+  if (!window.ethereum) { msg("Open this page in the MetaMask app first."); return; }
+  try { await window.ethereum.request({ method: "wallet_addEthereumChain", params: [MONAD] }); msg("Monad Testnet added.", "ok"); }
+  catch (e) { msg("Couldn't add the network: " + esc(e.message)); }
+}
+
+$("connect").onclick = connect;
+$("addnet").onclick = addNetwork;
+$("claim").onclick = claim;
+$("enter").onclick = enter;
+$("etfname").oninput = validate;
+$("wellknown").onchange = (e) => { wellKnown = e.target.checked; applySuggestion(); };
+$("addpick").onclick = () => {
+  if (picks.length >= 8) { msg("At most 8 stocks."); return; }
+  const used = new Set(picks.map((p) => p.ticker));
+  const more = suggest(8).picks.find((x) => !used.has(x.ticker));
+  const next = more || { ticker: pool.stocks.map((s) => s.ticker).find((t) => !used.has(t)), theme: null };
+  picks.push({ ticker: next.ticker, pct: 5, theme: next.theme }); renderPicks();
+};
+$("equal").onclick = () => { const p = equalPcts(Math.max(picks.length, 1)); picks.forEach((x, i) => { x.pct = p[i]; }); renderPicks(); };
+
+// MetaMask deep link: the page's host + path after /dapp/, with no protocol and no query.
+const MM_LINK = "https://metamask.app.link/dapp/shannon-maccallum.github.io/portfolio_risk_exposure/league/weekly.html";
+if (!window.ethereum) {
+  const mm = $("openmm");
+  mm.href = MM_LINK;
+  mm.classList.remove("hidden");
+}
+
+// Pre-fill from the dashboard's "Enter my fund" link: ?etf=NVDA:20,AVGO:20,...&name=AI%20ex-Oil
+// (only pool stocks; weights are whole percents). The player still reviews and confirms in their wallet.
+function applyPrefill() {
+  const etf = params.get("etf"), name = params.get("name");
+  if (name) $("etfname").value = name.slice(0, 32);
+  if (!etf) return;
+  const inPool = new Set(pool.stocks.map((s) => s.ticker));
+  const got = etf.split(",").map((x) => x.split(":")).filter(([t, w]) => t && inPool.has(t.trim().toUpperCase()) && Number(w) > 0)
+    .map(([t, w]) => ({ ticker: t.trim().toUpperCase(), pct: Math.round(Number(w)), theme: null }));
+  if (!got.length) return;
+  picks = got;
+  renderPicks();
+  msg(`Your fund "${esc($("etfname").value || "from the dashboard")}" is filled in below. Check it, then connect your wallet and enter.`, "ok");
+}
+
+(async () => {
+  try { await load(); applyPrefill(); tickBlock(); setInterval(tickBlock, 1000); await refresh(); setInterval(refresh, 2000); }
+  catch (e) { $("phase").textContent = ""; msg(esc(e.message)); }
+})();
+</script>
+</body>
+</html>

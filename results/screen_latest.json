@@ -1,0 +1,1918 @@
+{
+ "window": {
+  "start": "2024-11-15",
+  "end": "2026-11-14"
+ },
+ "weights_rescaled_to_100": false,
+ "cash_pct": 20.0,
+ "holdings": [
+  {
+   "ticker": "NVDA",
+   "weight_pct": 30.0,
+   "results": {
+    "ai": {
+     "ticker": "NVDA",
+     "theme": "AI",
+     "tier": "High",
+     "method": "listed reference",
+     "sentence": "NVDA is one of the AI reference companies (90% ai share of revenue), so it keeps its listed tier: High.",
+     "groups": {},
+     "n_obs": null,
+     "r_squared": null,
+     "p_threshold": null,
+     "controls": [],
+     "evidence": "90% ai share of revenue",
+     "extra_control": null,
+     "business_linked": true
+    },
+    "bank_lending": {
+     "ticker": "NVDA",
+     "theme": "Bank lending / net interest income",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether NVDA is exposed to Bank lending / net interest income. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "MTB",
+        "ZION",
+        "CFG",
+        "RF"
+       ],
+       "beta_sum": 0.07192238353512594,
+       "se": 0.0975042083079226,
+       "p_one_sided": 0.23054728403984898,
+       "upper_95": 0.23231680620165862,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "WFC",
+        "C",
+        "BAC"
+       ],
+       "beta_sum": -0.1626349166688495,
+       "se": 0.08723076537809146,
+       "p_one_sided": 0.9685661813569959,
+       "upper_95": -0.019140307621889036,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.676305623488116,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "clean_energy": {
+     "ticker": "NVDA",
+     "theme": "Clean energy (solar & renewables)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether NVDA is exposed to Clean energy (solar & renewables). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "FSLR",
+        "SEDG",
+        "RUN"
+       ],
+       "beta_sum": -0.022331619740463608,
+       "se": 0.02332100945811709,
+       "p_one_sided": 0.8306239281423462,
+       "upper_95": 0.016031440818139005,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "NEE"
+       ],
+       "beta_sum": 0.09726938077656586,
+       "se": 0.057679519951963014,
+       "p_one_sided": 0.046181890268617694,
+       "upper_95": 0.192152191097545,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6721872230464261,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "consumer_disc": {
+     "ticker": "NVDA",
+     "theme": "Consumer discretionary",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "NVDA doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "HD",
+        "NKE",
+        "TJX",
+        "RCL"
+       ],
+       "beta_sum": -0.24276940405413375,
+       "se": 0.09331567197458074,
+       "p_one_sided": 0.9952186013335392,
+       "upper_95": -0.08926512365594844,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "COST",
+        "DG"
+       ],
+       "beta_sum": -0.08010768931999501,
+       "se": 0.07638748190605617,
+       "p_one_sided": 0.8525811562837605,
+       "upper_95": 0.04554971841546737,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6802894039051579,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "cyber": {
+     "ticker": "NVDA",
+     "theme": "Cybersecurity",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "NVDA shows little sign of rising with Cybersecurity, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "CRWD",
+        "PANW",
+        "FTNT",
+        "CHKP"
+       ],
+       "beta_sum": -0.0012775490137080792,
+       "se": 0.0436340023426854,
+       "p_one_sided": 0.5116728528379517,
+       "upper_95": 0.07050038484000941,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CSCO"
+       ],
+       "beta_sum": 0.03594213878133559,
+       "se": 0.04729806796137622,
+       "p_one_sided": 0.2238392806420258,
+       "upper_95": 0.11374746057779947,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6757442852772906,
+     "p_threshold": 0.008333333333333333,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "defense": {
+     "ticker": "NVDA",
+     "theme": "Aerospace & defense",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether NVDA is exposed to Aerospace & defense. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "LMT",
+        "NOC",
+        "HII",
+        "GD"
+       ],
+       "beta_sum": -0.07401634885969047,
+       "se": 0.08122683055670525,
+       "p_one_sided": 0.8186861748271815,
+       "upper_95": 0.05960178740608968,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RTX",
+        "BA",
+        "GE"
+       ],
+       "beta_sum": 0.0838288352560537,
+       "se": 0.07155038486827349,
+       "p_one_sided": 0.12096592053870245,
+       "upper_95": 0.2015292183643636,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6743876196176067,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "gold": {
+     "ticker": "NVDA",
+     "theme": "Gold & precious metals",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "NVDA shows little sign of rising with Gold & precious metals, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "SSRM",
+        "CDE",
+        "PAAS",
+        "NEM"
+       ],
+       "beta_sum": 0.04646491932156247,
+       "se": 0.028767865435092466,
+       "p_one_sided": 0.05346104029528484,
+       "upper_95": 0.09378805796228958,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6717368035529804,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "healthcare": {
+     "ticker": "NVDA",
+     "theme": "Healthcare",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "NVDA shows little sign of rising with Healthcare, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "PFE",
+        "MRK",
+        "LLY",
+        "GEHC"
+       ],
+       "beta_sum": -0.014428986892009915,
+       "se": 0.07299571545835307,
+       "p_one_sided": 0.5783067213469766,
+       "upper_95": 0.10564896503698087,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.670290663695448,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "metals": {
+     "ticker": "NVDA",
+     "theme": "Industrial / EV metals (copper + lithium)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether NVDA is exposed to Industrial / EV metals (copper + lithium). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "SCCO",
+        "FCX",
+        "BHP",
+        "ALB",
+        "SQM"
+       ],
+       "beta_sum": -0.1153785933121903,
+       "se": 0.09452829706363042,
+       "p_one_sided": 0.888578788201566,
+       "upper_95": 0.04012045535748174,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RIO",
+        "VALE"
+       ],
+       "beta_sum": 0.10362228406116993,
+       "se": 0.10133526721469285,
+       "p_one_sided": 0.15351129214653866,
+       "upper_95": 0.27031879862933966,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6711987017425056,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "oil": {
+     "ticker": "NVDA",
+     "theme": "Oil",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether NVDA is exposed to Oil. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "PR",
+        "FANG",
+        "COP",
+        "EOG"
+       ],
+       "beta_sum": 0.05524599046005693,
+       "se": 0.081173661150504,
+       "p_one_sided": 0.2482278313845501,
+       "upper_95": 0.18877666305263602,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CVX",
+        "SHEL"
+       ],
+       "beta_sum": 0.09146865217184098,
+       "se": 0.10834958179873674,
+       "p_one_sided": 0.19948709612777732,
+       "upper_95": 0.26970371423076295,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.6818323271099919,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    }
+   }
+  },
+  {
+   "ticker": "XOM",
+   "weight_pct": 20.0,
+   "results": {
+    "ai": {
+     "ticker": "XOM",
+     "theme": "AI",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether XOM is exposed to AI. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "NVDA",
+        "MU",
+        "VRT",
+        "AVGO"
+       ],
+       "beta_sum": 0.11362045762003398,
+       "se": 0.05674665037828461,
+       "p_one_sided": 0.022907560650014442,
+       "upper_95": 0.20696869749231217,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "TSM",
+        "MSFT",
+        "VST"
+       ],
+       "beta_sum": -0.13732705586185837,
+       "se": 0.06531882073531438,
+       "p_one_sided": 0.9819839457418935,
+       "upper_95": -0.029877595752266214,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.24620370707526362,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "bank_lending": {
+     "ticker": "XOM",
+     "theme": "Bank lending / net interest income",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether XOM is exposed to Bank lending / net interest income. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "MTB",
+        "ZION",
+        "CFG",
+        "RF"
+       ],
+       "beta_sum": 0.14383266757949065,
+       "se": 0.08903715046252161,
+       "p_one_sided": 0.05343537098470614,
+       "upper_95": 0.2902987800903387,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "WFC",
+        "C",
+        "BAC"
+       ],
+       "beta_sum": -0.1468530828360763,
+       "se": 0.07965583144270266,
+       "p_one_sided": 0.9670733349809701,
+       "upper_95": -0.015819240112830396,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.16039659852632038,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "clean_energy": {
+     "ticker": "XOM",
+     "theme": "Clean energy (solar & renewables)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether XOM is exposed to Clean energy (solar & renewables). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "FSLR",
+        "SEDG",
+        "RUN"
+       ],
+       "beta_sum": -0.019066084686462238,
+       "se": 0.020987417739823228,
+       "p_one_sided": 0.8179558924014307,
+       "upper_95": 0.015458217495546975,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "NEE"
+       ],
+       "beta_sum": 0.08812096614193618,
+       "se": 0.05190788085045673,
+       "p_one_sided": 0.04510715954237842,
+       "upper_95": 0.1735094301409375,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.1741665853545704,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "consumer_disc": {
+     "ticker": "XOM",
+     "theme": "Consumer discretionary",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "XOM shows little sign of rising with Consumer discretionary, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "HD",
+        "NKE",
+        "TJX",
+        "RCL"
+       ],
+       "beta_sum": -0.3966514957190547,
+       "se": 0.07703962146431995,
+       "p_one_sided": 0.9999998090029935,
+       "upper_95": -0.2699213184102484,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "COST",
+        "DG"
+       ],
+       "beta_sum": -0.00410715608067444,
+       "se": 0.0630640337912178,
+       "p_one_sided": 0.5259500446359346,
+       "upper_95": 0.09963317950587885,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.3221721859418809,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "cyber": {
+     "ticker": "XOM",
+     "theme": "Cybersecurity",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether XOM is exposed to Cybersecurity. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "CRWD",
+        "PANW",
+        "FTNT",
+        "CHKP"
+       ],
+       "beta_sum": 0.01621606150456307,
+       "se": 0.03860813864473104,
+       "p_one_sided": 0.3373294528026793,
+       "upper_95": 0.07972644957514563,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CSCO"
+       ],
+       "beta_sum": 0.07747540596383432,
+       "se": 0.04185016884628833,
+       "p_one_sided": 0.03236953762017647,
+       "upper_95": 0.14631893371597862,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.21034295072964704,
+     "p_threshold": 0.008333333333333333,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "defense": {
+     "ticker": "XOM",
+     "theme": "Aerospace & defense",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether XOM is exposed to Aerospace & defense. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "LMT",
+        "NOC",
+        "HII",
+        "GD"
+       ],
+       "beta_sum": 0.17424466784061354,
+       "se": 0.07075917993589112,
+       "p_one_sided": 0.007072198571322438,
+       "upper_95": 0.29064351883515444,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RTX",
+        "BA",
+        "GE"
+       ],
+       "beta_sum": -0.2766024912548896,
+       "se": 0.06232973172382987,
+       "p_one_sided": 0.9999943661259805,
+       "upper_95": -0.1740700825691895,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.23138168849620022,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "gold": {
+     "ticker": "XOM",
+     "theme": "Gold & precious metals",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "XOM doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "SSRM",
+        "CDE",
+        "PAAS",
+        "NEM"
+       ],
+       "beta_sum": -0.060926950077826794,
+       "se": 0.02578400317491913,
+       "p_one_sided": 0.9907395277132405,
+       "upper_95": -0.018512264855084823,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.17974127318694855,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "healthcare": {
+     "ticker": "XOM",
+     "theme": "Healthcare",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "XOM doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "PFE",
+        "MRK",
+        "LLY",
+        "GEHC"
+       ],
+       "beta_sum": -0.11952006259986198,
+       "se": 0.06249315282165964,
+       "p_one_sided": 0.9718027633866004,
+       "upper_95": -0.01671882620823187,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.24829986547054494,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "metals": {
+     "ticker": "XOM",
+     "theme": "Industrial / EV metals (copper + lithium)",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "XOM shows little sign of rising with Industrial / EV metals (copper + lithium), but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "SCCO",
+        "FCX",
+        "BHP",
+        "ALB",
+        "SQM"
+       ],
+       "beta_sum": 0.02576227943339157,
+       "se": 0.08520928395211795,
+       "p_one_sided": 0.3812609179585852,
+       "upper_95": 0.1659315515346256,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RIO",
+        "VALE"
+       ],
+       "beta_sum": 0.04828028654993763,
+       "se": 0.091345193203345,
+       "p_one_sided": 0.29868078142435417,
+       "upper_95": 0.19854312936944016,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.1689504135793477,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "oil": {
+     "ticker": "XOM",
+     "theme": "Oil",
+     "tier": "Moderate",
+     "method": "regression",
+     "sentence": "XOM moves partly with oil producers, beyond what the overall market explains.",
+     "groups": {
+      "High": {
+       "names": [
+        "PR",
+        "FANG",
+        "COP",
+        "EOG"
+       ],
+       "beta_sum": 0.2945767506707526,
+       "se": 0.03669810784100946,
+       "p_one_sided": 3.79977412686734e-15,
+       "upper_95": 0.3549451380692132,
+       "eligible": true
+      },
+      "Moderate": {
+       "names": [
+        "CVX",
+        "SHEL"
+       ],
+       "beta_sum": 0.618133999234117,
+       "se": 0.04898417271097335,
+       "p_one_sided": 4.5378791093439555e-32,
+       "upper_95": 0.6987129633436682,
+       "eligible": true
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.7977184006282522,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": true
+    }
+   }
+  },
+  {
+   "ticker": "JNJ",
+   "weight_pct": 20.0,
+   "results": {
+    "ai": {
+     "ticker": "JNJ",
+     "theme": "AI",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "JNJ doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "NVDA",
+        "MU",
+        "VRT",
+        "AVGO"
+       ],
+       "beta_sum": -0.10549941633945907,
+       "se": 0.04238845474656523,
+       "p_one_sided": 0.9934253846376505,
+       "upper_95": -0.03577040828135926,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "TSM",
+        "MSFT",
+        "VST"
+       ],
+       "beta_sum": -0.16148554508157204,
+       "se": 0.04879167066920677,
+       "p_one_sided": 0.9994982422121268,
+       "upper_95": -0.0812232468307269,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.34282948624317533,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "bank_lending": {
+     "ticker": "JNJ",
+     "theme": "Bank lending / net interest income",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "JNJ shows little sign of rising with Bank lending / net interest income, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "MTB",
+        "ZION",
+        "CFG",
+        "RF"
+       ],
+       "beta_sum": -0.017759696270365652,
+       "se": 0.06357130547120804,
+       "p_one_sided": 0.6099585613932637,
+       "upper_95": 0.08681510122977157,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "WFC",
+        "C",
+        "BAC"
+       ],
+       "beta_sum": -0.023114393973686004,
+       "se": 0.05687317223093999,
+       "p_one_sided": 0.657693161669543,
+       "upper_95": 0.07044197434621027,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.33125074831266754,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "clean_energy": {
+     "ticker": "JNJ",
+     "theme": "Clean energy (solar & renewables)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether JNJ is exposed to Clean energy (solar & renewables). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "FSLR",
+        "SEDG",
+        "RUN"
+       ],
+       "beta_sum": -0.01449312034560931,
+       "se": 0.014983732030429363,
+       "p_one_sided": 0.8330521762424716,
+       "upper_95": 0.010155118844446993,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "NEE"
+       ],
+       "beta_sum": 0.08253603948779406,
+       "se": 0.03705905064513432,
+       "p_one_sided": 0.013196822247453808,
+       "upper_95": 0.14349817779904,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.3423061257083656,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "consumer_disc": {
+     "ticker": "JNJ",
+     "theme": "Consumer discretionary",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether JNJ is exposed to Consumer discretionary. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "HD",
+        "NKE",
+        "TJX",
+        "RCL"
+       ],
+       "beta_sum": 0.0628003317971291,
+       "se": 0.06119346251209049,
+       "p_one_sided": 0.15264057827088973,
+       "upper_95": 0.16346357762951796,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "COST",
+        "DG"
+       ],
+       "beta_sum": -0.004097723763553492,
+       "se": 0.05009249155580804,
+       "p_one_sided": 0.5325815020754637,
+       "upper_95": 0.07830442484575073,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.3317937628696177,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "cyber": {
+     "ticker": "JNJ",
+     "theme": "Cybersecurity",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "JNJ doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "CRWD",
+        "PANW",
+        "FTNT",
+        "CHKP"
+       ],
+       "beta_sum": -0.12102529532803875,
+       "se": 0.027846241589567562,
+       "p_one_sided": 0.9999915607622326,
+       "upper_95": -0.07521822791320011,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CSCO"
+       ],
+       "beta_sum": -0.021875777265124453,
+       "se": 0.03018456608285569,
+       "p_one_sided": 0.7655179604688747,
+       "upper_95": 0.02777783394117316,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.3581651029690267,
+     "p_threshold": 0.008333333333333333,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "defense": {
+     "ticker": "JNJ",
+     "theme": "Aerospace & defense",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "JNJ shows little sign of rising with Aerospace & defense, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "LMT",
+        "NOC",
+        "HII",
+        "GD"
+       ],
+       "beta_sum": 0.01651413566392609,
+       "se": 0.05130436604120443,
+       "p_one_sided": 0.3738391752215008,
+       "upper_95": 0.10090981780170738,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RTX",
+        "BA",
+        "GE"
+       ],
+       "beta_sum": 0.03340917074215949,
+       "se": 0.04519254426784882,
+       "p_one_sided": 0.23005287702632043,
+       "upper_95": 0.1077509060627708,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.368660211614976,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "gold": {
+     "ticker": "JNJ",
+     "theme": "Gold & precious metals",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "JNJ shows little sign of rising with Gold & precious metals, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "SSRM",
+        "CDE",
+        "PAAS",
+        "NEM"
+       ],
+       "beta_sum": 0.02210999185877125,
+       "se": 0.01846782457057224,
+       "p_one_sided": 0.11590222370271126,
+       "upper_95": 0.05248956327736258,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.34250718225247645,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "healthcare": {
+     "ticker": "JNJ",
+     "theme": "Healthcare",
+     "tier": "High",
+     "method": "regression",
+     "sentence": "JNJ moves strongly with healthcare companies, beyond what the overall market explains.",
+     "groups": {
+      "High": {
+       "names": [
+        "PFE",
+        "MRK",
+        "LLY",
+        "GEHC"
+       ],
+       "beta_sum": 0.32610059997131813,
+       "se": 0.043353023169207465,
+       "p_one_sided": 1.3106803352520649e-13,
+       "upper_95": 0.3974163230846644,
+       "eligible": true
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.43476649557999947,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": true
+    },
+    "metals": {
+     "ticker": "JNJ",
+     "theme": "Industrial / EV metals (copper + lithium)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether JNJ is exposed to Industrial / EV metals (copper + lithium). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "SCCO",
+        "FCX",
+        "BHP",
+        "ALB",
+        "SQM"
+       ],
+       "beta_sum": 0.062079515577122824,
+       "se": 0.059109920741879485,
+       "p_one_sided": 0.1470662839578769,
+       "upper_95": 0.15931533519751456,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RIO",
+        "VALE"
+       ],
+       "beta_sum": 0.03510897558274965,
+       "se": 0.06336641830525774,
+       "p_one_sided": 0.2898958776497576,
+       "upper_95": 0.13934673369489864,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.3751392801962271,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "oil": {
+     "ticker": "JNJ",
+     "theme": "Oil",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "JNJ shows little sign of rising with Oil, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "PR",
+        "FANG",
+        "COP",
+        "EOG"
+       ],
+       "beta_sum": 0.009236024995981994,
+       "se": 0.05236269327985017,
+       "p_one_sided": 0.4300323224513102,
+       "upper_95": 0.09537265544133552,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CVX",
+        "SHEL"
+       ],
+       "beta_sum": -0.014205629630659217,
+       "se": 0.06989306430577404,
+       "p_one_sided": 0.5804868028363296,
+       "upper_95": 0.10076846115233908,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.35653881991911673,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    }
+   }
+  },
+  {
+   "ticker": "LMT",
+   "weight_pct": 10.0,
+   "results": {
+    "ai": {
+     "ticker": "LMT",
+     "theme": "AI",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether LMT is exposed to AI. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "NVDA",
+        "MU",
+        "VRT",
+        "AVGO"
+       ],
+       "beta_sum": 0.0841557525341711,
+       "se": 0.06978574424741982,
+       "p_one_sided": 0.11421890085953458,
+       "upper_95": 0.1989533018211767,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "TSM",
+        "MSFT",
+        "VST"
+       ],
+       "beta_sum": -0.07373912352165224,
+       "se": 0.08032760503027077,
+       "p_one_sided": 0.8204571578900889,
+       "upper_95": 0.05839978675314317,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.11806304857860661,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "bank_lending": {
+     "ticker": "LMT",
+     "theme": "Bank lending / net interest income",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "LMT shows little sign of rising with Bank lending / net interest income, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "MTB",
+        "ZION",
+        "CFG",
+        "RF"
+       ],
+       "beta_sum": -0.06764407980420836,
+       "se": 0.10388977556994132,
+       "p_one_sided": 0.7423590243544896,
+       "upper_95": 0.1032546010083451,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "WFC",
+        "C",
+        "BAC"
+       ],
+       "beta_sum": 0.002536214913012813,
+       "se": 0.09294352310727681,
+       "p_one_sided": 0.48912075754662215,
+       "upper_95": 0.15542831042448318,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.11568319959426265,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "clean_energy": {
+     "ticker": "LMT",
+     "theme": "Clean energy (solar & renewables)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether LMT is exposed to Clean energy (solar & renewables). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "FSLR",
+        "SEDG",
+        "RUN"
+       ],
+       "beta_sum": -0.060368596886450715,
+       "se": 0.024548466705788346,
+       "p_one_sided": 0.9928635203210909,
+       "upper_95": -0.01998636915542889,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "NEE"
+       ],
+       "beta_sum": 0.07634728829161748,
+       "se": 0.06071537244944542,
+       "p_one_sided": 0.10459448406895491,
+       "upper_95": 0.17622407597095519,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.12591482337705284,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "consumer_disc": {
+     "ticker": "LMT",
+     "theme": "Consumer discretionary",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "LMT shows little sign of rising with Consumer discretionary, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "HD",
+        "NKE",
+        "TJX",
+        "RCL"
+       ],
+       "beta_sum": -0.11109202397580807,
+       "se": 0.0995861126508322,
+       "p_one_sided": 0.8674136715632342,
+       "upper_95": 0.0527271313348109,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "COST",
+        "DG"
+       ],
+       "beta_sum": 0.03389297552793534,
+       "se": 0.08152041578055726,
+       "p_one_sided": 0.3388845484891744,
+       "upper_95": 0.167994059486952,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.12376773572703337,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "cyber": {
+     "ticker": "LMT",
+     "theme": "Cybersecurity",
+     "tier": "Limited (lower confidence)",
+     "method": "regression",
+     "sentence": "LMT shows little sign of rising with Cybersecurity, but the data isn't precise enough to rule out a small link.",
+     "groups": {
+      "High": {
+       "names": [
+        "CRWD",
+        "PANW",
+        "FTNT",
+        "CHKP"
+       ],
+       "beta_sum": 0.008314431526048272,
+       "se": 0.04620796649469973,
+       "p_one_sided": 0.4286392889141851,
+       "upper_95": 0.08432653640982933,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CSCO"
+       ],
+       "beta_sum": 0.014085887059399602,
+       "se": 0.050088174870112,
+       "p_one_sided": 0.3893299845934939,
+       "upper_95": 0.09648093472073385,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.12492540253370998,
+     "p_threshold": 0.008333333333333333,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "defense": {
+     "ticker": "LMT",
+     "theme": "Aerospace & defense",
+     "tier": "High",
+     "method": "listed reference",
+     "sentence": "LMT is one of the Aerospace & defense reference companies (100.0% defense / government segment share of revenue), so it keeps its listed tier: High.",
+     "groups": {},
+     "n_obs": null,
+     "r_squared": null,
+     "p_threshold": null,
+     "controls": [],
+     "evidence": "100.0% defense / government segment share of revenue",
+     "extra_control": null,
+     "business_linked": true
+    },
+    "gold": {
+     "ticker": "LMT",
+     "theme": "Gold & precious metals",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "LMT doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "SSRM",
+        "CDE",
+        "PAAS",
+        "NEM"
+       ],
+       "beta_sum": -0.01193190020755678,
+       "se": 0.030445622250737138,
+       "p_one_sided": 0.6523513943792296,
+       "upper_95": 0.03815114839490581,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.11522987045875432,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "healthcare": {
+     "ticker": "LMT",
+     "theme": "Healthcare",
+     "tier": "Limited",
+     "method": "regression",
+     "sentence": "LMT doesn't rise with this theme.",
+     "groups": {
+      "High": {
+       "names": [
+        "PFE",
+        "MRK",
+        "LLY",
+        "GEHC"
+       ],
+       "beta_sum": -0.07855558307694621,
+       "se": 0.07689922994720369,
+       "p_one_sided": 0.8462469032113562,
+       "upper_95": 0.04794365018620386,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.11944940750192046,
+     "p_threshold": 0.01,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "metals": {
+     "ticker": "LMT",
+     "theme": "Industrial / EV metals (copper + lithium)",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether LMT is exposed to Industrial / EV metals (copper + lithium). That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "SCCO",
+        "FCX",
+        "BHP",
+        "ALB",
+        "SQM"
+       ],
+       "beta_sum": 0.1213047995050077,
+       "se": 0.09884796643125607,
+       "p_one_sided": 0.1101747082912098,
+       "upper_95": 0.2839097042844239,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "RIO",
+        "VALE"
+       ],
+       "beta_sum": -0.20129249875570876,
+       "se": 0.10596599540133113,
+       "p_one_sided": 0.9709597821330599,
+       "upper_95": -0.02697843632051905,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.1347947228676617,
+     "p_threshold": 0.00625,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    },
+    "oil": {
+     "ticker": "LMT",
+     "theme": "Oil",
+     "tier": "Not determined",
+     "method": "regression",
+     "sentence": "The data can't tell whether LMT is exposed to Oil. That is not the same as zero exposure.",
+     "groups": {
+      "High": {
+       "names": [
+        "PR",
+        "FANG",
+        "COP",
+        "EOG"
+       ],
+       "beta_sum": 0.10120764440446942,
+       "se": 0.08617712762698324,
+       "p_one_sided": 0.12040273218294671,
+       "upper_95": 0.24296901935085685,
+       "eligible": false
+      },
+      "Moderate": {
+       "names": [
+        "CVX",
+        "SHEL"
+       ],
+       "beta_sum": 0.029228764633536686,
+       "se": 0.11502814591161287,
+       "p_one_sided": 0.3997626185458702,
+       "upper_95": 0.21845006465813985,
+       "eligible": false
+      }
+     },
+     "n_obs": 499,
+     "r_squared": 0.1370539643811879,
+     "p_threshold": 0.0071428571428571435,
+     "controls": [
+      "SPY",
+      "TLT",
+      "VALUE",
+      "SIZE",
+      "MOM",
+      "LOWVOL"
+     ],
+     "evidence": null,
+     "extra_control": null,
+     "business_linked": false
+    }
+   }
+  },
+  {
+   "ticker": "CASH",
+   "weight_pct": 20.0,
+   "results": "cash: kept at its weight, not scored"
+  }
+ ],
+ "fingerprint": {
+  "ai": {
+   "name": "AI",
+   "business_linked_pct": 30.0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 30.0,
+   "by_tier_pct": {
+    "High": 30.0,
+    "Moderate": 0.0,
+    "Limited": 20.0,
+    "Limited (lower confidence)": 0.0,
+    "Not determined": 30.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: 30% of your portfolio (NVDA). For 30% the data can't tell."
+  },
+  "bank_lending": {
+   "name": "Bank lending / net interest income",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 0.0,
+    "Limited (lower confidence)": 30.0,
+    "Not determined": 50.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Bank lending / net interest income exposure. For 50% the data can't tell."
+  },
+  "clean_energy": {
+   "name": "Clean energy (solar & renewables)",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 0.0,
+    "Limited (lower confidence)": 0.0,
+    "Not determined": 80.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Clean energy (solar & renewables) exposure. For 80% the data can't tell."
+  },
+  "consumer_disc": {
+   "name": "Consumer discretionary",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 30.0,
+    "Limited (lower confidence)": 30.0,
+    "Not determined": 20.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Consumer discretionary exposure. For 20% the data can't tell."
+  },
+  "cyber": {
+   "name": "Cybersecurity",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 20.0,
+    "Limited (lower confidence)": 40.0,
+    "Not determined": 20.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Cybersecurity exposure. For 20% the data can't tell."
+  },
+  "defense": {
+   "name": "Aerospace & defense",
+   "business_linked_pct": 10.0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 10.0,
+   "by_tier_pct": {
+    "High": 10.0,
+    "Moderate": 0.0,
+    "Limited": 0.0,
+    "Limited (lower confidence)": 20.0,
+    "Not determined": 50.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: 10% of your portfolio (LMT). For 50% the data can't tell."
+  },
+  "gold": {
+   "name": "Gold & precious metals",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 30.0,
+    "Limited (lower confidence)": 50.0,
+    "Not determined": 0.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Gold & precious metals exposure."
+  },
+  "healthcare": {
+   "name": "Healthcare",
+   "business_linked_pct": 20.0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 20.0,
+   "by_tier_pct": {
+    "High": 20.0,
+    "Moderate": 0.0,
+    "Limited": 30.0,
+    "Limited (lower confidence)": 30.0,
+    "Not determined": 0.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: 20% of your portfolio (JNJ)."
+  },
+  "metals": {
+   "name": "Industrial / EV metals (copper + lithium)",
+   "business_linked_pct": 0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 0.0,
+    "Limited": 0.0,
+    "Limited (lower confidence)": 20.0,
+    "Not determined": 60.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: none of your portfolio has High or Moderate Industrial / EV metals (copper + lithium) exposure. For 60% the data can't tell."
+  },
+  "oil": {
+   "name": "Oil",
+   "business_linked_pct": 20.0,
+   "price_only_pct": 0,
+   "high_moderate_pct": 20.0,
+   "by_tier_pct": {
+    "High": 0.0,
+    "Moderate": 20.0,
+    "Limited": 0.0,
+    "Limited (lower confidence)": 20.0,
+    "Not determined": 40.0
+   },
+   "cash_pct": 20.0,
+   "sentence": "Business-linked exposure: 20% of your portfolio (XOM). For 40% the data can't tell."
+  }
+ }
+}

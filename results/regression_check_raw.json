@@ -1,0 +1,600 @@
+{
+ "math": [
+  {
+   "holding": "SMH",
+   "theme": "AI",
+   "engine_tier": "High",
+   "hand_tier": "High",
+   "max_abs_diff": 1.6263032587282567e-19,
+   "match": true
+  },
+  {
+   "holding": "XOM",
+   "theme": "Oil",
+   "engine_tier": "Moderate",
+   "hand_tier": "Moderate",
+   "max_abs_diff": 2.5015843141807884e-17,
+   "match": true
+  },
+  {
+   "holding": "JNJ",
+   "theme": "Healthcare",
+   "engine_tier": "High",
+   "hand_tier": "High",
+   "max_abs_diff": 4.9305683024501383e-17,
+   "match": true
+  }
+ ],
+ "known": [
+  {
+   "theme": "AI",
+   "case": "High-group holding (true High sum 0.6)",
+   "correct_pct": 100
+  },
+  {
+   "theme": "AI",
+   "case": "Moderate-group holding (true Moderate sum 0.4)",
+   "correct_pct": 100
+  },
+  {
+   "theme": "AI",
+   "case": "Market-only holding",
+   "correct_pct": 100,
+   "limited_pct": 59
+  },
+  {
+   "theme": "Oil",
+   "case": "High-group holding (true High sum 0.6)",
+   "correct_pct": 100
+  },
+  {
+   "theme": "Oil",
+   "case": "Moderate-group holding (true Moderate sum 0.4)",
+   "correct_pct": 90
+  },
+  {
+   "theme": "Oil",
+   "case": "Market-only holding",
+   "correct_pct": 99,
+   "limited_pct": 35
+  }
+ ],
+ "fp": {
+  "noise_pct": 0.9,
+  "noise_n": 1000,
+  "real_pct": 11.5,
+  "real_n": 1000
+ },
+ "loo": [
+  {
+   "theme": "AI",
+   "ticker": "NVDA",
+   "listed": "High",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "AI",
+   "ticker": "MU",
+   "listed": "High",
+   "loo_tier": "Not determined"
+  },
+  {
+   "theme": "AI",
+   "ticker": "VRT",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "AI",
+   "ticker": "AVGO",
+   "listed": "High",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "AI",
+   "ticker": "TSM",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "AI",
+   "ticker": "MSFT",
+   "listed": "Moderate",
+   "loo_tier": "Not determined"
+  },
+  {
+   "theme": "AI",
+   "ticker": "VST",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "MTB",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "ZION",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "CFG",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "RF",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "WFC",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "C",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Bank lending / net interest income",
+   "ticker": "BAC",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Clean energy (solar & renewables)",
+   "ticker": "FSLR",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Clean energy (solar & renewables)",
+   "ticker": "SEDG",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Clean energy (solar & renewables)",
+   "ticker": "RUN",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Clean energy (solar & renewables)",
+   "ticker": "NEE",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "HD",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "NKE",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "TJX",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "RCL",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "COST",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Consumer discretionary",
+   "ticker": "DG",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Cybersecurity",
+   "ticker": "CRWD",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Cybersecurity",
+   "ticker": "PANW",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Cybersecurity",
+   "ticker": "FTNT",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Cybersecurity",
+   "ticker": "CHKP",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Cybersecurity",
+   "ticker": "CSCO",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "LMT",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "NOC",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "HII",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "GD",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "RTX",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "BA",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Defense & aerospace",
+   "ticker": "GE",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Gold & precious metals",
+   "ticker": "SSRM",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Gold & precious metals",
+   "ticker": "CDE",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Gold & precious metals",
+   "ticker": "PAAS",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Gold & precious metals",
+   "ticker": "NEM",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Healthcare",
+   "ticker": "PFE",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Healthcare",
+   "ticker": "MRK",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Healthcare",
+   "ticker": "LLY",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Healthcare",
+   "ticker": "GEHC",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "SCCO",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "FCX",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "BHP",
+   "listed": "High",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "ALB",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "SQM",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "RIO",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "ticker": "VALE",
+   "listed": "Moderate",
+   "loo_tier": "Moderate"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "PR",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "FANG",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "COP",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "EOG",
+   "listed": "High",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "CVX",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  },
+  {
+   "theme": "Oil",
+   "ticker": "SHEL",
+   "listed": "Moderate",
+   "loo_tier": "High"
+  }
+ ],
+ "gt": [
+  {
+   "theme": "Clean energy (solar & renewables)",
+   "etf": "ICLN",
+   "n": 649,
+   "spearman": 0.4231402244961567,
+   "p": 1.4082403720542903e-29
+  },
+  {
+   "theme": "Consumer discretionary",
+   "etf": "XLY",
+   "n": 649,
+   "spearman": 0.5419953116563286,
+   "p": 7.888935435284259e-51
+  },
+  {
+   "theme": "Cybersecurity",
+   "etf": "CIBR",
+   "n": 649,
+   "spearman": 0.6488345427328478,
+   "p": 8.186890706902094e-79
+  },
+  {
+   "theme": "Defense & aerospace",
+   "etf": "ITA",
+   "n": 649,
+   "spearman": 0.4547823739349163,
+   "p": 1.912090405530588e-34
+  },
+  {
+   "theme": "Gold & precious metals",
+   "etf": "GLD",
+   "n": 649,
+   "spearman": 0.7462393162393162,
+   "p": 1.8825684713857313e-116
+  },
+  {
+   "theme": "Healthcare",
+   "etf": "XLV",
+   "n": 649,
+   "spearman": 0.3812550976957757,
+   "p": 6.980286027136706e-24
+  },
+  {
+   "theme": "Industrial / EV metals (copper + lithium)",
+   "etf": "COPX",
+   "n": 649,
+   "spearman": 0.44241739428180105,
+   "p": 1.756850145106886e-32
+  },
+  {
+   "theme": "Oil",
+   "etf": "USO",
+   "n": 649,
+   "spearman": 0.5299771728585289,
+   "p": 2.795299577791711e-48
+  }
+ ],
+ "sanity": {
+  "SMH": {
+   "ai": "High",
+   "bank_lending": "Limited",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited",
+   "cyber": "Limited (lower confidence)",
+   "defense": "Limited (lower confidence)",
+   "gold": "Limited (lower confidence)",
+   "healthcare": "Not determined",
+   "metals": "Not determined",
+   "oil": "Limited (lower confidence)"
+  },
+  "NVDA": {
+   "ai": "High",
+   "bank_lending": "Not determined",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited",
+   "cyber": "Limited (lower confidence)",
+   "defense": "Not determined",
+   "gold": "Limited (lower confidence)",
+   "healthcare": "Limited (lower confidence)",
+   "metals": "Not determined",
+   "oil": "Not determined"
+  },
+  "XOM": {
+   "ai": "Not determined",
+   "bank_lending": "Not determined",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited (lower confidence)",
+   "cyber": "Not determined",
+   "defense": "Not determined",
+   "gold": "Limited",
+   "healthcare": "Limited",
+   "metals": "Limited (lower confidence)",
+   "oil": "Moderate"
+  },
+  "COP": {
+   "ai": "High",
+   "bank_lending": "Not determined",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited (lower confidence)",
+   "cyber": "Limited (lower confidence)",
+   "defense": "High",
+   "gold": "Limited",
+   "healthcare": "Limited",
+   "metals": "Limited (lower confidence)",
+   "oil": "High"
+  },
+  "JNJ": {
+   "ai": "Limited",
+   "bank_lending": "Limited (lower confidence)",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Not determined",
+   "cyber": "Limited",
+   "defense": "Limited (lower confidence)",
+   "gold": "Limited (lower confidence)",
+   "healthcare": "High",
+   "metals": "Not determined",
+   "oil": "Limited (lower confidence)"
+  },
+  "LMT": {
+   "ai": "Not determined",
+   "bank_lending": "Limited (lower confidence)",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited (lower confidence)",
+   "cyber": "Limited (lower confidence)",
+   "defense": "High",
+   "gold": "Limited",
+   "healthcare": "Limited",
+   "metals": "Not determined",
+   "oil": "Not determined"
+  },
+  "NEM": {
+   "ai": "Not determined",
+   "bank_lending": "Not determined",
+   "clean_energy": "Not determined",
+   "consumer_disc": "Limited (lower confidence)",
+   "cyber": "Limited (lower confidence)",
+   "defense": "Not determined",
+   "gold": "High",
+   "healthcare": "Not determined",
+   "metals": "Moderate",
+   "oil": "Not determined"
+  },
+  "KO": {
+   "ai": "Limited",
+   "bank_lending": "Limited (lower confidence)",
+   "clean_energy": "Moderate",
+   "consumer_disc": "High",
+   "cyber": "Limited",
+   "defense": "Not determined",
+   "gold": "Limited",
+   "healthcare": "Not determined",
+   "metals": "Limited (lower confidence)",
+   "oil": "Limited (lower confidence)"
+  },
+  "AAPL": {
+   "ai": "Limited",
+   "bank_lending": "Not determined",
+   "clean_energy": "Limited (lower confidence)",
+   "consumer_disc": "Not determined",
+   "cyber": "Not determined",
+   "defense": "Limited (lower confidence)",
+   "gold": "Limited",
+   "healthcare": "Limited (lower confidence)",
+   "metals": "Not determined",
+   "oil": "Limited (lower confidence)"
+  }
+ },
+ "n_days": 499,
+ "dropped": [
+  "AMRZ",
+  "BSP",
+  "CBRS",
+  "CRCL",
+  "CRWV",
+  "FDXF",
+  "HONA",
+  "JBS",
+  "MDLN",
+  "PS",
+  "Q",
+  "SKHY",
+  "SNDK",
+  "SPCX",
+  "SUNB",
+  "VG",
+  "VYLR"
+ ]
+}

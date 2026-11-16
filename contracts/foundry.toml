@@ -1,0 +1,22 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+# The optimizer keeps ThemeFundFactory under the 24 KB contract size limit.
+optimizer = true
+optimizer_runs = 200
+
+# Monad testnet (chain ID 10143). The RPC URL comes from MONAD_RPC_URL in the project .env,
+# e.g. https://testnet-rpc.monad.xyz. Use it with:  forge script ... --rpc-url monad
+[rpc_endpoints]
+monad = "${MONAD_RPC_URL}"
+
+# Profile for Monad testnet work:  FOUNDRY_PROFILE=monad forge ...
+[profile.monad]
+src = "src"
+out = "out"
+libs = ["lib"]
+chain_id = 10143
+eth_rpc_url = "${MONAD_RPC_URL}"
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

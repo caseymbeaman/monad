@@ -1,0 +1,118 @@
+{
+ "network": "Monad testnet",
+ "chain_id": 10143,
+ "rpc": "https://testnet-rpc.monad.xyz",
+ "explorer": "https://testnet.monadexplorer.com",
+ "deployed_at_utc": "2026-11-15T21:40:49+00:00",
+ "deployed_from_commit": "fcf284f",
+ "deploy_script": "contracts/script/Deploy.s.sol",
+ "deployer": {
+  "address": "0x005334e65cF30560107d186E96e0C41a9F521C30",
+  "note": "Temporary helper wallet; retired after handing ownership over. It owns and can publish nothing."
+ },
+ "owner": "0xE0175dd6faBb0aB0479633aE73fD6AcDBAEfd03f",
+ "publishers": [
+  "0x4D4Bc40fb40AB34fcA22519D3cb968D2323d0FE9",
+  "0x72592CBdfbA9022672a79EA6143231caafda1aE2",
+  "0xBc94d2839840fe8e4BaF351B3F2BA678CD1e4E19"
+ ],
+ "contracts": {
+  "ExposureOracle": {
+   "address": "0x55AbD9CBEc8beB920EB4C8aA408088522e8A4df0",
+   "url": "https://testnet.monadexplorer.com/address/0x55AbD9CBEc8beB920EB4C8aA408088522e8A4df0",
+   "created_by": {
+    "tx": "0xee23441d18f2c6fff710bc5dc894488ff0fb3793c08d6cd0040f82b2563cc7ef",
+    "block": 80049387,
+    "tx_url": "https://testnet.monadexplorer.com/tx/0xee23441d18f2c6fff710bc5dc894488ff0fb3793c08d6cd0040f82b2563cc7ef"
+   }
+  },
+  "MockExchange": {
+   "address": "0x46baB6E7ba190930A82367e1C0822da541FD0577",
+   "url": "https://testnet.monadexplorer.com/address/0x46baB6E7ba190930A82367e1C0822da541FD0577",
+   "created_by": {
+    "tx": "0xdfabe620369fe6e1ca09abd78bfc2ade24692e80cfce304674b24716351e48de",
+    "block": 80049394,
+    "tx_url": "https://testnet.monadexplorer.com/tx/0xdfabe620369fe6e1ca09abd78bfc2ade24692e80cfce304674b24716351e48de"
+   }
+  },
+  "ThemeFundFactory": {
+   "address": "0x62cd00e1e5123d511201878679d3aCB62Dd62E5a",
+   "url": "https://testnet.monadexplorer.com/address/0x62cd00e1e5123d511201878679d3aCB62Dd62E5a",
+   "created_by": {
+    "tx": "0x1e4e87d7984add4cb2a9cfd8bf31408cb880202060f1b759721c174963592364",
+    "block": 80049395,
+    "tx_url": "https://testnet.monadexplorer.com/tx/0x1e4e87d7984add4cb2a9cfd8bf31408cb880202060f1b759721c174963592364"
+   }
+  },
+  "MockUSDC": {
+   "address": "0x318BFe1eADA7afe56Ce7FB8795cF5BDb25492bA3",
+   "url": "https://testnet.monadexplorer.com/address/0x318BFe1eADA7afe56Ce7FB8795cF5BDb25492bA3",
+   "created_by": "MockExchange's constructor"
+  }
+ },
+ "publisher_approvals": [
+  {
+   "contract": "ExposureOracle",
+   "publisher": "0x72592CBdfbA9022672a79EA6143231caafda1aE2",
+   "tx": "0x030e6a62d348f3f96d81c9c668a82df2cd1cf4336ffcf8844f17781542ef6bb7",
+   "block": 80049400,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0x030e6a62d348f3f96d81c9c668a82df2cd1cf4336ffcf8844f17781542ef6bb7"
+  },
+  {
+   "contract": "MockExchange",
+   "publisher": "0x72592CBdfbA9022672a79EA6143231caafda1aE2",
+   "tx": "0x52cbf295a3b90af222245fa9afd9af655544cccea903011d862717a735bbf768",
+   "block": 80049407,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0x52cbf295a3b90af222245fa9afd9af655544cccea903011d862717a735bbf768"
+  },
+  {
+   "contract": "ExposureOracle",
+   "publisher": "0x4D4Bc40fb40AB34fcA22519D3cb968D2323d0FE9",
+   "tx": "0x5a7b6acc9ced2ee860c6918d13c14abb2ac08bedc3942fab29d30d1db217855e",
+   "block": 80049414,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0x5a7b6acc9ced2ee860c6918d13c14abb2ac08bedc3942fab29d30d1db217855e"
+  },
+  {
+   "contract": "MockExchange",
+   "publisher": "0x4D4Bc40fb40AB34fcA22519D3cb968D2323d0FE9",
+   "tx": "0x2c136991290d8560f64a1942355f252ceae458f8a3248708e8d5a2ffc096e9f5",
+   "block": 80049420,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0x2c136991290d8560f64a1942355f252ceae458f8a3248708e8d5a2ffc096e9f5"
+  },
+  {
+   "contract": "ExposureOracle",
+   "publisher": "0xBc94d2839840fe8e4BaF351B3F2BA678CD1e4E19",
+   "tx": "0xde2772b8b47d73ef850c79225e094db8e8bd389e955ca06e325c56ff061e159b",
+   "block": 80049426,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0xde2772b8b47d73ef850c79225e094db8e8bd389e955ca06e325c56ff061e159b"
+  },
+  {
+   "contract": "MockExchange",
+   "publisher": "0xBc94d2839840fe8e4BaF351B3F2BA678CD1e4E19",
+   "tx": "0xdabe8c40f814c07055fe049ea21d89e95d82e2d36c06c18373eb45ce6ca7efe4",
+   "block": 80049431,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0xdabe8c40f814c07055fe049ea21d89e95d82e2d36c06c18373eb45ce6ca7efe4"
+  }
+ ],
+ "ownership_transfers": [
+  {
+   "contract": "ExposureOracle",
+   "new_owner": "0xE0175dd6faBb0aB0479633aE73fD6AcDBAEfd03f",
+   "tx": "0xc35d343b9688d01d26aec36edc85e367e8611006cec419d56cd2fb4d21aac7d7",
+   "block": 80049766,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0xc35d343b9688d01d26aec36edc85e367e8611006cec419d56cd2fb4d21aac7d7"
+  },
+  {
+   "contract": "MockExchange",
+   "new_owner": "0xE0175dd6faBb0aB0479633aE73fD6AcDBAEfd03f",
+   "tx": "0xdce4d1ada7e854d1ffbb3b0170921419352e5c90d3dee9c5c75ee565cd6816e5",
+   "block": 80049775,
+   "tx_url": "https://testnet.monadexplorer.com/tx/0xdce4d1ada7e854d1ffbb3b0170921419352e5c90d3dee9c5c75ee565cd6816e5"
+  }
+ ],
+ "env": {
+  "MONAD_RPC_URL": "https://testnet-rpc.monad.xyz",
+  "FACTORY_ADDRESS": "0x62cd00e1e5123d511201878679d3aCB62Dd62E5a",
+  "ORACLE_ADDRESS": "0x55AbD9CBEc8beB920EB4C8aA408088522e8A4df0"
+ }
+}
