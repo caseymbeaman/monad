@@ -605,20 +605,16 @@ def empty_state(text: str, title: str = "Nothing here yet") -> str:
     return f'<div class="tf-empty"><b>{escape(title)}</b>{escape(text)}</div>'
 
 
-def league_entry(name: str, rows: list[dict], note: str = "") -> str:
+def league_entry(name: str, rows: list[dict], note: str = "", label: str = "Your League entry") -> str:
     """The fund as it will be entered in the League: full name (wraps, never cut) over a compact holdings table.
     rows: same as holdings() (ticker, name, industry, weight, chips)."""
     extra = f'<div class="note">{escape(note)}</div>' if note else ""
-    return (f'<div class="tf-entry"><div class="k">Your League entry</div>'
+    return (f'<div class="tf-entry"><div class="k">{escape(label)}</div>'
             f'<div class="tf-entry-name">{escape(name)}</div>{holdings(rows, decimals=0)}{extra}</div>')
 
 
-def league_intro() -> str:
-    """The League tab's heading: weekly matchups on live prices, plus today's simulated trading day."""
-    return ('<div class="tf-intro"><h2>Fantasy Fund League</h2>'
-            "<p>Put your fund up against everyone else's. Each week is a matchup on live market prices: entries "
-            "lock Monday at 6:30 AM PT (market open) and the best return by Friday's close takes the pot. Today, "
-            "with markets closed, we race a simulated trading day built from real market moves, 9:30 AM to "
-            "4:00 PM in 60 seconds. Testnet MON only.</p>"
-            '<div class="modes"><span><b>Weekly</b> · live prices · locks Mon 6:30 AM PT</span>'
-            '<span><b>Today</b> · simulated trading day · 60-second race</span></div></div>')
+def weekly_intro(subtitle: str, facts: list[tuple[str, str]]) -> str:
+    """The League tab's heading: this week's matchup. facts: [(bold part, rest)] shown as small pills."""
+    pills = "".join(f"<span><b>{escape(b)}</b> · {escape(r)}</span>" for b, r in facts)
+    return ('<div class="tf-intro"><h2>This week\'s matchup</h2>'
+            f'<p>{escape(subtitle)}</p><div class="modes">{pills}</div></div>')

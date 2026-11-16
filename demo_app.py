@@ -15,7 +15,11 @@ chain/ functions and changes no logic; demo/style.py only handles the look.
 
 from __future__ import annotations
 
+import json
+from datetime import datetime
 from html import escape
+from urllib.parse import urlencode
+from zoneinfo import ZoneInfo
 
 import plotly.graph_objects as go
 import streamlit as st
@@ -530,31 +534,79 @@ def interleaved(weights: dict[str, float], portfolio: dict) -> dict[str, float]:
     return {t: weights[t] for t in order}
 
 
+WEEKLY_URL = league.LEAGUE_URL + "weekly.html"  # this week's matchup (GitHub Pages)
+FINISHED_RACE_URL = league.LEAGUE_URL + "?round=1"
+WEEK_FILE = league.POOL_FILE.parent / "week.json"  # written by the League operator when the week's round opens
+PT = ZoneInfo("America/Los_Angeles")
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def this_week() -> dict:
+    """league/week.json: round id, label, lock and end times. Empty if it isn't there."""
+    try:
+        return json.loads(WEEK_FILE.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def _pt(iso: str, fmt: str) -> str:
+    return datetime.fromisoformat(iso).astimezone(PT).strftime(fmt).replace(" 0", " ")
+
+
+def weekly_link(etf: dict[str, int], name: str, embed: bool = False) -> str:
+    """weekly.html with the fund filled in: ?etf=TICKER:PCT,...&name=... (same format as the League page)."""
+    q = [("embed", "1")] if embed else []
+    if etf:
+        q += [("etf", ",".join(f"{t}:{w}" for t, w in etf.items())), ("name", name)]
+    return WEEKLY_URL + ("?" + urlencode(q, safe=":,") if q else "")
+
+
 def league_tab() -> None:
     weights = st.session_state.get("demo_weights")
     portfolio = st.session_state.get("portfolio")
-    st.html(style.league_intro())
+    week = this_week()
+    lock, end = "Mon 6:30 AM PT", "Friday"
+    facts = []
+    if week.get("lock") and week.get("end"):
+        lock, end = _pt(week["lock"], "%a %I:%M %p PT"), _pt(week["end"], "%A")
+        facts = [(week.get("label", "").split(" · ")[0] or "This week", f"round {week.get('roundId', '?')}"),
+                 ("Locks", lock), ("Ends", _pt(week["end"], "%a %I:%M %p PT")), ("Entry", "1 MON stake")]
+    st.html(style.weekly_intro(f"Enter your fund once. Locks {lock}, live prices all week, best fund {end} "
+                               "wins the pot.", facts))
+    etf: dict[str, int] = {}
+    name = ""
     if not weights or not portfolio:
-        st.html(style.empty_state("Build a fund first, then enter it in the League."))
-        return
-    prefs = portfolio.get("prefs", {}) if portfolio["kind"] == "build" else {}
-    name = league.fund_name(prefs, {k: t["name"] for k, t in themes().items()})
-    etf, notes = league.league_fund(interleaved(weights, portfolio))
-    url = league.prefill_url(etf, name) if etf else league.LEAGUE_URL
-    left, right = st.columns([3, 2], gap="large")
-    with left:
-        if etf:
-            st.html(style.league_entry(name, league_rows(etf, portfolio), " ".join(notes)))
+        st.html(style.empty_state("Build a fund first, then enter it in this week's matchup."))
+    else:
+        prefs = portfolio.get("prefs", {}) if portfolio["kind"] == "build" else {}
+        name = league.fund_name(prefs, {k: t["name"] for k, t in themes().items()})
+        etf, notes = league.league_fund(interleaved(weights, portfolio))
+        stocks = [t for t, w in weights.items() if t != dashboard.CASH and w > 0]
+        if etf and len(stocks) > len(etf):
+            sentence = (f"A matchup entry holds at most 8 stocks, so it uses your {len(etf)} largest holdings, "
+                        "rescaled to add up to 100%.")
+        elif etf:
+            sentence = f"Your {len(etf)} stocks, rescaled to add up to 100% as whole percents."
         else:
-            for n in notes:
-                st.warning(n)
-    with right:
-        if etf:
-            st.link_button("Enter my fund", url, type="primary", width="stretch")
-            st.caption("Opens the League with your fund already filled in. You confirm the entry in MetaMask.")
-        st.link_button("Open the League", league.LEAGUE_URL, width="stretch")
-    st.html('<div style="height:24px"></div>')
-    st.iframe(league.LEAGUE_URL, height=900)
+            sentence = ""
+        other = [n for n in notes if "at most" not in n]
+        left, right = st.columns([3, 2], gap="large")
+        with left:
+            if etf:
+                st.html(style.league_entry(name, league_rows(etf, portfolio), " ".join([sentence, *other]).strip(),
+                                           label="Your entry this week"))
+            else:
+                for n in notes:
+                    st.warning(n)
+        with right:
+            if etf:
+                st.link_button("Enter this fund in this week's matchup →", weekly_link(etf, name), type="primary",
+                               width="stretch")
+                st.caption("Opens the matchup with your fund filled in. You check it and confirm the 1 MON stake "
+                           "in MetaMask.")
+            st.caption(f"[See a finished race on Monad →]({FINISHED_RACE_URL})")
+    st.html('<div style="height:16px"></div>')
+    st.iframe(weekly_link(etf, name, embed=True), height=900)
 
 
 # ---------------------------------------------------------------------------------------------

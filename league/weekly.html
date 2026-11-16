@@ -123,8 +123,10 @@
   .msg { padding: 12px var(--s2); border-radius: 12px; font-size: 15px; border: 1px solid var(--line); }
   .msg.err { background: #2B1513; border-color: #7A3530; color: #FFB8AC; }
   .msg.ok { background: #13261E; border-color: #2B5A46; color: #A6EBCF; }
-  #qr { display: flex; justify-content: center; margin: var(--s2) 0; }
-  #qr img, #qr canvas { background: var(--ink); padding: var(--s1); border-radius: 12px; max-width: 200px; height: auto; }
+  /* ?embed=1 (inside the dashboard's League tab): the dashboard shows the title, so hide this page's own. */
+  html.embed header.top > div:first-child { display: none; }
+  html.embed header.top { justify-content: flex-end; padding-bottom: var(--s2); margin-bottom: var(--s2); }
+  html.embed main { padding-top: var(--s2); }
   .small { font-size: 13px; color: var(--muted); word-break: break-all; }
   .mono { font-family: var(--mono); font-size: 12px; color: var(--muted); }
   .hidden { display: none !important; }
@@ -312,11 +314,6 @@
         <button id="enter" class="btn" style="width:100%;margin-top:16px">Enter</button>
       </div>
 
-      <div class="card" style="text-align:center">
-        <div class="label">Scan to join from your phone</div>
-        <div id="qr"></div>
-        <div class="small" id="link"></div>
-      </div>
       <p class="small">Network: <span id="netname"></span> · League contract: <span id="addr" class="mono"></span></p>
     </div>
   </div>
@@ -324,10 +321,10 @@
 <div id="toasts" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 "use strict";
 const params = new URLSearchParams(location.search);
+if (params.get("embed") === "1") document.documentElement.classList.add("embed");
 const NETWORK = params.get("network") || "monad-testnet";
 const GAS_HEADROOM_PCT = 115n; // gas limit = estimate x 1.15 (Monad charges the limit)
 const MONAD = { chainId: "0x279f", chainName: "Monad Testnet", nativeCurrency: { name: "MON", symbol: "MON", decimals: 18 },
@@ -962,20 +959,13 @@ $("addpick").onclick = () => {
 };
 $("equal").onclick = () => { const p = equalPcts(Math.max(picks.length, 1)); picks.forEach((x, i) => { x.pct = p[i]; }); renderPicks(); };
 
-// The QR code always shows the public page (GitHub Pages, main branch) for the live network, so the big
-// screen shows the right link even when this page is opened locally.
-// No query string: monad-testnet is the default network, and MetaMask's in-app browser drops queries anyway.
-const PUBLIC_URL = "https://shannon-maccallum.github.io/portfolio_risk_exposure/league/weekly.html";
 // MetaMask deep link: the page's host + path after /dapp/, with no protocol and no query.
 const MM_LINK = "https://metamask.app.link/dapp/shannon-maccallum.github.io/portfolio_risk_exposure/league/weekly.html";
-const url = NETWORK === "monad-testnet" ? PUBLIC_URL : location.href;
-$("link").textContent = url;
 if (!window.ethereum) {
   const mm = $("openmm");
   mm.href = MM_LINK;
   mm.classList.remove("hidden");
 }
-try { new QRCode($("qr"), { text: url, width: 200, height: 200, correctLevel: QRCode.CorrectLevel.M }); } catch {}
 
 // Pre-fill from the dashboard's "Enter my fund" link: ?etf=NVDA:20,AVGO:20,...&name=AI%20ex-Oil
 // (only pool stocks; weights are whole percents). The player still reviews and confirms in their wallet.
