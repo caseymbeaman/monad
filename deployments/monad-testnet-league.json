@@ -663,7 +663,7 @@
       "SEDG",
       "LAC"
     ],
-    "currentRound": 7,
+    "currentRound": 8,
     "entryStake": "1000000000000000000",
     "poolRoot": "0x7ada25103cb7d60934ab86acd1233be0247f9ebdce036c0db48732481cb1ccc6",
     "replay": {
@@ -677,6 +677,6 @@
       "mode": "demo-day",
       "windowStride": 21
     },
-    "currentDeadline": 1794789432
+    "currentDeadline": 1794790239
   }
 }
